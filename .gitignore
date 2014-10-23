@@ -23,6 +23,7 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.lnk
+*.exe
 
 # OSX
 .DS_Store
