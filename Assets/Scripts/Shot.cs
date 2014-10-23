@@ -11,9 +11,9 @@ public class Shot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject ship = GameObject.Find ("Ship");
+		GameObject ship = GameObject.Find ("Ship1");
 		endPos = ship.transform.position;
-		GameObject obj = GameObject.Find ("Bullseye");
+		GameObject obj = GameObject.Find ("Bullseye1");
 		Vector3 pos = obj.transform.position;
 		direction = (pos - transform.position).normalized;
 		velocity = direction * speed;
