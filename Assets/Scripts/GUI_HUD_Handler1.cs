@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GUI_HUD_Handler1 : MonoBehaviour {
 
-	public Player_Script1 player;
+	public GameObject player;
 
 	public UI_Element[] UI_Elements;
 
@@ -76,7 +76,9 @@ public class GUI_HUD_Handler1 : MonoBehaviour {
 			}
 			else
 			{
-				string val = player.getAttributeByName(cur.search_name);
+				//string val = player.getAttributeByName(cur.search_name);
+				// TODO fix the above
+				string val = null;
 				if (val != null)
 				{
 					cur.value = val;
