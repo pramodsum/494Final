@@ -5,14 +5,14 @@ public class Ship : MonoBehaviour {
 	public int playerNumber = 1;
 	public float forceModifier = 100;
 	public GameObject shot;	
-	public float shotCoolDownTime = 10f;
+	public float shotCooldownTime = 10f;
 	public float knockbackRemaining = 0f;
 	public float knockBack = 100f;
 	
 	private int health;
 	private int lives;
 	private int score;
-	private float shotCoolDownRemaining;
+	private float shotCooldownRemaining;
 	private Camera cameraScreen;
 	private Vector3 velocity;
 	
@@ -20,16 +20,17 @@ public class Ship : MonoBehaviour {
 		health = 10;
 		score = 0;
 		lives = 1;
-		shotCoolDownRemaining = 0f;
-		cameraScreen = GetComponentInChildren<Camera>() as Camera;
+		shotCooldownRemaining = 0f;
+		adjustCamera();
 	}
 	
 	void Update() {
-		shotCoolDownRemaining -= Time.deltaTime;
+		shotCooldownRemaining -= Time.deltaTime;
+		Rotate(Vector3.right, 10f);
 	}
 	
-	void Rotate(Vector3 direction) {
-		transform.Rotate(direction * Time.deltaTime);
+	void Rotate(Vector3 direction, float speed) {
+		transform.Rotate(direction * Time.deltaTime * speed);
 	}
 	
 	void MoveForward() {
@@ -38,7 +39,7 @@ public class Ship : MonoBehaviour {
 	}
 	
 	void Fire() {
-		if (shotCoolDownRemaining > 0) { return; }
+		if (shotCooldownRemaining > 0) { return; }
 		Vector3 pos1;//top-left
 		pos1.x = transform.collider.bounds.min.x;
 		pos1.y = transform.collider.bounds.max.y;
@@ -59,7 +60,7 @@ public class Ship : MonoBehaviour {
 		Instantiate (shot, pos2, Quaternion.identity);
 		Instantiate (shot, pos3, Quaternion.identity);
 		Instantiate (shot, pos4, Quaternion.identity);
-		shotCoolDownRemaining = shotCoolDownTime;
+		shotCooldownRemaining = shotCooldownTime;
 	}
 
 	public string getAttributeByName(string s)
@@ -72,5 +73,30 @@ public class Ship : MonoBehaviour {
 			return ""+score;
 		else
 			return null;
+	}
+
+	private void adjustCamera() {
+		cameraScreen = GetComponentInChildren<Camera>() as Camera;
+		var shipCount = FindAll().Length;
+		float x = 0f;
+		float y = 0f;
+		float w = (shipCount > 2) ? 0.5f : 1f;
+		float h = (shipCount == 1) ? 1f : 0.5f;
+		if (playerNumber == 1) {
+			y = (shipCount > 2) ? 0.5f : 0f;
+		} else if (playerNumber == 2) {
+			x = (shipCount > 2) ? 0.5f : 0f;
+			y = 0.5f;
+		} else if (playerNumber == 3) {
+			y = 0f;
+			w = (shipCount > 3) ? 0.5f : 1f;
+		} else if (playerNumber == 4) {
+			x = 0.5f;
+		}
+		cameraScreen.rect = new Rect(x, y, w, h);
+	}
+
+	public static Object[] FindAll() {
+		return GameObject.FindObjectsOfType(typeof(Ship));
 	}
 }
