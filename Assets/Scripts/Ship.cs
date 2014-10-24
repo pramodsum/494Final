@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Ship : MonoBehaviour {
-	public int playerNumber = 1;
 	public float forceModifier = 100;
 	public GameObject shot;	
 	public float shotCooldownTime = 10f;
@@ -77,6 +76,7 @@ public class Ship : MonoBehaviour {
 
 	private void adjustCamera() {
 		cameraScreen = GetComponentInChildren<Camera>() as Camera;
+		var playerNumber = GetPlayerNumber();
 		var shipCount = FindAll().Length;
 		float x = 0f;
 		float y = 0f;
@@ -98,5 +98,16 @@ public class Ship : MonoBehaviour {
 
 	public static Object[] FindAll() {
 		return GameObject.FindObjectsOfType(typeof(Ship));
+	}
+
+	public int GetPlayerNumber() {
+		int result = 0;
+		foreach (var ship in FindAll()) {
+			result ++;
+			if (ship == this) {
+				return result;
+			}
+		}
+		throw new System.Exception("Unable to find player in list of players");
 	}
 }
