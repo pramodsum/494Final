@@ -13,7 +13,7 @@ public class Ship : MonoBehaviour {
 	private int lives;
 	private int score;
 	private float shotCoolDownRemaining;
-	private Camera camera;
+	private Camera cameraScreen;
 	private Vector3 velocity;
 	
 	void Start() {
@@ -21,7 +21,7 @@ public class Ship : MonoBehaviour {
 		score = 0;
 		lives = 1;
 		shotCoolDownRemaining = 0f;
-		camera = GetComponent<Camera>();
+		cameraScreen = GetComponentInChildren<Camera>() as Camera;
 	}
 	
 	void Update() {
@@ -33,7 +33,7 @@ public class Ship : MonoBehaviour {
 	}
 	
 	void MoveForward() {
-		Vector3 directionVector = (transform.position - camera.transform.position).normalized;
+		Vector3 directionVector = (transform.position - cameraScreen.transform.position).normalized;
 		rigidbody.AddForce(directionVector * forceModifier);
 	}
 	
