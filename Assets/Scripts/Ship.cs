@@ -27,7 +27,9 @@ public class Ship : MonoBehaviour {
 	
 	void Update() {
 		shotCooldownRemaining -= Time.deltaTime;
-		Rotate(Vector3.right, 10f);
+
+		string inputPrefix = "Player" + playerNumber;
+		if (Input.GetAxis(inputPrefix + "Forward") == 1) { MoveForward(); }
 	}
 	
 	void Rotate(Vector3 direction, float speed) {
