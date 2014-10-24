@@ -14,12 +14,14 @@ public class Ship : MonoBehaviour {
 	private float shotCooldownRemaining;
 	private Camera cameraScreen;
 	private Vector3 velocity;
+	private int playerNumber;
 	
 	void Start() {
 		health = 10;
 		score = 0;
 		lives = 1;
 		shotCooldownRemaining = 0f;
+		playerNumber = GetPlayerNumber();
 		adjustCamera();
 	}
 	
@@ -76,7 +78,6 @@ public class Ship : MonoBehaviour {
 
 	private void adjustCamera() {
 		cameraScreen = GetComponentInChildren<Camera>() as Camera;
-		var playerNumber = GetPlayerNumber();
 		var shipCount = FindAll().Length;
 		float x = 0f;
 		float y = 0f;
