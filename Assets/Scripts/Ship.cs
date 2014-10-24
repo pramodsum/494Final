@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class Ship : MonoBehaviour {
-	public float forceModifier = 100;
-	public GameObject shot;	
-	public float shotCooldownTime = 10f;
+	public float forceModifier = 100f;
+	public GameObject shot;
+	public float shotCooldownTime = 1f;
 	public float knockbackRemaining = 0f;
 	public float knockBack = 100f;
-	
+
+	private readonly float ROTATION_SPEED = 100f;
+
 	private int health;
 	private int lives;
 	private int score;
@@ -29,41 +31,45 @@ public class Ship : MonoBehaviour {
 		shotCooldownRemaining -= Time.deltaTime;
 
 		string inputPrefix = "Player" + playerNumber;
+		Rotate(Vector3.forward, Input.GetAxis(inputPrefix + "Horizontal"));
+		Rotate(Vector3.right, Input.GetAxis(inputPrefix + "Vertical"));
 		if (Input.GetAxis(inputPrefix + "Forward") == 1) { MoveForward(); }
+		if (Input.GetAxis(inputPrefix + "Fire") == 1) { Fire(); }
 	}
 	
-	void Rotate(Vector3 direction, float speed) {
-		transform.Rotate(direction * Time.deltaTime * speed);
+	void Rotate(Vector3 direction, float amount) {
+		transform.Rotate(direction * Time.deltaTime * amount * ROTATION_SPEED);
 	}
 	
 	void MoveForward() {
-		Vector3 directionVector = (transform.position - cameraScreen.transform.position).normalized;
-		rigidbody.AddForce(directionVector * forceModifier);
+		rigidbody.AddForce(facingDirection() * forceModifier);
 	}
 	
 	void Fire() {
+		print (shotCooldownRemaining);
 		if (shotCooldownRemaining > 0) { return; }
-		Vector3 pos1;//top-left
-		pos1.x = transform.collider.bounds.min.x;
-		pos1.y = transform.collider.bounds.max.y;
-		pos1.z = transform.collider.bounds.max.z;
-		Vector3 pos2;//top-right
-		pos2.x = transform.collider.bounds.max.x;
-		pos2.y = transform.collider.bounds.max.y;
-		pos2.z = transform.collider.bounds.max.z;
-		Vector3 pos3;//bottom-left
-		pos3.x = transform.collider.bounds.min.x;
-		pos3.y = transform.collider.bounds.min.y;
-		pos3.z = transform.collider.bounds.max.z;
-		Vector3 pos4;//bottom-right
-		pos4.x = transform.collider.bounds.max.x;
-		pos4.y = transform.collider.bounds.min.y;
-		pos4.z = transform.collider.bounds.max.z;
-		Instantiate (shot, pos1, Quaternion.identity);
-		Instantiate (shot, pos2, Quaternion.identity);
-		Instantiate (shot, pos3, Quaternion.identity);
-		Instantiate (shot, pos4, Quaternion.identity);
 		shotCooldownRemaining = shotCooldownTime;
+		Vector3[] pos = new Vector3[4];
+		//top-left
+		pos[0].x = transform.collider.bounds.min.x;
+		pos[0].y = transform.collider.bounds.max.y;
+		pos[0].z = transform.collider.bounds.max.z;
+		//top-right
+		pos[1].x = transform.collider.bounds.max.x;
+		pos[1].y = transform.collider.bounds.max.y;
+		pos[1].z = transform.collider.bounds.max.z;
+		//bottom-left
+		pos[2].x = transform.collider.bounds.min.x;
+		pos[2].y = transform.collider.bounds.min.y;
+		pos[2].z = transform.collider.bounds.max.z;
+		//bottom-right
+		pos[3].x = transform.collider.bounds.max.x;
+		pos[3].y = transform.collider.bounds.min.y;
+		pos[3].z = transform.collider.bounds.max.z;
+		foreach (var position in pos) {
+			var newShot = Instantiate(shot, position, Quaternion.identity) as GameObject;
+			newShot.rigidbody.AddForce(facingDirection() * 1f);
+		}
 	}
 
 	public string getAttributeByName(string s)
@@ -112,5 +118,9 @@ public class Ship : MonoBehaviour {
 			}
 		}
 		throw new System.Exception("Unable to find player in list of players");
+	}
+
+	private Vector3 facingDirection() {
+		return (transform.position - cameraScreen.transform.position).normalized;
 	}
 }
