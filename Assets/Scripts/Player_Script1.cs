@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Player_Script1 : MonoBehaviour {
 
-	public static int _health = 10;
-	public static int _lives = 1;
-	public static int _score = 0;
+	public  int _health = 10;
+	public  int _lives = 1;
+	public  int _score = 0;
 
 	public int playerNum = 1;
 
@@ -36,6 +36,9 @@ public class Player_Script1 : MonoBehaviour {
 	public float knockBack = 100f;
 	private Vector3 knockBackVector;
 
+	private Transform arrow;
+	private Transform otherShip;
+
 	public Transform shot;
 
 	private Quaternion rot;
@@ -46,17 +49,23 @@ public class Player_Script1 : MonoBehaviour {
 		_score = 0;
 		_lives = 1;
 
+
 		if (playerNum == 1)
+		{
+			otherShip = GameObject.Find ("Ship2").transform;
 			camera = GameObject.Find ("Player 1 Camera").transform;
+		}
 		else if (playerNum == 2)
+		{
+			otherShip = GameObject.Find ("Ship1").transform;
 			camera = GameObject.Find ("Player 2 Camera").transform;
+		}
 		else camera = GameObject.Find ("Player 1 Camera").transform;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 
 		if (Input.GetKeyDown(KeyCode.G))
 			if (godMode)
@@ -200,7 +209,41 @@ public class Player_Script1 : MonoBehaviour {
 			_health--;
 			if (_health == 0)
 				Application.LoadLevel(0);
-		}    
+		}   
+		if ((collision.collider.tag.Equals("Asteroid") && knockbackRemaining <= 0 && !godMode))
+		{
+			print ("Asteroid has collided with ship!");
+			//Do kncckback
+			rigidbody.velocity = Vector3.zero;
+			Vector3 direction = (transform.position - collision.collider.transform.position).normalized;
+			direction.z = 0;
+			direction *= forceModifier / 2;
+			knockBackVector = direction;
+			rigidbody.AddForce(knockBackVector);
+			knockbackRemaining = knockBack;
+			_health--;
+			if (_health == 0)
+				Application.LoadLevel(0);
+		} 
+	}
+
+	void OnTriggerEnter(Collider other) 
+	{
+		if (((other.collider.tag.Equals("PlayerShot") && playerNum == 2) || (other.collider.tag.Equals("PlayerShot2") && playerNum == 1)) && knockbackRemaining <= 0 && !godMode)
+		{
+			print ("Asteroid has collided with ship!");
+			//Do kncckback
+			rigidbody.velocity = Vector3.zero;
+			Vector3 direction = (transform.position - other.collider.transform.position).normalized;
+			direction.z = 0;
+			direction *= forceModifier / 2;
+			knockBackVector = direction;
+			rigidbody.AddForce(knockBackVector);
+			knockbackRemaining = knockBack;
+			_health--;
+			if (_health == 0)
+				Application.LoadLevel(0);
+		} 
 	}
 
 	public string getAttributeByName(string s)
@@ -214,4 +257,12 @@ public class Player_Script1 : MonoBehaviour {
 		else 
 			return null;
 	}
-}
+
+//	void OnDrawGizmos() 
+//	{
+//			Gizmos.color = Color.red;
+//			Gizmos.DrawLine (this.transform.position, otherShip.position);
+//	}
+
+
+	}
