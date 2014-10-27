@@ -13,10 +13,10 @@ public class BoundsScript : MonoBehaviour
 				
 				if (distFromCenter >= 200) {
 						Debug.Log (name + " is out of bounds @ " + distFromCenter + "f from center!!!!");
-						GetComponent<Player_Script1> ().outOfBounds = true;
+						GetComponent<Ship> ().outOfBounds = true;
 						ReboundShipOffWalls ();
 				} else {
-						GetComponent<Player_Script1> ().outOfBounds = false;
+						GetComponent<Ship> ().outOfBounds = false;
 				}
 		}
 		

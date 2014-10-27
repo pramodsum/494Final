@@ -9,6 +9,8 @@ public class Ship : MonoBehaviour {
 	public float knockbackRemaining = 0f;
 	public float knockBack = 100f;
 
+	public bool outOfBounds;
+
 	private readonly float ROTATION_SPEED = 100f;
 	private readonly float MAX_HEALTH = 10;
 
@@ -25,6 +27,7 @@ public class Ship : MonoBehaviour {
 		health = MAX_HEALTH;
 		score = 0;
 		lives = 1;
+		outOfBounds = false;
 		shotCooldownRemaining = 0f;
 		playerNumber = GetPlayerNumber();
 		adjustCamera();
