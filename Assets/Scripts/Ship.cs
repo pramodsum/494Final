@@ -9,22 +9,27 @@ public class Ship : MonoBehaviour {
 	public float knockBack = 100f;
 
 	private readonly float ROTATION_SPEED = 100f;
+	private readonly float MAX_HEALTH = 10;
 
-	private int health;
+	private float health;
 	private int lives;
 	private int score;
 	private float shotCooldownRemaining;
 	private Camera cameraScreen;
 	private Vector3 velocity;
 	private int playerNumber;
+	private Texture2D healthPixel;
 	
 	void Start() {
-		health = 10;
+		health = MAX_HEALTH;
 		score = 0;
 		lives = 1;
 		shotCooldownRemaining = 0f;
 		playerNumber = GetPlayerNumber();
 		adjustCamera();
+		healthPixel = new Texture2D(1, 1);
+		healthPixel.SetPixel(0, 0, new Color(0.9F, 0.0F, 0.3F, 0.9F));
+		healthPixel.Apply();
 	}
 	
 	void Update() {
@@ -35,6 +40,13 @@ public class Ship : MonoBehaviour {
 		Rotate(Vector3.right, Input.GetAxis(inputPrefix + "Vertical"));
 		if (Input.GetAxis(inputPrefix + "Forward") == 1) { MoveForward(); }
 		if (Input.GetAxis(inputPrefix + "Fire") == 1) { Fire(); }
+	}
+
+	void OnGUI() {
+		var healthPercentage = (((float) health) / ((float) MAX_HEALTH));
+		var healthWidth = healthPercentage * cameraScreen.pixelWidth;
+		var healthCoords = cameraScreen.ViewportToScreenPoint(new Vector3(0, 0, 0));
+		GUI.DrawTexture(new Rect(healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
 	}
 	
 	void Rotate(Vector3 direction, float amount) {
