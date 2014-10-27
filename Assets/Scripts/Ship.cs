@@ -113,9 +113,7 @@ public class Ship : MonoBehaviour {
 		int result = 0;
 		foreach (var ship in FindAll()) {
 			result ++;
-			if (ship == this) {
-				return result;
-			}
+			if (ship == this) { return result; }
 		}
 		throw new System.Exception("Unable to find player in list of players");
 	}
