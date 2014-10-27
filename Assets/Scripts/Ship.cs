@@ -46,7 +46,6 @@ public class Ship : MonoBehaviour {
 	}
 	
 	void Fire() {
-		print (shotCooldownRemaining);
 		if (shotCooldownRemaining > 0) { return; }
 		shotCooldownRemaining = shotCooldownTime;
 		Vector3[] pos = new Vector3[4];
@@ -68,7 +67,7 @@ public class Ship : MonoBehaviour {
 		pos[3].z = transform.collider.bounds.max.z;
 		foreach (var position in pos) {
 			var newShot = Instantiate(shot, position, Quaternion.identity) as GameObject;
-			newShot.rigidbody.AddForce(facingDirection() * 1f);
+			newShot.rigidbody.AddForce(facingDirection() * 0.001f);
 		}
 	}
 
