@@ -27,6 +27,7 @@ public class Ship : MonoBehaviour {
 		health = MAX_HEALTH;
 		score = 0;
 		lives = 1;
+		outOfBounds = false;
 		shotCooldownRemaining = 0f;
 		playerNumber = GetPlayerNumber();
 		adjustCamera();
