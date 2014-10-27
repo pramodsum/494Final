@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class Ship : MonoBehaviour {
-	public float forceModifier = 100f;
 	public GameObject shot;
-	public float shotCooldownTime = 1f;
+
+	public float forceModifier = 100f;
+	public float shotCooldownTime = 0.3f;
 	public float knockbackRemaining = 0f;
 	public float knockBack = 100f;
 
@@ -48,6 +49,12 @@ public class Ship : MonoBehaviour {
 		var healthCoords = cameraScreen.ViewportToScreenPoint(new Vector3(0, 0, 0));
 		GUI.DrawTexture(new Rect(healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
 	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.name == "Shot") {
+			other.SendMessage("CollideWithShip", gameObject);
+		}
+	}
 	
 	void Rotate(Vector3 direction, float amount) {
 		transform.Rotate(direction * Time.deltaTime * amount * ROTATION_SPEED);
@@ -79,6 +86,8 @@ public class Ship : MonoBehaviour {
 		pos[3].z = transform.collider.bounds.max.z;
 		foreach (var position in pos) {
 			var newShot = Instantiate(shot, position, Quaternion.identity) as GameObject;
+			newShot.name = "Shot";
+			newShot.SendMessage("SetShooter", gameObject);
 			newShot.rigidbody.AddForce(facingDirection() * 0.001f);
 		}
 	}
