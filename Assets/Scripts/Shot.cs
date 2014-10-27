@@ -27,6 +27,7 @@ public class Shot : MonoBehaviour {
 		if (shooter == ship) { return; }
 		var otherPos = ship.transform.position;
 		var knockDirection = (transform.position - otherPos).normalized;
+		ship.SendMessage("Damage");
 		Instantiate(explosion, otherPos, Quaternion.identity);
 		Destroy(gameObject);
 		ship.rigidbody.AddForce(knockDirection * 100f);

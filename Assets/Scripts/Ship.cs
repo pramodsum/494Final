@@ -34,6 +34,9 @@ public class Ship : MonoBehaviour {
 	}
 	
 	void Update() {
+		if (health <= 0) {
+			Application.LoadLevel (0);
+		}
 		shotCooldownRemaining -= Time.deltaTime;
 
 		string inputPrefix = "Player" + playerNumber;
@@ -62,6 +65,10 @@ public class Ship : MonoBehaviour {
 	
 	void MoveForward() {
 		rigidbody.AddForce(facingDirection() * forceModifier);
+	}
+
+	void Damage() {
+		health -= 0.3f;
 	}
 	
 	void Fire() {
