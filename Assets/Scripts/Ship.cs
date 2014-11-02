@@ -4,6 +4,10 @@ using System.Collections;
 public class Ship : MonoBehaviour {
 	public GameObject shot;
 
+	public Transform p1Home;
+
+	public CTF_Script CTF;
+
 	public float forceModifier = 100f;
 	public float shotCooldownTime = 0.3f;
 	public float knockbackRemaining = 0f;
@@ -34,11 +38,15 @@ public class Ship : MonoBehaviour {
 		healthPixel = new Texture2D(1, 1);
 		healthPixel.SetPixel(0, 0, new Color(0.9F, 0.0F, 0.3F, 0.9F));
 		healthPixel.Apply();
+
+		CTF = GameObject.Find("Capture The Flag").GetComponent<CTF_Script>();
+
 	}
 	
 	void Update() {
 		if (health <= 0) {
-			Application.LoadLevel (0);
+			respawn();
+//			Application.LoadLevel (0);
 		}
 		shotCooldownRemaining -= Time.deltaTime;
 
@@ -150,5 +158,18 @@ public class Ship : MonoBehaviour {
 
 	private Vector3 facingDirection() {
 		return (transform.position - cameraScreen.transform.position).normalized;
+	}
+
+	public void respawn()
+	{
+		if (CTF != null)
+			CTF.cargo.cargoStatus = 0;
+
+		Vector3 newPos = p1Home.position;
+		newPos.y += 20;
+		transform.position = newPos;
+
+		health = MAX_HEALTH;
+
 	}
 }
