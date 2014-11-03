@@ -4,8 +4,7 @@ using System.Collections;
 public class Ship : MonoBehaviour
 {
 		public GameObject shot;
-
-		public float forceModifier = 100f;
+	
 		public float shotCooldownTime = 0.3f;
 		public float knockbackRemaining = 0f;
 		public float knockBack = 100f;
@@ -14,6 +13,10 @@ public class Ship : MonoBehaviour
 
 		private readonly float ROTATION_SPEED = 100f;
 		private readonly float MAX_HEALTH = 10;
+		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
+
+		private readonly float CAMERA_MIN_FOV = 60f;
+		private readonly float CAMERA_MAX_FOV = 80f;
 
 		private float health;
 		private int lives;
@@ -48,9 +51,7 @@ public class Ship : MonoBehaviour
 				string inputPrefix = "Player" + playerNumber;
 				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
 				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				if (Input.GetAxis (inputPrefix + "Forward") == 1) {
-						MoveForward ();
-				}
+				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
 				}
@@ -76,9 +77,13 @@ public class Ship : MonoBehaviour
 				transform.Rotate (direction * Time.deltaTime * amount * ROTATION_SPEED);
 		}
 	
-		void MoveForward ()
+		void MoveForward (float extraAmount)
 		{
-				rigidbody.AddForce (facingDirection () * forceModifier);
+				float forwardAmount = (extraAmount * 100f) + CONSTANT_MOVEMENT_AMOUNT;
+				rigidbody.AddForce (facingDirection () * forwardAmount);
+				if (extraAmount >= 0) {
+					cameraScreen.fieldOfView = Mathf.Lerp (CAMERA_MIN_FOV, CAMERA_MAX_FOV, extraAmount);
+				}
 		}
 
 		void Damage ()
