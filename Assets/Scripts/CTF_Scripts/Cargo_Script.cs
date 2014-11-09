@@ -18,7 +18,12 @@ public class Cargo_Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (cargoStatus == 0)
-						ship = null;
+        {
+            ship = null;
+            CTF.arrow1.ship2 = transform;
+            CTF.arrow2.ship2 = transform;
+
+        }
 		if (ship != null)
 		{
 			transform.position = ship.position;

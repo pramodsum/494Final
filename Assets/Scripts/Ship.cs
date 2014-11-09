@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Ship : MonoBehaviour {
 	public GameObject shot;
 
 	public Transform p1Home;
+	public GameObject otherShip;
 
 	public CTF_Script CTF;
+
+	public float maxAngleLockOn = 60f;
+	public float maxDistLockOn = 50f;
 
 	public float forceModifier = 100f;
 	public float shotCooldownTime = 0.3f;
@@ -26,8 +30,11 @@ public class Ship : MonoBehaviour {
 	private Vector3 velocity;
 	private int playerNumber;
 	private Texture2D healthPixel;
-	
+
+	public bool enemyInSights;
+
 	void Start() {
+		enemyInSights = false;
 		health = MAX_HEALTH;
 		score = 0;
 		lives = 1;
@@ -85,28 +92,65 @@ public class Ship : MonoBehaviour {
 	void Fire() {
 		if (shotCooldownRemaining > 0) { return; }
 		shotCooldownRemaining = shotCooldownTime;
+
+//		Vector3.Scale (transform.localScale / 2, new Vector3 (1, 1, -1));
+
 		Vector3[] pos = new Vector3[4];
-		//top-left
-		pos[0].x = transform.collider.bounds.min.x;
-		pos[0].y = transform.collider.bounds.max.y;
-		pos[0].z = transform.collider.bounds.max.z;
-		//top-right
-		pos[1].x = transform.collider.bounds.max.x;
-		pos[1].y = transform.collider.bounds.max.y;
-		pos[1].z = transform.collider.bounds.max.z;
-		//bottom-left
-		pos[2].x = transform.collider.bounds.min.x;
-		pos[2].y = transform.collider.bounds.min.y;
-		pos[2].z = transform.collider.bounds.max.z;
-		//bottom-right
-		pos[3].x = transform.collider.bounds.max.x;
-		pos[3].y = transform.collider.bounds.min.y;
-		pos[3].z = transform.collider.bounds.max.z;
+		//top-left    
+
+		Matrix4x4 thisMatrix = transform.localToWorldMatrix;
+		Quaternion storedRotation = transform.rotation;
+		transform.rotation = Quaternion.identity;
+		Vector3 extents = collider.bounds.extents*2;
+		pos[0] = thisMatrix.MultiplyPoint3x4(new Vector3(-extents.x, extents.y, extents.z));
+		pos[1] = thisMatrix.MultiplyPoint3x4(new Vector3(extents.x, -extents.y, extents.z));
+		pos[2] = thisMatrix.MultiplyPoint3x4(new Vector3(-extents.x, -extents.y, extents.z));
+		pos[3] = thisMatrix.MultiplyPoint3x4(new Vector3(extents.x, -extents.y, -extents.z));
+		transform.rotation = storedRotation;
+
+//		pos[0] = transform.TransformPoint (new Vector3 (1, 1, -1));
+//		pos[1] = transform.TransformPoint (new Vector3 (1, 1, -1));
+//		pos[2] = transform.TransformPoint (new Vector3 (1, 1, 1));
+//		pos[3] = transform.TransformPoint (new Vector3 (1, 1, 1));
+
+//		pos[0].x = transform.collider.bounds.min.x;
+//		pos[0].y = transform.collider.bounds.max.y;
+//		pos[0].z = transform.collider.bounds.max.z;
+//		//top-right
+//		pos[1].x = transform.collider.bounds.max.x;
+//		pos[1].y = transform.collider.bounds.max.y;
+//		pos[1].z = transform.collider.bounds.max.z;
+//		//bottom-left
+//		pos[2].x = transform.collider.bounds.min.x;
+//		pos[2].y = transform.collider.bounds.min.y;
+//		pos[2].z = transform.collider.bounds.max.z;
+//		//bottom-right
+//		pos[3].x = transform.collider.bounds.max.x;
+//		pos[3].y = transform.collider.bounds.min.y;
+//		pos[3].z = transform.collider.bounds.max.z;
 		foreach (var position in pos) {
 			var newShot = Instantiate(shot, position, Quaternion.identity) as GameObject;
 			newShot.name = "Shot";
 			newShot.SendMessage("SetShooter", gameObject);
-			newShot.rigidbody.AddForce(facingDirection() * 0.001f);
+
+//			otherShip;
+			Vector3 forward = facingDirection();
+			Vector3 between = (otherShip.transform.position - transform.position).normalized;
+			float dist = (transform.position - otherShip.transform.position).magnitude;
+			float angleTwixt = Vector3.Angle(forward,between);
+//			print (""+angleTwixt+" "+dist);
+			enemyInSights = false;
+			if (angleTwixt <= maxAngleLockOn && dist <= maxDistLockOn)
+			{
+				enemyInSights = true;
+				print (""+angleTwixt+" "+dist);
+			}
+
+			if (enemyInSights)
+				newShot.rigidbody.AddForce(between * 0.001f);
+			else
+				newShot.rigidbody.AddForce(facingDirection() * 0.001f);
+
 		}
 	}
 
@@ -162,7 +206,7 @@ public class Ship : MonoBehaviour {
 
 	public void respawn()
 	{
-		if (CTF != null)
+		if (CTF != null && CTF.cargo.ship == transform)
 			CTF.cargo.cargoStatus = 0;
 
 		Vector3 newPos = p1Home.position;
@@ -170,6 +214,11 @@ public class Ship : MonoBehaviour {
 		transform.position = newPos;
 
 		health = MAX_HEALTH;
-
 	}
+
+	void OnWillRenderObject()
+	{
+//		print ("test");
+	}
+
 }

@@ -11,9 +11,15 @@ public class Shot : MonoBehaviour {
 
 	private Vector3 startPosition;
 	private GameObject shooter;
+	private GameObject target;
+
+	public float lockOnDistance = 100;
+
+
+	public bool homing;
 
 	void Start() {
-		startPosition = transform.position;
+        startPosition = transform.position; 
 	}
 	
 	void Update() {
@@ -22,6 +28,7 @@ public class Shot : MonoBehaviour {
 	}
 
 	void SetShooter(GameObject s) { shooter = s; }
+	void SetTarget(GameObject s) { target = s; }
 
 	void CollideWithShip(GameObject ship) {
 		if (shooter == ship) { return; }
