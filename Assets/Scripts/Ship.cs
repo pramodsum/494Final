@@ -12,8 +12,9 @@ public class Ship : MonoBehaviour
 
 		public bool outOfBounds;
 
-		private readonly float ROTATION_SPEED = 100f;
+		private readonly float ROTATION_SPEED = 130f;
 		private readonly float MAX_HEALTH = 10;
+		private readonly float MAX_ROTATION_TIME = 1f;
 
 		private float health;
 		private int lives;
@@ -23,6 +24,8 @@ public class Ship : MonoBehaviour
 		private Vector3 velocity;
 		private int playerNumber;
 		private Texture2D healthPixel;
+		private bool rotatedRight;
+		private float rotationTime;
 	
 		void Start ()
 		{
@@ -47,10 +50,8 @@ public class Ship : MonoBehaviour
 
 				string inputPrefix = "Player" + playerNumber;
 				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
-				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				if (Input.GetAxis (inputPrefix + "Forward") == 1) {
-						MoveForward ();
-				}
+				// Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
+				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
 				}
@@ -76,9 +77,10 @@ public class Ship : MonoBehaviour
 				transform.Rotate (direction * Time.deltaTime * amount * ROTATION_SPEED);
 		}
 	
-		void MoveForward ()
+		void MoveForward (float extraPercent)
 		{
-				rigidbody.AddForce (facingDirection () * forceModifier);
+				var force = (extraPercent + 1) * forceModifier;
+				rigidbody.AddForce (transform.up * force);
 		}
 
 		void Damage ()
@@ -113,7 +115,7 @@ public class Ship : MonoBehaviour
 						var newShot = Instantiate (shot, position, Quaternion.identity) as GameObject;
 						newShot.name = "Shot";
 						newShot.SendMessage ("SetShooter", gameObject);
-						newShot.rigidbody.AddForce (facingDirection () * 0.001f);
+						newShot.rigidbody.AddForce (transform.up * 0.001f);
 				}
 		}
 
@@ -168,8 +170,4 @@ public class Ship : MonoBehaviour
 				throw new System.Exception ("Unable to find player in list of players");
 		}
 
-		private Vector3 facingDirection ()
-		{
-				return (transform.position - cameraScreen.transform.position).normalized;
-		}
 }
