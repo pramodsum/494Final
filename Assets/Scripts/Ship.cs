@@ -4,25 +4,20 @@ using System.Collections;
 public class Ship : MonoBehaviour
 {
 		public GameObject shot;
-
-		public float forceModifier = 100f;
+	
 		public float shotCooldownTime = 0.3f;
 		public float knockbackRemaining = 0f;
 		public float knockBack = 100f;
-
+	
 		public bool outOfBounds;
-
+	
 		private readonly float ROTATION_SPEED = 100f;
 		private readonly float MAX_HEALTH = 10;
-
-		public Transform p1Home;
-		public GameObject otherShip;
-
-		public CTF_Script CTF;
-
-		public float maxAngleLockOn = 60f;
-		public float maxDistLockOn = 50f;
-
+		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
+	
+		private readonly float CAMERA_MIN_FOV = 60f;
+		private readonly float CAMERA_MAX_FOV = 80f;
+	
 		private float health;
 		private int lives;
 		private int score;
@@ -31,12 +26,9 @@ public class Ship : MonoBehaviour
 		private Vector3 velocity;
 		private int playerNumber;
 		private Texture2D healthPixel;
-
-		public bool enemyInSights;
-
+	
 		void Start ()
 		{
-				enemyInSights = false;
 				health = MAX_HEALTH;
 				score = 0;
 				lives = 1;
@@ -52,24 +44,19 @@ public class Ship : MonoBehaviour
 		void Update ()
 		{
 				if (health <= 0) {
-						respawn ();
+						Application.LoadLevel (0);
 				}
 				shotCooldownRemaining -= Time.deltaTime;
-
+		
 				string inputPrefix = "Player" + playerNumber;
 				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
 				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				if (Input.GetAxis (inputPrefix + "Forward") == 1) {
-						MoveForward ();
-				}
+				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
 				}
-
-				CTF = GameObject.Find ("Capture The Flag").GetComponent<CTF_Script> ();
-
 		}
-
+	
 		void OnGUI ()
 		{
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
@@ -77,7 +64,7 @@ public class Ship : MonoBehaviour
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
 				GUI.DrawTexture (new Rect (healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
 		}
-
+	
 		void OnTriggerEnter (Collider other)
 		{
 				if (other.gameObject.name == "Shot") {
@@ -90,11 +77,15 @@ public class Ship : MonoBehaviour
 				transform.Rotate (direction * Time.deltaTime * amount * ROTATION_SPEED);
 		}
 	
-		void MoveForward ()
+		void MoveForward (float extraAmount)
 		{
-				rigidbody.AddForce (facingDirection () * forceModifier);
+				float forwardAmount = (extraAmount * 100f) + CONSTANT_MOVEMENT_AMOUNT;
+				rigidbody.AddForce (facingDirection () * forwardAmount);
+				if (extraAmount >= 0) {
+						cameraScreen.fieldOfView = Mathf.Lerp (CAMERA_MIN_FOV, CAMERA_MAX_FOV, extraAmount);
+				}
 		}
-
+	
 		public void Damage ()
 		{
 				health -= 0.3f;
@@ -106,67 +97,31 @@ public class Ship : MonoBehaviour
 						return;
 				}
 				shotCooldownRemaining = shotCooldownTime;
-
-//		Vector3.Scale (transform.localScale / 2, new Vector3 (1, 1, -1));
-
 				Vector3[] pos = new Vector3[4];
-				//top-left    
-
-				Matrix4x4 thisMatrix = transform.localToWorldMatrix;
-				Quaternion storedRotation = transform.rotation;
-				transform.rotation = Quaternion.identity;
-				Vector3 extents = collider.bounds.extents * 2;
-				pos [0] = thisMatrix.MultiplyPoint3x4 (new Vector3 (-extents.x, extents.y, extents.z));
-				pos [1] = thisMatrix.MultiplyPoint3x4 (new Vector3 (extents.x, -extents.y, extents.z));
-				pos [2] = thisMatrix.MultiplyPoint3x4 (new Vector3 (-extents.x, -extents.y, extents.z));
-				pos [3] = thisMatrix.MultiplyPoint3x4 (new Vector3 (extents.x, -extents.y, -extents.z));
-				transform.rotation = storedRotation;
-
-//		pos[0] = transform.TransformPoint (new Vector3 (1, 1, -1));
-//		pos[1] = transform.TransformPoint (new Vector3 (1, 1, -1));
-//		pos[2] = transform.TransformPoint (new Vector3 (1, 1, 1));
-//		pos[3] = transform.TransformPoint (new Vector3 (1, 1, 1));
-
-//		pos[0].x = transform.collider.bounds.min.x;
-//		pos[0].y = transform.collider.bounds.max.y;
-//		pos[0].z = transform.collider.bounds.max.z;
-//		//top-right
-//		pos[1].x = transform.collider.bounds.max.x;
-//		pos[1].y = transform.collider.bounds.max.y;
-//		pos[1].z = transform.collider.bounds.max.z;
-//		//bottom-left
-//		pos[2].x = transform.collider.bounds.min.x;
-//		pos[2].y = transform.collider.bounds.min.y;
-//		pos[2].z = transform.collider.bounds.max.z;
-//		//bottom-right
-//		pos[3].x = transform.collider.bounds.max.x;
-//		pos[3].y = transform.collider.bounds.min.y;
-//		pos[3].z = transform.collider.bounds.max.z;
+				//top-left
+				pos [0].x = transform.collider.bounds.min.x;
+				pos [0].y = transform.collider.bounds.max.y;
+				pos [0].z = transform.collider.bounds.max.z;
+				//top-right
+				pos [1].x = transform.collider.bounds.max.x;
+				pos [1].y = transform.collider.bounds.max.y;
+				pos [1].z = transform.collider.bounds.max.z;
+				//bottom-left
+				pos [2].x = transform.collider.bounds.min.x;
+				pos [2].y = transform.collider.bounds.min.y;
+				pos [2].z = transform.collider.bounds.max.z;
+				//bottom-right
+				pos [3].x = transform.collider.bounds.max.x;
+				pos [3].y = transform.collider.bounds.min.y;
+				pos [3].z = transform.collider.bounds.max.z;
 				foreach (var position in pos) {
 						var newShot = Instantiate (shot, position, Quaternion.identity) as GameObject;
 						newShot.name = "Shot";
 						newShot.SendMessage ("SetShooter", gameObject);
-
-//			otherShip;
-						Vector3 forward = facingDirection ();
-						Vector3 between = (otherShip.transform.position - transform.position).normalized;
-						float dist = (transform.position - otherShip.transform.position).magnitude;
-						float angleTwixt = Vector3.Angle (forward, between);
-//			print (""+angleTwixt+" "+dist);
-						enemyInSights = false;
-						if (angleTwixt <= maxAngleLockOn && dist <= maxDistLockOn) {
-								enemyInSights = true;
-								print ("" + angleTwixt + " " + dist);
-						}
-
-						if (enemyInSights)
-								newShot.rigidbody.AddForce (between * 0.001f);
-						else
-								newShot.rigidbody.AddForce (facingDirection () * 0.001f);
-
+						newShot.rigidbody.AddForce (facingDirection () * 0.001f);
 				}
 		}
-
+	
 		public string getAttributeByName (string s)
 		{
 				if (s.Equals ("_health"))
@@ -178,7 +133,7 @@ public class Ship : MonoBehaviour
 				else
 						return null;
 		}
-
+	
 		private void adjustCamera ()
 		{
 				cameraScreen = GetComponentInChildren<Camera> () as Camera;
@@ -200,12 +155,12 @@ public class Ship : MonoBehaviour
 				}
 				cameraScreen.rect = new Rect (x, y, w, h);
 		}
-
+	
 		public static Object[] FindAll ()
 		{
 				return GameObject.FindObjectsOfType (typeof(Ship));
 		}
-
+	
 		public int GetPlayerNumber ()
 		{
 				int result = 0;
@@ -217,22 +172,9 @@ public class Ship : MonoBehaviour
 				}
 				throw new System.Exception ("Unable to find player in list of players");
 		}
-
+	
 		private Vector3 facingDirection ()
 		{
 				return (transform.position - cameraScreen.transform.position).normalized;
 		}
-
-		public void respawn ()
-		{
-				if (CTF != null && CTF.cargo.ship == transform)
-						CTF.cargo.cargoStatus = 0;
-
-				Vector3 newPos = p1Home.position;
-				newPos.y += 20;
-				transform.position = newPos;
-
-				health = MAX_HEALTH;
-		}
-
 }
