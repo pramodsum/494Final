@@ -14,7 +14,8 @@ public class Ship : MonoBehaviour
 		public float knockBack = 100f;
 	
 		public bool outOfBounds;
-	
+
+		private readonly float FORCE_MODIFIER = 500f;
 		private readonly float ROTATION_SPEED = 100f;
 		private readonly float MAX_HEALTH = 10;
 		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
@@ -52,7 +53,7 @@ public class Ship : MonoBehaviour
 		void Update ()
 		{
 				if (health <= 0) {
-						Application.LoadLevel (0);
+						respawn ();
 				}
 				shotCooldownRemaining -= Time.deltaTime;
 		
@@ -87,7 +88,7 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraAmount)
 		{
-				float forwardAmount = (extraAmount * 100f) + CONSTANT_MOVEMENT_AMOUNT;
+				float forwardAmount = (extraAmount * FORCE_MODIFIER) + CONSTANT_MOVEMENT_AMOUNT;
 				rigidbody.AddForce (facingDirection () * forwardAmount);
 				if (extraAmount >= 0) {
 						cameraScreen.fieldOfView = Mathf.Lerp (CAMERA_MIN_FOV, CAMERA_MAX_FOV, extraAmount);
@@ -212,5 +213,15 @@ public class Ship : MonoBehaviour
 		private Vector3 facingDirection ()
 		{
 				return (transform.position - cameraScreen.transform.position).normalized;
+		}
+
+		public void respawn ()
+		{
+				if (CTF != null && CTF.cargo.ship == transform)
+						CTF.cargo.cargoStatus = 0;
+				Vector3 newPos = p1Home.position;
+				newPos.y += 20;
+				transform.position = newPos;
+				health = MAX_HEALTH;
 		}
 }
