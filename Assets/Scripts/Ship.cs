@@ -50,11 +50,13 @@ public class Ship : MonoBehaviour
 
 				string inputPrefix = "Player" + playerNumber;
 				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
-				// Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
+				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
 				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
 				}
+
+				// quaternion.slerp to old one
 		}
 
 		void OnGUI ()
@@ -80,6 +82,7 @@ public class Ship : MonoBehaviour
 		void MoveForward (float extraPercent)
 		{
 				var force = (extraPercent + 1) * forceModifier;
+				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
 				rigidbody.AddForce (transform.up * force);
 		}
 
