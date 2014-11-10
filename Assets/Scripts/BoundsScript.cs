@@ -4,6 +4,7 @@ using System.Collections;
 
 public class BoundsScript : MonoBehaviour
 {
+		float maxDistance = 200f;
 		float distFromCenter;
 		Vector3 center;
 		
@@ -11,7 +12,7 @@ public class BoundsScript : MonoBehaviour
 		{
 				distFromCenter = Vector3.Distance (transform.position, center);
 				
-				if (distFromCenter >= 200) {
+				if (distFromCenter >= maxDistance) {
 						Debug.Log (name + " is out of bounds @ " + distFromCenter + "f from center!!!!");
 						GetComponent<Ship> ().outOfBounds = true;
 						ReboundShipOffWalls ();
