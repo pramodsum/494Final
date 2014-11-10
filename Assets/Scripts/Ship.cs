@@ -86,15 +86,13 @@ public class Ship : MonoBehaviour
 				transform.Rotate (direction * Time.deltaTime * amount * ROTATION_SPEED);
 		}
 	
-		void MoveForward (float extraAmount)
+		void MoveForward (float extraPercent)
 		{
-				float forwardAmount = (extraAmount * FORCE_MODIFIER) + CONSTANT_MOVEMENT_AMOUNT;
-				rigidbody.AddForce (facingDirection () * forwardAmount);
-				if (extraAmount >= 0) {
-						cameraScreen.fieldOfView = Mathf.Lerp (CAMERA_MIN_FOV, CAMERA_MAX_FOV, extraAmount);
-				}
+				var force = (extraPercent + 1) * FORCE_MODIFIER;
+				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
+				rigidbody.AddForce (transform.up * force);
 		}
-	
+
 		public void Damage ()
 		{
 				health -= 0.3f;
@@ -212,7 +210,7 @@ public class Ship : MonoBehaviour
 	
 		private Vector3 facingDirection ()
 		{
-				return (transform.position - cameraScreen.transform.position).normalized;
+				return transform.up;
 		}
 
 		public void respawn ()
