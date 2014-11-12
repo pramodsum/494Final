@@ -90,4 +90,13 @@ public class CTF_Script : MonoBehaviour
 				GameObject.Destroy (arrow1.gameObject);
 				GameObject.Destroy (arrow2.gameObject);
 		}
+
+	public string getAttributeByName(string s)
+	{
+		if (s.Equals("p1Score"))
+		    return ""+p1Score;
+		else if (s.Equals("p2Score"))
+			return ""+p2Score;
+		else return "";
+	}
 }

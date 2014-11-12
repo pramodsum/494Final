@@ -15,9 +15,9 @@ public class Ship : MonoBehaviour
 	
 		public bool outOfBounds;
 
-		private readonly float FORCE_MODIFIER = 500f;
-		private readonly float ROTATION_SPEED = 100f;
-		private readonly float MAX_HEALTH = 3;
+		public  float FORCE_MODIFIER = 500f;
+		public  float ROTATION_SPEED = 100f;
+		public  float MAX_HEALTH = 3;
 		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
 	
 		private readonly float CAMERA_MIN_FOV = 60f;
