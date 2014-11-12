@@ -15,13 +15,13 @@ public class Ship : MonoBehaviour
 	
 		public bool outOfBounds;
 
-		public  float FORCE_MODIFIER = 500f;
-		public  float ROTATION_SPEED = 100f;
-		public  float MAX_HEALTH = 3;
-		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
+		public float FORCE_MODIFIER = 500f;
+		public float ROTATION_SPEED = 100f;
+		public float MAX_HEALTH = 3;
+		public float CONSTANT_MOVEMENT_AMOUNT = 10f;
 	
-		private readonly float CAMERA_MIN_FOV = 60f;
-		private readonly float CAMERA_MAX_FOV = 80f;
+		public float CAMERA_MIN_FOV = 60f;
+		public float CAMERA_MAX_FOV = 80f;
 	
 		private float health;
 		private int lives;
@@ -217,7 +217,7 @@ public class Ship : MonoBehaviour
 		{
 				if (CTF != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
-						CTF.cargo.transform.localScale = new Vector3(10f,10f,10f);
+						CTF.cargo.transform.localScale = new Vector3 (10f, 10f, 10f);
 				}
 				Vector3 newPos = p1Home.position;
 				newPos.y += 20;
