@@ -17,7 +17,7 @@ public class Ship : MonoBehaviour
 
 		private readonly float FORCE_MODIFIER = 500f;
 		private readonly float ROTATION_SPEED = 100f;
-		private readonly float MAX_HEALTH = 10;
+		private readonly float MAX_HEALTH = 3;
 		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
 	
 		private readonly float CAMERA_MIN_FOV = 60f;
@@ -215,8 +215,10 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
-				if (CTF != null && CTF.cargo.ship == transform)
+				if (CTF != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
+						CTF.cargo.transform.localScale = new Vector3(10f,10f,10f);
+				}
 				Vector3 newPos = p1Home.position;
 				newPos.y += 20;
 				transform.position = newPos;

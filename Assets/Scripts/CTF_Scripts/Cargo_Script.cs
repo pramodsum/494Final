@@ -47,12 +47,14 @@ public class Cargo_Script : MonoBehaviour {
 				CTF.arrow1.ship2 = CTF.p1Home;
 				ship = collision.collider.transform;
 				cargoStatus = 1;
+				transform.localScale = new Vector3(2f,2f,2f);
 			}
 			else if (collision.collider.name.Equals("Ship2"))
 			{
 				CTF.arrow2.ship2 = CTF.p2Home;
 				ship = collision.collider.transform;
 				cargoStatus = 2;
+				transform.localScale = new Vector3(2f,2f,2f);
 			}
 		}
 		else
