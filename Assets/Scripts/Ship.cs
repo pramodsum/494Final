@@ -18,12 +18,18 @@ public class Ship : MonoBehaviour
 		public  float FORCE_MODIFIER = 500f;
 		public  float ROTATION_SPEED = 100f;
 		public  float MAX_HEALTH = 3;
+		public float MAX_BOOST = 10;
 		private readonly float CONSTANT_MOVEMENT_AMOUNT = 10f;
 	
 		private readonly float CAMERA_MIN_FOV = 60f;
 		private readonly float CAMERA_MAX_FOV = 80f;
 	
 		private float health;
+		public float boost;
+		private bool boostAvailable = true;
+		public float boostRefreshRate = .05f;
+		public int boostReAvailableAt = 5;
+		public float boostDrainRate = .2f;
 		private int lives;
 		private int score;
 		private float shotCooldownRemaining;
@@ -31,6 +37,7 @@ public class Ship : MonoBehaviour
 		private Vector3 velocity;
 		private int playerNumber;
 		private Texture2D healthPixel;
+		private Texture2D boostPixel;
 
 		public bool enemyInSights;
 		public float maxAngleLockOn = 60f;
@@ -38,6 +45,7 @@ public class Ship : MonoBehaviour
 	
 		void Start ()
 		{
+				boost = MAX_BOOST;	
 				health = MAX_HEALTH;
 				score = 0;
 				lives = 1;
@@ -48,6 +56,9 @@ public class Ship : MonoBehaviour
 				healthPixel = new Texture2D (1, 1);
 				healthPixel.SetPixel (0, 0, new Color (0.9F, 0.0F, 0.3F, 0.9F));
 				healthPixel.Apply ();
+				boostPixel = new Texture2D (1, 1);
+				boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
+				boostPixel.Apply ();
 		}
 	
 		void Update ()
@@ -68,11 +79,40 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
+				if (!boostAvailable) {
+						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.3F));
+						boostPixel.Apply ();
+				}
+				else {
+						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
+						boostPixel.Apply ();
+				}
+				//SCREW IT
+				//NOW IT WORKS 
+				//I"M NOT WASTING ANY MORE TIME ON THIS
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
 				var healthWidth = healthPercentage * cameraScreen.pixelWidth;
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
+				
+				//THIS MAKES IT WORK I DON"T CARE ANYMORE
+				if (name == "Ship1")
+					healthCoords.y -= 300;
+				else if (name == "Ship2")
+					healthCoords.y += 300;
+
 				GUI.DrawTexture (new Rect (healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
-		}
+				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
+				var boostWidth = boostPercentage * cameraScreen.pixelWidth;
+				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, .05f, 0));
+				
+				//ETC
+				if (name == "Ship1")
+					boostCoords.y -= 300;
+				else if (name == "Ship2")
+					boostCoords.y += 300;
+
+				GUI.DrawTexture (new Rect (boostCoords.x, boostCoords.y, boostWidth, 15f), boostPixel);     
+    }
 	
 		void OnTriggerEnter (Collider other)
 		{
@@ -88,9 +128,27 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
-				var force = (extraPercent + 1) * FORCE_MODIFIER;
-				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
-				rigidbody.AddForce (transform.up * force);
+			var force = FORCE_MODIFIER;
+			boost += boostRefreshRate; 
+			if (boost > MAX_BOOST) boost = MAX_BOOST;
+			
+			if (!boostAvailable && boost > boostReAvailableAt)
+				boostAvailable = true;
+			
+			if (extraPercent != 0) {
+				if (boostAvailable) 
+					boost -= boostDrainRate;
+				if (boost <= 0) {
+					boost = 0;
+					boostAvailable = false;
+				}
+				if (boost > 0 && boostAvailable)
+					force *= (extraPercent + 1);
+			}
+			
+        
+			cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
+			rigidbody.AddForce (transform.up * force);
 		}
 
 		public void Damage ()
@@ -116,25 +174,6 @@ public class Ship : MonoBehaviour
 				pos [2] = thisMatrix.MultiplyPoint3x4 (new Vector3 (-extents.x, -extents.y, extents.z));
 				pos [3] = thisMatrix.MultiplyPoint3x4 (new Vector3 (extents.x, -extents.y, -extents.z));
 				transform.rotation = storedRotation;
-				// pos[0] = transform.TransformPoint (new Vector3 (1, 1, -1));
-				// pos[1] = transform.TransformPoint (new Vector3 (1, 1, -1));
-				// pos[2] = transform.TransformPoint (new Vector3 (1, 1, 1));
-				// pos[3] = transform.TransformPoint (new Vector3 (1, 1, 1));
-				// pos[0].x = transform.collider.bounds.min.x;
-				// pos[0].y = transform.collider.bounds.max.y;
-				// pos[0].z = transform.collider.bounds.max.z;
-				// //top-right
-				// pos[1].x = transform.collider.bounds.max.x;
-				// pos[1].y = transform.collider.bounds.max.y;
-				// pos[1].z = transform.collider.bounds.max.z;
-				// //bottom-left
-				// pos[2].x = transform.collider.bounds.min.x;
-				// pos[2].y = transform.collider.bounds.min.y;
-				// pos[2].z = transform.collider.bounds.max.z;
-				// //bottom-right
-				// pos[3].x = transform.collider.bounds.max.x;
-				// pos[3].y = transform.collider.bounds.min.y;
-				// pos[3].z = transform.collider.bounds.max.z;
 				foreach (var position in pos) {
 						var newShot = Instantiate (shot, position, Quaternion.identity) as GameObject;
 						newShot.name = "Shot";
@@ -180,7 +219,7 @@ public class Ship : MonoBehaviour
 				if (playerNumber == 1) {
 						y = (shipCount > 2) ? 0.5f : 0f;
 				} else if (playerNumber == 2) {
-						x = (shipCount > 2) ? 0.5f : 0f;
+						x = (shipCount > 2) ? 0.5f : 0f;//why do we do this if 2player?
 						y = 0.5f;
 				} else if (playerNumber == 3) {
 						y = 0f;
