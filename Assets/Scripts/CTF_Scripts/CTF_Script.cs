@@ -70,12 +70,21 @@ public class CTF_Script : MonoBehaviour
 						arrow1.name = "Arrow1";
 						arrow1.ship1 = ship1;
 						arrow1.ship2 = cargo.transform;
+						arrow1.gameObject.layer = LayerMask.NameToLayer ("Ship1-objects");
+						foreach (Transform child in arrow1.transform) {
+								child.gameObject.layer = LayerMask.NameToLayer ("Ship1-objects");
+						}
+						
 
 						Instantiate (arrow, Vector3.zero, Quaternion.identity);
 						arrow2 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
 						arrow2.name = "Arrow2";
 						arrow2.ship1 = ship2;
 						arrow2.ship2 = cargo.transform;
+						arrow2.gameObject.layer = LayerMask.NameToLayer ("Ship2-objects");
+						foreach (Transform child in arrow2.transform) {
+								child.gameObject.layer = LayerMask.NameToLayer ("Ship2-objects");
+						}
 				}
 		}
 
@@ -91,12 +100,13 @@ public class CTF_Script : MonoBehaviour
 				GameObject.Destroy (arrow2.gameObject);
 		}
 
-	public string getAttributeByName(string s)
-	{
-		if (s.Equals("p1Score"))
-		    return ""+p1Score;
-		else if (s.Equals("p2Score"))
-			return ""+p2Score;
-		else return "";
-	}
+		public string getAttributeByName (string s)
+		{
+				if (s.Equals ("p1Score"))
+						return "" + p1Score;
+				else if (s.Equals ("p2Score"))
+						return "" + p2Score;
+				else
+						return "";
+		}
 }
