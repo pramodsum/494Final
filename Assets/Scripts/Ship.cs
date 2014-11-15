@@ -83,8 +83,7 @@ public class Ship : MonoBehaviour
 				if (!boostAvailable) {
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.3F));
 						boostPixel.Apply ();
-				}
-				else {
+				} else {
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
 						boostPixel.Apply ();
 				}
@@ -97,9 +96,9 @@ public class Ship : MonoBehaviour
 				
 				//THIS MAKES IT WORK I DON"T CARE ANYMORE
 				if (name == "Ship1")
-					healthCoords.y -= 300;
+						healthCoords.y -= 300;
 				else if (name == "Ship2")
-					healthCoords.y += 300;
+						healthCoords.y += 300;
 
 				GUI.DrawTexture (new Rect (healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
@@ -108,12 +107,12 @@ public class Ship : MonoBehaviour
 				
 				//ETC
 				if (name == "Ship1")
-					boostCoords.y -= 300;
+						boostCoords.y -= 300;
 				else if (name == "Ship2")
-					boostCoords.y += 300;
+						boostCoords.y += 300;
 
 				GUI.DrawTexture (new Rect (boostCoords.x, boostCoords.y, boostWidth, 15f), boostPixel);     
-    }
+		}
 	
 		void OnTriggerEnter (Collider other)
 		{
@@ -129,27 +128,42 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
-			var force = FORCE_MODIFIER;
-			boost += boostRefreshRate; 
-			if (boost > MAX_BOOST) boost = MAX_BOOST;
+				var force = FORCE_MODIFIER;
+				boost += boostRefreshRate; 
+				if (boost > MAX_BOOST)
+						boost = MAX_BOOST;
 			
-			if (!boostAvailable && boost > boostReAvailableAt)
-				boostAvailable = true;
+				if (!boostAvailable && boost > boostReAvailableAt)
+						boostAvailable = true;
 			
-			if (extraPercent != 0) {
-				if (boostAvailable) 
-					boost -= boostDrainRate;
-				if (boost <= 0) {
-					boost = 0;
-					boostAvailable = false;
+				if (extraPercent != 0) {
+						if (boostAvailable) 
+								boost -= boostDrainRate;
+						if (boost <= 0) {
+								boost = 0;
+								boostAvailable = false;
+						}
+						if (boost > 0 && boostAvailable)
+								force *= (extraPercent + 1);
 				}
-				if (boost > 0 && boostAvailable)
-					force *= (extraPercent + 1);
-			}
 			
         
-			cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
-			rigidbody.AddForce (transform.up * force);
+				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
+				rigidbody.AddForce (transform.up * force);
+		}
+
+		public void BounceBack ()
+		{
+				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, -rigidbody.velocity.y * 10, rigidbody.velocity.z);
+//				rigidbody.velocity.y = -rigidbody.velocity.y * 10;
+		}
+	
+		void ReboundOffPlanet (GameObject ship)
+		{
+				Debug.Log ("Knockback");
+				ship.rigidbody.velocity = Vector3.Reflect (ship.rigidbody.velocity, (transform.position - ship.transform.position).normalized);
+				Vector3 f = new Vector3 (Random.value, Random.value, Random.value) * 400;
+				ship.rigidbody.AddForce (f);
 		}
 
 		public void Damage ()
