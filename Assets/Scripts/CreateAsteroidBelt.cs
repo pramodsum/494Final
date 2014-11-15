@@ -8,6 +8,8 @@ public class CreateAsteroidBelt : MonoBehaviour
 		private System.Random random;
 		public int numSpawned = 0;
 		public int numToSpawn;
+		public float minVal = -458.86f;
+		public float maxVal = 941.14f;
 
 		// Use this for initialization
 		void Start ()
@@ -26,16 +28,13 @@ public class CreateAsteroidBelt : MonoBehaviour
 		void Spawn ()
 		{
 				Vector3 spawnPosition = transform.position;
+				float x = Random.Range (minVal, maxVal);
+				float y = Random.Range (-600, 600);
+				float z = Random.Range (minVal, maxVal);
 		
-				int angle = Random.Range (0, 360);
-				int radius = Random.Range (0, 360);
-				float x = Random.Range (-600, 600);
-				float y = Random.Range (-100, 100);
-				float z = Random.Range (-600, 600);
-		
-				spawnPosition.x = x * Mathf.Cos (angle);
+				spawnPosition.x = x;
 				spawnPosition.y = y;
-				spawnPosition.z = z * Mathf.Cos (angle);
+				spawnPosition.z = z;
 		
 				GameObject obj = Instantiate (objectType, spawnPosition, Quaternion.identity) as GameObject;
 //				obj.transform.parent = asteroidBelt.transform;
