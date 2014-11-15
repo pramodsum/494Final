@@ -43,6 +43,8 @@ public class Ship : MonoBehaviour
 		public bool enemyInSights;
 		public float maxAngleLockOn = 60f;
 		public float maxDistLockOn = 50f;
+
+		public GameObject boundary;
 	
 		void Start ()
 		{
@@ -75,6 +77,10 @@ public class Ship : MonoBehaviour
 				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
+				}
+
+				if (!boundary.collider.bounds.Contains (transform.position)) {
+						health -= 0.005f;
 				}
 		}
 	
@@ -120,6 +126,14 @@ public class Ship : MonoBehaviour
 						other.SendMessage ("CollideWithShip", gameObject);
 				}
 		}
+
+		void OnTriggerExit (Collider other)
+		{
+				if (other.gameObject.name == "Boundary") {
+						Debug.Log ("This is not that path you are looking for....");
+						Damage ();
+				}
+		}
 	
 		void Rotate (Vector3 direction, float amount)
 		{
@@ -155,15 +169,6 @@ public class Ship : MonoBehaviour
 		public void BounceBack ()
 		{
 				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, -rigidbody.velocity.y * 10, rigidbody.velocity.z);
-//				rigidbody.velocity.y = -rigidbody.velocity.y * 10;
-		}
-	
-		void ReboundOffPlanet (GameObject ship)
-		{
-				Debug.Log ("Knockback");
-				ship.rigidbody.velocity = Vector3.Reflect (ship.rigidbody.velocity, (transform.position - ship.transform.position).normalized);
-				Vector3 f = new Vector3 (Random.value, Random.value, Random.value) * 400;
-				ship.rigidbody.AddForce (f);
 		}
 
 		public void Damage ()
