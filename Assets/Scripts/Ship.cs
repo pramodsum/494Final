@@ -15,7 +15,6 @@ public class Ship : MonoBehaviour
 	
 		public bool outOfBounds;
 
-
 		public float FORCE_MODIFIER = 500f;
 		public float ROTATION_SPEED = 100f;
 		public float MAX_HEALTH = 3;
