@@ -73,7 +73,8 @@ public class Ship : MonoBehaviour
 				string inputPrefix = "Player" + playerNumber;
 				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
 				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
+				if (Input.GetAxis (inputPrefix + "Break") == 0)
+					MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
 				}

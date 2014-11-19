@@ -15,20 +15,5 @@ public class Explosion : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GameObject.Instantiate (_explosion);
-//			if (cdrRemaining <= 0)
-//			{
-//				cdrRemaining = cdr;
-//				count = count + 1;
-//				if (count > 7)
-//			{
-//					GameObject.Destroy(gameObject);
-//				return;
-//			}
-//				renderer.material.mainTexture = textures[count];
-//			}
-//			else
-//			{
-//				cdrRemaining -= Time.deltaTime;
-//			}
 	}
 }
