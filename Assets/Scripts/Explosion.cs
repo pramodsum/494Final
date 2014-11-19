@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Explosion : MonoBehaviour {
+	public GameObject _explosion;
 	private int count = 0;
 	public Texture[] textures;
 
@@ -13,21 +14,21 @@ public class Explosion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-			if (cdrRemaining <= 0)
-			{
-				cdrRemaining = cdr;
-				count = count + 1;
-				if (count > 7)
-			{
-					GameObject.Destroy(gameObject);
-				return;
-			}
-				renderer.material.mainTexture = textures[count];
-			}
-			else
-			{
-				cdrRemaining -= Time.deltaTime;
-			}
+		GameObject.Instantiate (_explosion);
+//			if (cdrRemaining <= 0)
+//			{
+//				cdrRemaining = cdr;
+//				count = count + 1;
+//				if (count > 7)
+//			{
+//					GameObject.Destroy(gameObject);
+//				return;
+//			}
+//				renderer.material.mainTexture = textures[count];
+//			}
+//			else
+//			{
+//				cdrRemaining -= Time.deltaTime;
+//			}
 	}
 }
