@@ -273,6 +273,7 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
+
 				if (CTF != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
 						CTF.cargo.transform.localScale = new Vector3 (10f, 10f, 10f);
@@ -281,5 +282,9 @@ public class Ship : MonoBehaviour
 				newPos.y += 20;
 				transform.position = newPos;
 				health = MAX_HEALTH;
+				if (CTF != null) {
+					transform.LookAt (GameObject.Find ("Sun").transform.position);
+					transform.Rotate (new Vector3 (90, 0, 0));
+				}
 		}
 }
