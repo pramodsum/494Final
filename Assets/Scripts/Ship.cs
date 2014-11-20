@@ -73,8 +73,7 @@ public class Ship : MonoBehaviour
 				string inputPrefix = "Player" + playerNumber;
 				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
 				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				if (Input.GetAxis (inputPrefix + "Break") == 0)
-					MoveForward (Input.GetAxis (inputPrefix + "Forward"));
+				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
 				}
@@ -100,22 +99,22 @@ public class Ship : MonoBehaviour
 				var healthWidth = healthPercentage * cameraScreen.pixelWidth;
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
 				
-				//THIS MAKES IT WORK I DON"T CARE ANYMORE
-				if (name == "Ship1")
-						healthCoords.y -= 300;
-				else if (name == "Ship2")
-						healthCoords.y += 300;
+//				//THIS MAKES IT WORK I DON"T CARE ANYMORE
+//				if (name == "Ship1")
+//						healthCoords.y -= 300;
+//				else if (name == "Ship2")
+//						healthCoords.y += 300;
 
 				GUI.DrawTexture (new Rect (healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
 				var boostWidth = boostPercentage * cameraScreen.pixelWidth;
 				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, .05f, 0));
 				
-				//ETC
-				if (name == "Ship1")
-						boostCoords.y -= 300;
-				else if (name == "Ship2")
-						boostCoords.y += 300;
+//				//ETC
+//				if (name == "Ship1")
+//						boostCoords.y -= 300;
+//				else if (name == "Ship2")
+//						boostCoords.y += 300;
 
 				GUI.DrawTexture (new Rect (boostCoords.x, boostCoords.y, boostWidth, 15f), boostPixel);     
 		}
@@ -142,16 +141,18 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
+				string inputPrefix = "Player" + playerNumber;
+				bool isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
+
 				var force = FORCE_MODIFIER;
 				boost += boostRefreshRate; 
 				if (boost > MAX_BOOST)
-						boost = MAX_BOOST;
-			
+					boost = MAX_BOOST;
 				if (!boostAvailable && boost > boostReAvailableAt)
-						boostAvailable = true;
-			
+					boostAvailable = true;
+							
 				if (extraPercent != 0) {
-						if (boostAvailable) 
+						if (isNotBreak && boostAvailable) 
 								boost -= boostDrainRate;
 						if (boost <= 0) {
 								boost = 0;
@@ -163,7 +164,9 @@ public class Ship : MonoBehaviour
 			
         
 				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
-				rigidbody.AddForce (transform.up * force);
+				
+				if (isNotBreak)
+					rigidbody.AddForce (transform.up * force);
 		}
 
 		public void BounceBack ()
@@ -230,8 +233,12 @@ public class Ship : MonoBehaviour
 	
 		private void adjustCamera ()
 		{
-				cameraScreen = GetComponentInChildren<Camera> () as Camera;
-				var shipCount = FindAll ().Length;
+//				cameraScreen = GetComponentInChildren<Camera> () as Camera;
+		if (playerNumber == 1)
+			cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera>();
+		if (playerNumber == 2)
+			cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera>();
+		var shipCount = FindAll ().Length;
 				float x = 0f;
 				float y = 0f;
 				float w = (shipCount > 2) ? 0.5f : 1f;

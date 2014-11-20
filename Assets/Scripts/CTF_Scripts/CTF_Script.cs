@@ -3,7 +3,13 @@ using System.Collections;
 
 public class CTF_Script : MonoBehaviour
 {
- 
+		//just used to tell who is controlling which station
+		public Material red;	
+		public Material blue;
+		private int tillTick = 20;
+		private int Tick = 20;
+
+		public Station_Control[] Stations;
 		public GameObject _cargo;
 		public GameObject arrow;
 
@@ -48,8 +54,23 @@ public class CTF_Script : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+				tillTick--;
+				foreach (Station_Control station in Stations) {
+					if (station.inControl && tillTick == 0)
+					{
+						if (station.transform.FindChild("Sphere").renderer.material.color == red.color)
+						{
+							p1Score++;
+						}
+						if (station.transform.FindChild("Sphere").renderer.material.color == blue.color)
+						{
+							p2Score++;
+						}
+					}
+				}
 				if (noNewCargo) {
-				} else if (timeTilCargo > 0)
+				} 
+				else if (timeTilCargo > 0)
 						timeTilCargo -= Time.deltaTime;
 				else if (timeTilCargo <= 0) {
 						noNewCargo = true;
@@ -86,14 +107,15 @@ public class CTF_Script : MonoBehaviour
 								child.gameObject.layer = LayerMask.NameToLayer ("Ship2-objects");
 						}
 				}
+			if (tillTick == 0) tillTick = Tick;
 		}
 
 		public void captureNotification (int which)
 		{
 				if (which == 1)
-						p1Score++;
+						p1Score+=100;
 				if (which == 2)
-						p2Score++;
+						p2Score+=100;
 				timeTilCargo = cargoWait;
 				noNewCargo = false;
 				GameObject.Destroy (arrow1.gameObject);
