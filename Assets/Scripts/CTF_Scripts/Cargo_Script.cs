@@ -42,14 +42,16 @@ public class Cargo_Script : MonoBehaviour {
 				newPos.y += 100;
 				transform.position = newPos;
 			}
-			else if (collision.collider.name.Equals("Ship1"))
+			else if (collision.collider.name.Equals("Ship1") ||
+			         collision.collider.name.Equals("Ship3"))
 			{
 				CTF.arrow1.ship2 = CTF.p1Home;
 				ship = collision.collider.transform;
 				cargoStatus = 1;
 				transform.localScale = new Vector3(2f,2f,2f);
 			}
-			else if (collision.collider.name.Equals("Ship2"))
+			else if (collision.collider.name.Equals("Ship2") ||
+			         collision.collider.name.Equals("Ship4"))
 			{
 				CTF.arrow2.ship2 = CTF.p2Home;
 				ship = collision.collider.transform;
@@ -63,6 +65,8 @@ public class Cargo_Script : MonoBehaviour {
 			{
 				GameObject.Destroy (CTF.arrow1.gameObject);
 				GameObject.Destroy (CTF.arrow2.gameObject);
+				if (CTF.arrow3 != null) GameObject.Destroy (CTF.arrow3.gameObject);
+				if (CTF.arrow4 != null) GameObject.Destroy (CTF.arrow4.gameObject);
 
 				CTF.captureNotification(1);
 				Destroy(gameObject);
@@ -71,6 +75,8 @@ public class Cargo_Script : MonoBehaviour {
 			{
 				GameObject.Destroy (CTF.arrow1.gameObject);
 				GameObject.Destroy (CTF.arrow2.gameObject);
+				if (CTF.arrow3 != null) GameObject.Destroy (CTF.arrow3.gameObject);
+				if (CTF.arrow4 != null) GameObject.Destroy (CTF.arrow4.gameObject);
 
 				CTF.captureNotification(2);
 				Destroy(gameObject);

@@ -21,6 +21,9 @@ public class CTF_Script : MonoBehaviour
 
 		public Transform ship1;
 		public Transform ship2;
+		public Transform ship3;
+		public Transform ship4;
+
 
 		public Transform p1Home;
 		public Transform p2Home;
@@ -30,6 +33,8 @@ public class CTF_Script : MonoBehaviour
 
 		public ArrowScript arrow1;
 		public ArrowScript arrow2;
+		public ArrowScript arrow3;
+		public ArrowScript arrow4;
 
 		System.Random rand;
 
@@ -46,9 +51,13 @@ public class CTF_Script : MonoBehaviour
 				Vector3 newPos = p1Home.position;
 				newPos.y += 20;
 				ship1.position = newPos;
+				newPos.z -= 5;
+				ship3.position = newPos;
 				newPos = p2Home.position;
 				newPos.y += 20;
 				ship2.position = newPos;
+				newPos.z -= 5;
+				ship4.position = newPos;
 		}
 	
 		// Update is called once per frame
@@ -105,6 +114,31 @@ public class CTF_Script : MonoBehaviour
 						arrow2.gameObject.layer = LayerMask.NameToLayer ("Ship2-objects");
 						foreach (Transform child in arrow2.transform) {
 								child.gameObject.layer = LayerMask.NameToLayer ("Ship2-objects");
+						}
+
+						if (ship3 != null)
+						{
+							Instantiate (arrow, Vector3.zero, Quaternion.identity);
+							arrow3 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
+							arrow3.name = "Arrow3";
+							arrow3.ship1 = ship3;
+							arrow3.ship2 = cargo.transform;
+							arrow3.gameObject.layer = LayerMask.NameToLayer ("Ship3-objects");
+							foreach (Transform child in arrow3.transform) {
+								child.gameObject.layer = LayerMask.NameToLayer ("Ship3-objects");
+							}
+						}
+						if (ship4 != null)
+						{
+							Instantiate (arrow, Vector3.zero, Quaternion.identity);
+							arrow4 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
+							arrow4.name = "Arrow4";
+							arrow4.ship1 = ship4;
+							arrow4.ship2 = cargo.transform;
+							arrow4.gameObject.layer = LayerMask.NameToLayer ("Ship4-objects");
+							foreach (Transform child in arrow4.transform) {
+								child.gameObject.layer = LayerMask.NameToLayer ("Ship4-objects");
+							}
 						}
 				}
 			if (tillTick == 0) tillTick = Tick;

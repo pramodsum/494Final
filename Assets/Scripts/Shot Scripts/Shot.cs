@@ -32,6 +32,14 @@ public class Shot : MonoBehaviour {
 
 	void CollideWithShip(GameObject ship) {
 		if (shooter == ship) { return; }
+		int ship1Num = shooter.GetComponent<Ship> ().GetPlayerNumber ();
+		int ship2Num = ship.GetComponent<Ship> ().GetPlayerNumber ();
+		if ((ship1Num == 1 && ship2Num == 3) ||
+		    (ship1Num == 3 && ship2Num == 1) ||
+		    (ship1Num == 2 && ship2Num == 4) ||
+		    (ship1Num == 4 && ship2Num == 2))
+			return;
+
 		var otherPos = ship.transform.position;
 		var knockDirection = (transform.position - otherPos).normalized;
 		ship.SendMessage("Damage");

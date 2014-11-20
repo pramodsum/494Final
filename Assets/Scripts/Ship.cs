@@ -5,7 +5,8 @@ public class Ship : MonoBehaviour
 {
 		public GameObject shot;
 
-		public GameObject otherShip;
+		public GameObject[] otherShip;
+
 		public Transform p1Home;
 		public CTF_Script CTF;
 	
@@ -92,31 +93,18 @@ public class Ship : MonoBehaviour
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
 						boostPixel.Apply ();
 				}
-				//SCREW IT
-				//NOW IT WORKS 
-				//I"M NOT WASTING ANY MORE TIME ON THIS
+
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
 				var healthWidth = healthPercentage * cameraScreen.pixelWidth;
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
 				
-//				//THIS MAKES IT WORK I DON"T CARE ANYMORE
-//				if (name == "Ship1")
-//						healthCoords.y -= 300;
-//				else if (name == "Ship2")
-//						healthCoords.y += 300;
-
-				GUI.DrawTexture (new Rect (healthCoords.x, healthCoords.y, healthWidth, 15f), healthPixel);
+				GUI.DrawTexture (new Rect (healthCoords.x, Screen.height-30-healthCoords.y, healthWidth, 15f), healthPixel);
+				
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
 				var boostWidth = boostPercentage * cameraScreen.pixelWidth;
 				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, .05f, 0));
 				
-//				//ETC
-//				if (name == "Ship1")
-//						boostCoords.y -= 300;
-//				else if (name == "Ship2")
-//						boostCoords.y += 300;
-
-				GUI.DrawTexture (new Rect (boostCoords.x, boostCoords.y, boostWidth, 15f), boostPixel);     
+				GUI.DrawTexture (new Rect (boostCoords.x, (Screen.height)-boostCoords.y, boostWidth, 15f), boostPixel);     
 		}
 	
 		void OnTriggerEnter (Collider other)
@@ -197,14 +185,15 @@ public class Ship : MonoBehaviour
 				pos [2] = thisMatrix.MultiplyPoint3x4 (new Vector3 (-extents.x, -extents.y, extents.z));
 				pos [3] = thisMatrix.MultiplyPoint3x4 (new Vector3 (extents.x, -extents.y, -extents.z));
 				transform.rotation = storedRotation;
+				foreach (GameObject _otherShip in otherShip)
 				foreach (var position in pos) {
 						var newShot = Instantiate (shot, position, Quaternion.identity) as GameObject;
 						newShot.name = "Shot";
 						newShot.SendMessage ("SetShooter", gameObject);
 						// otherShip;
 						Vector3 forward = facingDirection ();
-						Vector3 between = (otherShip.transform.position - transform.position).normalized;
-						float dist = (transform.position - otherShip.transform.position).magnitude;
+						Vector3 between = (_otherShip.transform.position - transform.position).normalized;
+						float dist = (transform.position - _otherShip.transform.position).magnitude;
 						float angleTwixt = Vector3.Angle (forward, between);
 						// print (""+angleTwixt+" "+dist);
 						enemyInSights = false;
@@ -234,11 +223,15 @@ public class Ship : MonoBehaviour
 		private void adjustCamera ()
 		{
 //				cameraScreen = GetComponentInChildren<Camera> () as Camera;
-		if (playerNumber == 1)
-			cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera>();
-		if (playerNumber == 2)
-			cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera>();
-		var shipCount = FindAll ().Length;
+			if (playerNumber == 1)
+				cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera>();
+			if (playerNumber == 2)
+				cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera>();
+			if (playerNumber == 3)
+				cameraScreen = GameObject.Find ("Camera3").GetComponent<Camera>();
+			if (playerNumber == 4)
+				cameraScreen = GameObject.Find ("Camera4").GetComponent<Camera>();
+			var shipCount = FindAll ().Length;
 				float x = 0f;
 				float y = 0f;
 				float w = (shipCount > 2) ? 0.5f : 1f;
@@ -265,13 +258,21 @@ public class Ship : MonoBehaviour
 		public int GetPlayerNumber ()
 		{
 				int result = 0;
-				foreach (var ship in FindAll()) {
-						result ++;
-						if (ship == this) {
-								return result;
-						}
-				}
-				throw new System.Exception ("Unable to find player in list of players");
+				if (this.name == "Ship1")
+					return 1;
+				else if (this.name == "Ship2")
+					return 2;
+				else if (this.name == "Ship3")
+					return 3;
+				else /*if (this.name == "Ship4")*/
+					return 4;
+//				foreach (var ship in FindAll()) {
+//						result ++;
+//						if (ship == this) {
+//								return result;
+//						}
+//				}
+//				throw new System.Exception ("Unable to find player in list of players");
 		}
 	
 		private Vector3 facingDirection ()
@@ -281,7 +282,6 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
-
 				if (CTF != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
 						CTF.cargo.transform.localScale = new Vector3 (10f, 10f, 10f);
