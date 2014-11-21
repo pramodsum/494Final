@@ -5,15 +5,22 @@ using System.Collections;
 public class Ship : MonoBehaviour
 {
 		public GameObject shot;
-
+		public GameObject explosion;
+		
 		public GameObject[] otherShip;
 
 		public Transform p1Home;
 		public CTF_Script CTF;
+
+		public bool classicMovement = true;
 	
 		public float shotCooldownTime = 0.3f;
 		public float knockbackRemaining = 0f;
 		public float knockBack = 100f;
+
+		public float respawnIn;
+		public float deadLength = 10f;
+		private bool hasExploded = false;
 	
 		public bool outOfBounds;
 
@@ -26,7 +33,7 @@ public class Ship : MonoBehaviour
 		public float CAMERA_MIN_FOV = 60f;
 		public float CAMERA_MAX_FOV = 80f;
 	
-		private float health;
+		public float health;
 		public float boost;
 		private bool boostAvailable = true;
 		public float boostRefreshRate = .05f;
@@ -40,6 +47,7 @@ public class Ship : MonoBehaviour
 		private int playerNumber;
 		private Texture2D healthPixel;
 		private Texture2D boostPixel;
+		private Texture2D greyPixel;
 
 		public bool enemyInSights;
 		public float maxAngleLockOn = 60f;
@@ -51,6 +59,7 @@ public class Ship : MonoBehaviour
 	
 		void Start ()
 		{
+				respawnIn = deadLength;
 				boost = MAX_BOOST;	
 				health = MAX_HEALTH;
 				score = 0;
@@ -65,18 +74,40 @@ public class Ship : MonoBehaviour
 				boostPixel = new Texture2D (1, 1);
 				boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
 				boostPixel.Apply ();
+				greyPixel = new Texture2D (1, 1);
+				greyPixel.SetPixel (0, 0, new Color (0F, 0F, 0F, 0.5F));
+				greyPixel.Apply ();
 		}
 	
 		void Update ()
 		{
 				if (health <= 0) {
+						if (!hasExploded) 
+						{
+							makeInvisible();
+							hasExploded = true;
+							Instantiate(explosion, transform.position, Quaternion.identity);
+							this.collider.enabled = false;
+						}
+						if (respawnIn > 0) 
+						{
+							respawnIn -= Time.deltaTime;
+							return;
+						}
+						respawnIn = deadLength;
 						respawn ();
 				}
 				shotCooldownRemaining -= Time.deltaTime;
 		
 				string inputPrefix = "Player" + playerNumber;
-				Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
-				Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
+				if (classicMovement) {
+						Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
+						Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
+				} 
+				else {
+						Rotate (Vector3.down, Input.GetAxis (inputPrefix + "Horizontal"));
+						Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
+				}
 				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
 				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 						Fire ();
@@ -89,6 +120,19 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
+				if (health <= 0) {
+					var rectStart = cameraScreen.ViewportToScreenPoint( new Vector3 (0,0,0));
+					GUI.DrawTexture(new Rect(rectStart.x,Screen.height - rectStart.y,cameraScreen.pixelWidth,cameraScreen.pixelHeight),greyPixel);
+
+					var centeredStyle = GUI.skin.GetStyle("Label");
+					centeredStyle.alignment = TextAnchor.UpperCenter;
+					var rectStart2 = cameraScreen.ViewportToScreenPoint( new Vector3 (.5f-(50f/cameraScreen.pixelWidth),.5f-(0/cameraScreen.pixelHeight),0));
+            
+					GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in "+(int)respawnIn, centeredStyle);
+            
+					return;
+				}
+
 				if (!boostAvailable) {
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.3F));
 						boostPixel.Apply ();
@@ -288,6 +332,9 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
+				makeVisible();
+				this.collider.enabled = true;
+				hasExploded = false;
 				if (CTF != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
 						CTF.cargo.transform.localScale = new Vector3 (10f, 10f, 10f);
@@ -300,5 +347,41 @@ public class Ship : MonoBehaviour
 						transform.LookAt (new Vector3 (0, 0, 0));
 						transform.Rotate (new Vector3 (90, 0, 0));
 				}
+		}
+
+		public void makeInvisible()
+		{
+			this.renderer.enabled = false;	
+			foreach (Transform child in transform) {
+				if (!child.name.Contains ("Camera"))
+					child.renderer.enabled = false;	
+			}
+			GameObject arrow = GameObject.Find ("Arrow" + playerNumber);
+			if (arrow != null)
+			{	
+				this.renderer.enabled = false;
+				foreach (Transform child in arrow.transform) {
+					if (!child.name.Contains ("Camera"))
+						child.renderer.enabled = false;	
+	        	}
+			}
+		}
+
+		public void makeVisible()
+		{
+			this.renderer.enabled = true;
+			foreach (Transform child in transform) {
+				if (!child.name.Contains ("Camera"))
+					child.renderer.enabled = true;	
+       		}
+			GameObject arrow = GameObject.Find ("Arrow" + playerNumber);
+			if (arrow != null)
+			{	
+				this.renderer.enabled = true;
+				foreach (Transform child in arrow.transform) {
+					if (!child.name.Contains ("Camera"))
+						child.renderer.enabled = true;	
+	            }
+	        }   
 		}
 }

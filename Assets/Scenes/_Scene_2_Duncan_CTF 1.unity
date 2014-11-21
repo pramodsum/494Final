@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
+  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 1726114071}
   - {fileID: 501593855}
@@ -1212,6 +1213,8 @@ MonoBehaviour:
   shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
+  respawnIn: 0
+  deadLength: 10
   outOfBounds: 0
   FORCE_MODIFIER: 0
   ROTATION_SPEED: 100
@@ -3429,6 +3432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 100000, guid: 4b656802e514fc942a28ea58f997e108, type: 2}
+  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 2012391117}
   - {fileID: 159909859}
@@ -3437,6 +3441,8 @@ MonoBehaviour:
   shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
+  respawnIn: 0
+  deadLength: 10
   outOfBounds: 0
   FORCE_MODIFIER: 0
   ROTATION_SPEED: 100
@@ -9717,7 +9723,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 20c4ed4571b244729b275173fdeb9046, type: 3}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -11283,6 +11289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 100000, guid: 4b656802e514fc942a28ea58f997e108, type: 2}
+  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 2012391117}
   - {fileID: 159909859}
@@ -11291,8 +11298,10 @@ MonoBehaviour:
   shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
+  respawnIn: 0
+  deadLength: 10
   outOfBounds: 0
-  FORCE_MODIFIER: 500
+  FORCE_MODIFIER: 0
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10
@@ -12857,7 +12866,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300014, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_Materials.Array.data[1]
@@ -13650,6 +13659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
+  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 1726114071}
   - {fileID: 501593855}
@@ -13658,8 +13668,10 @@ MonoBehaviour:
   shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
+  respawnIn: 0
+  deadLength: 10
   outOfBounds: 0
-  FORCE_MODIFIER: 0
+  FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10

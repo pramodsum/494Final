@@ -20,7 +20,7 @@ public class Highlight : MonoBehaviour
 	
 				Ship[] ships = FindObjectsOfType (typeof(Ship)) as Ship[];
 				foreach (Ship s in ships) {
-						if (s != thisShip) {
+						if (s.health >0 && s != thisShip) {
 								Vector3 vec = thisCam.WorldToViewportPoint (s.transform.position);
 								if (vec.x >= 0 && vec.x <= 1) {
 										if (vec.y >= 0 && vec.y <= 1) {
