@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Ship : MonoBehaviour
 {
 		public GameObject shot;
@@ -43,6 +44,8 @@ public class Ship : MonoBehaviour
 		public bool enemyInSights;
 		public float maxAngleLockOn = 60f;
 		public float maxDistLockOn = 50f;
+		
+		public AudioClip shotSound;
 
 		public GameObject boundary;
 	
@@ -98,13 +101,13 @@ public class Ship : MonoBehaviour
 				var healthWidth = healthPercentage * cameraScreen.pixelWidth;
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
 				
-				GUI.DrawTexture (new Rect (healthCoords.x, Screen.height-30-healthCoords.y, healthWidth, 15f), healthPixel);
+				GUI.DrawTexture (new Rect (healthCoords.x, Screen.height - 30 - healthCoords.y, healthWidth, 15f), healthPixel);
 				
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
 				var boostWidth = boostPercentage * cameraScreen.pixelWidth;
 				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, .05f, 0));
 				
-				GUI.DrawTexture (new Rect (boostCoords.x, (Screen.height)-boostCoords.y, boostWidth, 15f), boostPixel);     
+				GUI.DrawTexture (new Rect (boostCoords.x, (Screen.height) - boostCoords.y, boostWidth, 15f), boostPixel);     
 		}
 	
 		void OnTriggerEnter (Collider other)
@@ -135,9 +138,9 @@ public class Ship : MonoBehaviour
 				var force = FORCE_MODIFIER;
 				boost += boostRefreshRate; 
 				if (boost > MAX_BOOST)
-					boost = MAX_BOOST;
+						boost = MAX_BOOST;
 				if (!boostAvailable && boost > boostReAvailableAt)
-					boostAvailable = true;
+						boostAvailable = true;
 							
 				if (extraPercent != 0) {
 						if (isNotBreak && boostAvailable) 
@@ -154,7 +157,7 @@ public class Ship : MonoBehaviour
 				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
 				
 				if (isNotBreak)
-					rigidbody.AddForce (transform.up * force);
+						rigidbody.AddForce (transform.up * force);
 		}
 
 		public void BounceBack ()
@@ -186,26 +189,29 @@ public class Ship : MonoBehaviour
 				pos [3] = thisMatrix.MultiplyPoint3x4 (new Vector3 (extents.x, -extents.y, -extents.z));
 				transform.rotation = storedRotation;
 				foreach (GameObject _otherShip in otherShip)
-				foreach (var position in pos) {
-						var newShot = Instantiate (shot, position, Quaternion.identity) as GameObject;
-						newShot.name = "Shot";
-						newShot.SendMessage ("SetShooter", gameObject);
-						// otherShip;
-						Vector3 forward = facingDirection ();
-						Vector3 between = (_otherShip.transform.position - transform.position).normalized;
-						float dist = (transform.position - _otherShip.transform.position).magnitude;
-						float angleTwixt = Vector3.Angle (forward, between);
-						// print (""+angleTwixt+" "+dist);
-						enemyInSights = false;
-						if (angleTwixt <= maxAngleLockOn && dist <= maxDistLockOn) {
-								enemyInSights = true;
-								print ("" + angleTwixt + " " + dist);
+						foreach (var position in pos) {
+								var newShot = Instantiate (shot, position, Quaternion.identity) as GameObject;
+								newShot.name = "Shot";
+								newShot.SendMessage ("SetShooter", gameObject);
+								// otherShip;
+								Vector3 forward = facingDirection ();
+								Vector3 between = (_otherShip.transform.position - transform.position).normalized;
+								float dist = (transform.position - _otherShip.transform.position).magnitude;
+								float angleTwixt = Vector3.Angle (forward, between);
+								// print (""+angleTwixt+" "+dist);
+								enemyInSights = false;
+								if (angleTwixt <= maxAngleLockOn && dist <= maxDistLockOn) {
+										enemyInSights = true;
+										print ("" + angleTwixt + " " + dist);
+								}
+								if (enemyInSights)
+										newShot.rigidbody.AddForce (between * 0.001f);
+								else
+										newShot.rigidbody.AddForce (facingDirection () * 0.001f);
+
+								//Add sound effect to shots
+								audio.PlayOneShot (shotSound, 0.7f);
 						}
-						if (enemyInSights)
-								newShot.rigidbody.AddForce (between * 0.001f);
-						else
-								newShot.rigidbody.AddForce (facingDirection () * 0.001f);
-				}
 		}
 	
 		public string getAttributeByName (string s)
@@ -223,15 +229,15 @@ public class Ship : MonoBehaviour
 		private void adjustCamera ()
 		{
 //				cameraScreen = GetComponentInChildren<Camera> () as Camera;
-			if (playerNumber == 1)
-				cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera>();
-			if (playerNumber == 2)
-				cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera>();
-			if (playerNumber == 3)
-				cameraScreen = GameObject.Find ("Camera3").GetComponent<Camera>();
-			if (playerNumber == 4)
-				cameraScreen = GameObject.Find ("Camera4").GetComponent<Camera>();
-			var shipCount = FindAll ().Length;
+				if (playerNumber == 1)
+						cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera> ();
+				if (playerNumber == 2)
+						cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera> ();
+				if (playerNumber == 3)
+						cameraScreen = GameObject.Find ("Camera3").GetComponent<Camera> ();
+				if (playerNumber == 4)
+						cameraScreen = GameObject.Find ("Camera4").GetComponent<Camera> ();
+				var shipCount = FindAll ().Length;
 				float x = 0f;
 				float y = 0f;
 				float w = (shipCount > 2) ? 0.5f : 1f;
@@ -259,13 +265,13 @@ public class Ship : MonoBehaviour
 		{
 				int result = 0;
 				if (this.name == "Ship1")
-					return 1;
+						return 1;
 				else if (this.name == "Ship2")
-					return 2;
+						return 2;
 				else if (this.name == "Ship3")
-					return 3;
+						return 3;
 				else /*if (this.name == "Ship4")*/
-					return 4;
+						return 4;
 //				foreach (var ship in FindAll()) {
 //						result ++;
 //						if (ship == this) {
@@ -291,8 +297,8 @@ public class Ship : MonoBehaviour
 				transform.position = newPos;
 				health = MAX_HEALTH;
 				if (CTF != null) {
-					transform.LookAt (GameObject.Find ("Sun").transform.position);
-					transform.Rotate (new Vector3 (90, 0, 0));
+						transform.LookAt (new Vector3 (0, 0, 0));
+						transform.Rotate (new Vector3 (90, 0, 0));
 				}
 		}
 }
