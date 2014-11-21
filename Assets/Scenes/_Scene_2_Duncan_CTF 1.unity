@@ -1941,7 +1941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &244366013
 Transform:
   m_ObjectHideFlags: 0
@@ -2181,7 +2181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &262785731
 Transform:
   m_ObjectHideFlags: 0
@@ -3948,7 +3948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &602904545
 Transform:
   m_ObjectHideFlags: 0
@@ -4540,7 +4540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &700224444
 Transform:
   m_ObjectHideFlags: 0
@@ -5903,7 +5903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &907772600
 Transform:
   m_ObjectHideFlags: 0
@@ -6532,6 +6532,7 @@ GameObject:
   - 92: {fileID: 989868041}
   - 114: {fileID: 989868040}
   - 114: {fileID: 989868039}
+  - 45: {fileID: 989868044}
   m_Layer: 0
   m_Name: Camera3
   m_TagString: Untagged
@@ -6645,6 +6646,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!45 &989868044
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 989868037}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
 --- !u!1 &995483961
 GameObject:
   m_ObjectHideFlags: 0
@@ -7217,6 +7226,7 @@ GameObject:
   - 92: {fileID: 1097781077}
   - 114: {fileID: 1097781084}
   - 114: {fileID: 1097781083}
+  - 45: {fileID: 1097781076}
   m_Layer: 0
   m_Name: Camera1
   m_TagString: Untagged
@@ -7224,6 +7234,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!45 &1097781076
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097781075}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
 --- !u!92 &1097781077
 Behaviour:
   m_ObjectHideFlags: 0
@@ -8376,6 +8394,7 @@ GameObject:
   - 92: {fileID: 1277889624}
   - 114: {fileID: 1277889623}
   - 114: {fileID: 1277889622}
+  - 45: {fileID: 1277889628}
   m_Layer: 0
   m_Name: Camera4
   m_TagString: Untagged
@@ -8489,6 +8508,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 501593857}
   m_RootOrder: 12
+--- !u!45 &1277889628
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277889621}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
 --- !u!1 &1289906311
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,6 +9082,7 @@ GameObject:
   - 92: {fileID: 1386447749}
   - 114: {fileID: 1386447756}
   - 114: {fileID: 1386447755}
+  - 45: {fileID: 1386447752}
   m_Layer: 0
   m_Name: Camera2
   m_TagString: Untagged
@@ -9123,6 +9151,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!45 &1386447752
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386447747}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
 --- !u!114 &1386447755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11117,7 +11153,7 @@ MonoBehaviour:
   knockbackRemaining: 0
   knockBack: 100
   outOfBounds: 0
-  FORCE_MODIFIER: 0
+  FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10
@@ -12084,7 +12120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1854136513
 Transform:
   m_ObjectHideFlags: 0
@@ -12558,7 +12594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2300014, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_Materials.Array.data[1]
@@ -13948,7 +13984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2100387775
 Renderer:
   m_ObjectHideFlags: 0
