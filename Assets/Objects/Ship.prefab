@@ -1021,10 +1021,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
-  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
+  explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
   otherShip: []
   p1Home: {fileID: 0}
   CTF: {fileID: 0}
+  classicMovement: 1
   shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
@@ -1038,6 +1039,7 @@ MonoBehaviour:
   CONSTANT_MOVEMENT_AMOUNT: 10
   CAMERA_MIN_FOV: 60
   CAMERA_MAX_FOV: 80
+  health: 0
   boost: 0
   boostRefreshRate: .0500000007
   boostReAvailableAt: 5
