@@ -178,7 +178,7 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
-				particleSystem.enableEmission = false;
+				if (particleSystem != null) particleSystem.enableEmission = false;
 				string inputPrefix = "Player" + playerNumber;
 				bool isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
 
@@ -205,7 +205,7 @@ public class Ship : MonoBehaviour
 				
 				if (isNotBreak) {
 						rigidbody.AddForce (transform.up * force);
-						if (FORCE_MODIFIER != 0) particleSystem.enableEmission = true;
+						if (FORCE_MODIFIER != 0 && particleSystem != null) particleSystem.enableEmission = true;
 				}
 
 		}
