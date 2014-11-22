@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AudioSource))]
 public class Ship : MonoBehaviour
 {	
 		public ParticleSystem particleSystem;
@@ -84,17 +83,15 @@ public class Ship : MonoBehaviour
 		void Update ()
 		{
 				if (health <= 0) {
-						if (!hasExploded) 
-						{
-							makeInvisible();
-							hasExploded = true;
-							Instantiate(explosion, transform.position, Quaternion.identity);
-							this.collider.enabled = false;
+						if (!hasExploded) {
+								makeInvisible ();
+								hasExploded = true;
+								Instantiate (explosion, transform.position, Quaternion.identity);
+								this.collider.enabled = false;
 						}
-						if (respawnIn > 0) 
-						{
-							respawnIn -= Time.deltaTime;
-							return;
+						if (respawnIn > 0) {
+								respawnIn -= Time.deltaTime;
+								return;
 						}
 						respawnIn = deadLength;
 						respawn ();
@@ -105,8 +102,7 @@ public class Ship : MonoBehaviour
 				if (classicMovement) {
 						Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
 						Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				} 
-				else {
+				} else {
 						Rotate (Vector3.down, Input.GetAxis (inputPrefix + "Horizontal"));
 						Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
 				}
@@ -123,16 +119,16 @@ public class Ship : MonoBehaviour
 		void OnGUI ()
 		{
 				if (health <= 0) {
-					var rectStart = cameraScreen.ViewportToScreenPoint( new Vector3 (0,0,0));
-					GUI.DrawTexture(new Rect(rectStart.x,Screen.height - rectStart.y,cameraScreen.pixelWidth,cameraScreen.pixelHeight),greyPixel);
+						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
+						GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
 
-					var centeredStyle = GUI.skin.GetStyle("Label");
-					centeredStyle.alignment = TextAnchor.UpperCenter;
-					var rectStart2 = cameraScreen.ViewportToScreenPoint( new Vector3 (.5f-(50f/cameraScreen.pixelWidth),.5f-(0/cameraScreen.pixelHeight),0));
+						var centeredStyle = GUI.skin.GetStyle ("Label");
+						centeredStyle.alignment = TextAnchor.UpperCenter;
+						var rectStart2 = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
             
-					GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in "+(int)respawnIn, centeredStyle);
+						GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in " + (int)respawnIn, centeredStyle);
             
-					return;
+						return;
 				}
 
 				if (!boostAvailable) {
@@ -178,7 +174,8 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
-				if (particleSystem != null) particleSystem.enableEmission = false;
+				if (particleSystem != null)
+						particleSystem.enableEmission = false;
 				string inputPrefix = "Player" + playerNumber;
 				bool isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
 
@@ -205,7 +202,8 @@ public class Ship : MonoBehaviour
 				
 				if (isNotBreak) {
 						rigidbody.AddForce (transform.up * force);
-						if (FORCE_MODIFIER != 0 && particleSystem != null) particleSystem.enableEmission = true;
+						if (FORCE_MODIFIER != 0 && particleSystem != null)
+								particleSystem.enableEmission = true;
 				}
 
 		}
@@ -260,7 +258,7 @@ public class Ship : MonoBehaviour
 										newShot.rigidbody.AddForce (facingDirection () * 0.001f);
 
 								//Add sound effect to shots
-								audio.PlayOneShot (shotSound, 0.7f);
+								GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.7f);
 						}
 		}
 	
@@ -338,7 +336,7 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
-				makeVisible();
+				makeVisible ();
 				this.collider.enabled = true;
 				hasExploded = false;
 				if (CTF != null && CTF.cargo.ship == transform) {
@@ -355,39 +353,37 @@ public class Ship : MonoBehaviour
 				}
 		}
 
-		public void makeInvisible()
+		public void makeInvisible ()
 		{
-			this.renderer.enabled = false;	
-			foreach (Transform child in transform) {
-				if (!child.name.Contains ("Camera"))
-					child.renderer.enabled = false;	
-			}
-			GameObject arrow = GameObject.Find ("Arrow" + playerNumber);
-			if (arrow != null)
-			{	
-				this.renderer.enabled = false;
-				foreach (Transform child in arrow.transform) {
-					if (!child.name.Contains ("Camera"))
-						child.renderer.enabled = false;	
-	        	}
-			}
+				this.renderer.enabled = false;	
+				foreach (Transform child in transform) {
+						if (!child.name.Contains ("Camera"))
+								child.renderer.enabled = false;	
+				}
+				GameObject arrow = GameObject.Find ("Arrow" + playerNumber);
+				if (arrow != null) {	
+						this.renderer.enabled = false;
+						foreach (Transform child in arrow.transform) {
+								if (!child.name.Contains ("Camera"))
+										child.renderer.enabled = false;	
+						}
+				}
 		}
 
-		public void makeVisible()
+		public void makeVisible ()
 		{
-			this.renderer.enabled = true;
-			foreach (Transform child in transform) {
-				if (!child.name.Contains ("Camera"))
-					child.renderer.enabled = true;	
-       		}
-			GameObject arrow = GameObject.Find ("Arrow" + playerNumber);
-			if (arrow != null)
-			{	
 				this.renderer.enabled = true;
-				foreach (Transform child in arrow.transform) {
-					if (!child.name.Contains ("Camera"))
-						child.renderer.enabled = true;	
-	            }
-	        }   
+				foreach (Transform child in transform) {
+						if (!child.name.Contains ("Camera"))
+								child.renderer.enabled = true;	
+				}
+				GameObject arrow = GameObject.Find ("Arrow" + playerNumber);
+				if (arrow != null) {	
+						this.renderer.enabled = true;
+						foreach (Transform child in arrow.transform) {
+								if (!child.name.Contains ("Camera"))
+										child.renderer.enabled = true;	
+						}
+				}   
 		}
 }
