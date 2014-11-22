@@ -3,7 +3,9 @@ using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
 public class Ship : MonoBehaviour
-{
+{	
+		public ParticleSystem particleSystem;
+
 		public GameObject shot;
 		public GameObject explosion;
 		
@@ -176,6 +178,7 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
+				particleSystem.enableEmission = false;
 				string inputPrefix = "Player" + playerNumber;
 				bool isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
 
@@ -200,8 +203,11 @@ public class Ship : MonoBehaviour
         
 				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
 				
-				if (isNotBreak)
+				if (isNotBreak) {
 						rigidbody.AddForce (transform.up * force);
+						if (FORCE_MODIFIER != 0) particleSystem.enableEmission = true;
+				}
+
 		}
 
 		public void BounceBack ()
