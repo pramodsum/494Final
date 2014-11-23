@@ -23,6 +23,7 @@ public class Ship : MonoBehaviour
 		public float respawnIn;
 		public float deadLength = 10f;
 		private bool hasExploded = false;
+		private bool awardPointsForDestruction = true;
 	
 		public bool outOfBounds;
 
@@ -236,9 +237,10 @@ public class Ship : MonoBehaviour
 		public void Damage (int isShot, int shooter)
 		{
 				health -= 0.3f;
-				if (isShot == 1 && health <= 0) {
+				if (isShot == 1 && health <= 0 && awardPointsForDestruction) {
 					if (((playerNumber == 1 || playerNumber == 3) && (shooter == 2 || shooter == 4)) ||
 			    		(playerNumber == 2 || playerNumber == 4) && (shooter == 1 || shooter == 3)) {
+						awardPointsForDestruction = false;
 						if ((playerNumber == 1 || playerNumber == 3)) {
 							CTF.shipDestroyed(1);
 						}
@@ -366,6 +368,7 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
+				awardPointsForDestruction = true;
 				makeVisible ();
 				this.collider.enabled = true;
 				hasExploded = false;
