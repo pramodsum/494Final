@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using InControl;
 
-[RequireComponent(typeof(AudioSource))]
 public class Ship : MonoBehaviour
 {	
 		public ParticleSystem particleSystem;
@@ -100,7 +99,6 @@ public class Ship : MonoBehaviour
 				}
 				shotCooldownRemaining -= Time.deltaTime;
 		
-<<<<<<< HEAD
 				var inputDevice = (InputManager.Devices.Count >= playerNumber) ? InputManager.Devices [playerNumber - 1] : null;
 				if (inputDevice != null) {
 						Rotate (Vector3.forward, inputDevice.LeftStickX);
@@ -124,19 +122,6 @@ public class Ship : MonoBehaviour
 						if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 								Fire ();
 						}
-=======
-				string inputPrefix = "Player" + playerNumber;
-				if (classicMovement) {
-						Rotate (Vector3.forward, Input.GetAxis (inputPrefix + "Horizontal"));
-						Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				} else {
-						Rotate (Vector3.down, Input.GetAxis (inputPrefix + "Horizontal"));
-						Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
-				}
-				MoveForward (Input.GetAxis (inputPrefix + "Forward"));
-				if (Input.GetAxis (inputPrefix + "Fire") == 1) {
-						Fire ();
->>>>>>> origin/master
 				}
 
 				if (!boundary.collider.bounds.Contains (transform.position)) {
@@ -204,7 +189,6 @@ public class Ship : MonoBehaviour
 		{
 				if (particleSystem != null)
 						particleSystem.enableEmission = false;
-<<<<<<< HEAD
 				bool isNotBreak = true;
 						
 				var inputDevice = (InputManager.Devices.Count >= playerNumber) ? InputManager.Devices [playerNumber - 1] : null;
@@ -214,10 +198,6 @@ public class Ship : MonoBehaviour
 						string inputPrefix = "Player" + playerNumber;
 						isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
 				}
-=======
-				string inputPrefix = "Player" + playerNumber;
-				bool isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
->>>>>>> origin/master
 
 				var force = FORCE_MODIFIER;
 				boost += boostRefreshRate; 
@@ -298,7 +278,7 @@ public class Ship : MonoBehaviour
 										newShot.rigidbody.AddForce (facingDirection () * 0.001f);
 
 								//Add sound effect to shots
-								audio.PlayOneShot (shotSound, 0.7f);
+								GameObject.Find ("Directional Light").audio.PlayOneShot (shotSound, 0.7f);
 						}
 		}
 	
