@@ -14517,7 +14517,7 @@ MonoBehaviour:
   respawnIn: 0
   deadLength: 10
   outOfBounds: 0
-  FORCE_MODIFIER: 500
+  FORCE_MODIFIER: 0
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10
@@ -15960,7 +15960,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300014, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_Materials.Array.data[1]
