@@ -278,7 +278,7 @@ public class Ship : MonoBehaviour
 										newShot.rigidbody.AddForce (facingDirection () * 0.001f);
 
 								//Add sound effect to shots
-								GameObject.Find ("Directional Light").audio.PlayOneShot (shotSound, 0.7f);
+								GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.7f);
 						}
 		}
 	
