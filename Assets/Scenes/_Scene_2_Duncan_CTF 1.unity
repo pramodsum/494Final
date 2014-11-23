@@ -1099,6 +1099,10 @@ Prefab:
       propertyPath: outOfBounds
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -8360,7 +8364,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2000764987}
   m_GameObject: {fileID: 989868037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
   m_Name: 
@@ -10266,7 +10270,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1611567806}
   m_GameObject: {fileID: 1097781075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
   m_Name: 
@@ -12601,7 +12605,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 122378774}
   m_GameObject: {fileID: 1277889621}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
   m_Name: 
@@ -13432,7 +13436,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1917965420}
   m_GameObject: {fileID: 1386447747}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
   m_Name: 
@@ -14750,6 +14754,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotCooldownTime
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -17336,6 +17344,10 @@ Prefab:
       propertyPath: shotCooldownTime
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -17992,6 +18004,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotCooldownTime
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

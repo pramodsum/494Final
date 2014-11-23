@@ -139,7 +139,7 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
-				if (!outOfBounds) {
+				if (outOfBounds) {
 						string text;
 			
 						var centeredStyle = GUI.skin.GetStyle ("Label");
@@ -187,7 +187,8 @@ public class Ship : MonoBehaviour
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
 						boostPixel.Apply ();
 				}
-		
+        
+				//Health
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
 				var healthWidth = healthPercentage * cameraScreen.pixelWidth / 4;
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.74f, 0.985f, 0));
@@ -196,13 +197,21 @@ public class Ship : MonoBehaviour
 				GUI.Label (new Rect (healthCoords.x - 75, Screen.height - healthCoords.y - 5, 100, 50), "Health: ");
 				GUI.DrawTexture (healthRect, healthPixel);
 		
+				//Boost
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
 				var boostWidth = boostPercentage * cameraScreen.pixelWidth / 6;
 				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.005f, 0.05f, 0));
 				Rect boostRect = new Rect (boostCoords.x + 45, Screen.height - boostCoords.y, boostWidth, 12f);
 		
 				GUI.Label (new Rect (boostCoords.x - 27, Screen.height - boostCoords.y - 5, 100, 50), "Boost: ");
-				GUI.DrawTexture (boostRect, boostPixel);     
+				GUI.DrawTexture (boostRect, boostPixel);   
+		
+				//Score
+				var tStyle = GUI.skin.GetStyle ("Label");
+				tStyle.alignment = TextAnchor.UpperCenter;
+				Rect r = new Rect (boostCoords.x - 50, Screen.height - healthCoords.y - 5, 150, 50);
+		
+				GUI.Label (r, "Score: " + score);  
 		}
     
 		void OnTriggerEnter (Collider other)
