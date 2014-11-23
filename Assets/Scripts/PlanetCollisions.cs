@@ -19,7 +19,7 @@ public class PlanetCollisions : MonoBehaviour
 		void OnCollisionEnter (Collision other)
 		{
 				if (other.gameObject.tag == "PlayerShip") {
-						other.gameObject.GetComponent<Ship> ().Damage ();
+						other.gameObject.GetComponent<Ship> ().Damage (0,0);
 						Debug.Log ("Ship: " + other.gameObject.transform.position);
 						other.gameObject.GetComponent<Ship> ().BounceBack ();
 						Debug.Log ("Ship: " + other.gameObject.transform.position);

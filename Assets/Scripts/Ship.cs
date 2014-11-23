@@ -167,7 +167,7 @@ public class Ship : MonoBehaviour
 		{
 				if (other.gameObject.name == "Boundary") {
 						Debug.Log ("This is not that path you are looking for....");
-						Damage ();
+						Damage (0,0);
 				}
 		}
 	
@@ -215,9 +215,19 @@ public class Ship : MonoBehaviour
 				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, -rigidbody.velocity.y * 10, rigidbody.velocity.z);
 		}
 
-		public void Damage ()
+		public void Damage (int isShot, int shooter)
 		{
 				health -= 0.3f;
+				if (isShot == 1 && health <= 0) {
+					if (((playerNumber == 1 || playerNumber == 3) && (shooter == 2 || shooter == 4)) ||
+			    		(playerNumber == 2 || playerNumber == 4) && (shooter == 1 || shooter == 3)) {
+						if ((playerNumber == 1 || playerNumber == 3)) {
+							CTF.shipDestroyed(1);
+						}
+						else 
+							CTF.shipDestroyed(2);
+					}
+				}
 		}
 	
 		void Fire ()

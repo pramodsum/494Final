@@ -42,7 +42,9 @@ public class Shot : MonoBehaviour {
 
 		var otherPos = ship.transform.position;
 		var knockDirection = (transform.position - otherPos).normalized;
-		ship.SendMessage("Damage");
+//		ship.SendMessage("Damage");
+		int shooterNum = shooter.GetComponent<Ship> ().GetPlayerNumber ();
+		ship.GetComponent<Ship> ().Damage (1,shooterNum);
 		Instantiate(explosion, otherPos, Quaternion.identity);
 		Destroy(gameObject);
 		ship.rigidbody.AddForce(knockDirection * 100f);

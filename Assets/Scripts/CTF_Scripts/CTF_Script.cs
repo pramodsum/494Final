@@ -9,6 +9,8 @@ public class CTF_Script : MonoBehaviour
 		private int tillTick = 20;
 		private int Tick = 20;
 
+		public int pointsOnKill = 100;
+
 		public Station_Control[] Stations;
 		public GameObject _cargo;
 		public GameObject arrow;
@@ -164,5 +166,16 @@ public class CTF_Script : MonoBehaviour
 						return "" + p2Score;
 				else
 						return "";
+		}
+
+		public void shipDestroyed(int team)
+		{
+			if (team == 1)
+			{
+				p2Score +=  pointsOnKill;
+			}
+			else {
+				p1Score += pointsOnKill;
+			}
 		}
 }
