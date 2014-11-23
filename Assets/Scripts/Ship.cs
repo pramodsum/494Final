@@ -4,6 +4,7 @@ using InControl;
 
 public class Ship : MonoBehaviour
 {	
+		private int gameOver = 0;//0 game on, 1 you win, 2 you lose
 		public ParticleSystem particleSystem;
 
 		public GameObject shot;
@@ -84,6 +85,9 @@ public class Ship : MonoBehaviour
 	
 		void Update ()
 		{
+				if (gameOver == 2) {
+					health = 0;
+				}
 				if (health <= 0) {
 						if (!hasExploded) {
 								makeInvisible ();
@@ -94,6 +98,9 @@ public class Ship : MonoBehaviour
 						if (respawnIn > 0) {
 								respawnIn -= Time.deltaTime;
 								return;
+						}
+						if ((gameOver > 0) && name == "Ship1" || name == "Ship2") {
+							Application.LoadLevel("_Scene_Main_Menu");
 						}
 						respawnIn = deadLength;
 						respawn ();
@@ -132,6 +139,19 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
+				if (gameOver > 0) {
+					string text;
+					
+					var centeredStyle = GUI.skin.GetStyle ("Label");
+					centeredStyle.alignment = TextAnchor.UpperCenter;
+					var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
+					Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y, 100, 50);
+
+					if (CTF.p1Score > CTF.p2Score) text = "Red Team Wins!";
+					else text = "Blue Team Wins!";
+					GUI.Label(rect,text);
+					return;
+				}
 				if (health <= 0) {
 						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
 						GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
@@ -418,5 +438,12 @@ public class Ship : MonoBehaviour
 										child.renderer.enabled = true;	
 						}
 				}   
+		}
+
+		public void makeGameOver(bool won)
+		{
+			if (won)
+				gameOver = 1;
+			else gameOver = 2;
 		}
 }

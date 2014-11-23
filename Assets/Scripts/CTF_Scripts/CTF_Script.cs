@@ -6,8 +6,10 @@ public class CTF_Script : MonoBehaviour
 		//just used to tell who is controlling which station
 		public Material red;	
 		public Material blue;
-		private int tillTick = 20;
-		private int Tick = 20;
+		private int tillTick;
+		private int Tick = 1;
+
+		public int winScore = 10000;
 
 		public int pointsOnKill = 100;
 
@@ -44,6 +46,7 @@ public class CTF_Script : MonoBehaviour
 		// Use this for initialization 
 		void Start ()
 		{
+				tillTick = Tick;
 				p1Score = 0;
 				p2Score = 0;
 				timeTilCargo = cargoWait;
@@ -65,6 +68,19 @@ public class CTF_Script : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+				if (p1Score >= winScore) {
+					ship1.gameObject.GetComponent<Ship>().makeGameOver(true);
+					ship2.gameObject.GetComponent<Ship>().makeGameOver(false);
+					ship3.gameObject.GetComponent<Ship>().makeGameOver(true);
+					ship4.gameObject.GetComponent<Ship>().makeGameOver(false);
+					return;
+				} else if (p2Score >= winScore) {
+					ship1.gameObject.GetComponent<Ship>().makeGameOver(false);
+					ship2.gameObject.GetComponent<Ship>().makeGameOver(true);
+					ship3.gameObject.GetComponent<Ship>().makeGameOver(false);
+					ship4.gameObject.GetComponent<Ship>().makeGameOver(true);
+					return;
+				}
 				tillTick--;
 				foreach (Station_Control station in Stations) {
 					if (station.inControl && tillTick == 0)

@@ -971,6 +971,14 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: shotCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: outOfBounds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -1246,7 +1254,7 @@ MonoBehaviour:
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: .100000001
+  shotCooldownTime: 1
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
@@ -2914,6 +2922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   red: {fileID: 2100000, guid: 4446a61544837d94dbf99bf6966a5ea2, type: 2}
   blue: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
+  winScore: 10000
+  pointsOnKill: 100
   Stations:
   - {fileID: 1814686930}
   - {fileID: 1640624896}
@@ -3418,7 +3428,7 @@ MonoBehaviour:
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: .100000001
+  shotCooldownTime: 1
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
@@ -13731,6 +13741,10 @@ Prefab:
       propertyPath: FORCE_MODIFIER
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: shotCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -14511,7 +14525,7 @@ MonoBehaviour:
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: .100000001
+  shotCooldownTime: 1
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
@@ -16014,6 +16028,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: dbb46c0c2ef9e44d29ca1c72a7bf6b22, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: shotCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -16667,6 +16685,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: dbb46c0c2ef9e44d29ca1c72a7bf6b22, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: shotCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -16746,7 +16768,7 @@ MonoBehaviour:
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: .100000001
+  shotCooldownTime: 1
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
