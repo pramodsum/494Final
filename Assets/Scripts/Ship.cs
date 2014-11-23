@@ -331,7 +331,7 @@ public class Ship : MonoBehaviour
 	
 		public int GetPlayerNumber ()
 		{
-				int result = 0;
+				//int result = 0;
 				if (this.name == "Ship1")
 						return 1;
 				else if (this.name == "Ship2")
