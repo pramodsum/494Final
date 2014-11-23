@@ -1093,7 +1093,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotCooldownTime
-      value: 1
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: outOfBounds
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: 1
+  shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
@@ -3642,7 +3642,7 @@ MonoBehaviour:
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: 1
+  shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
@@ -14749,7 +14749,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotCooldownTime
-      value: 1
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -15531,7 +15531,7 @@ MonoBehaviour:
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: 1
+  shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
@@ -17334,7 +17334,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: dbb46c0c2ef9e44d29ca1c72a7bf6b22, type: 3}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotCooldownTime
-      value: 1
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -17991,7 +17991,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: dbb46c0c2ef9e44d29ca1c72a7bf6b22, type: 3}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotCooldownTime
-      value: 1
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -18072,7 +18072,7 @@ MonoBehaviour:
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
   classicMovement: 0
-  shotCooldownTime: 1
+  shotCooldownTime: .100000001
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
