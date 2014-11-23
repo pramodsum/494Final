@@ -86,7 +86,7 @@ public class Ship : MonoBehaviour
 		void Update ()
 		{
 				if (gameOver == 2) {
-					health = 0;
+						health = 0;
 				}
 				if (health <= 0) {
 						if (!hasExploded) {
@@ -100,7 +100,7 @@ public class Ship : MonoBehaviour
 								return;
 						}
 						if ((gameOver > 0) && name == "Ship1" || name == "Ship2") {
-							Application.LoadLevel("_Scene_Main_Menu");
+								Application.LoadLevel ("_Scene_Main_Menu");
 						}
 						respawnIn = deadLength;
 						respawn ();
@@ -140,17 +140,19 @@ public class Ship : MonoBehaviour
 		void OnGUI ()
 		{
 				if (gameOver > 0) {
-					string text;
+						string text;
 					
-					var centeredStyle = GUI.skin.GetStyle ("Label");
-					centeredStyle.alignment = TextAnchor.UpperCenter;
-					var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-					Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y, 100, 50);
+						var centeredStyle = GUI.skin.GetStyle ("Label");
+						centeredStyle.alignment = TextAnchor.UpperCenter;
+						var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
+						Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y, 100, 50);
 
-					if (CTF.p1Score > CTF.p2Score) text = "Red Team Wins!";
-					else text = "Blue Team Wins!";
-					GUI.Label(rect,text);
-					return;
+						if (CTF.p1Score > CTF.p2Score)
+								text = "Red Team Wins!";
+						else
+								text = "Blue Team Wins!";
+						GUI.Label (rect, text);
+						return;
 				}
 				if (health <= 0) {
 						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
@@ -172,20 +174,24 @@ public class Ship : MonoBehaviour
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
 						boostPixel.Apply ();
 				}
-
+		
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
-				var healthWidth = healthPercentage * cameraScreen.pixelWidth;
-				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
-				
-				GUI.DrawTexture (new Rect (healthCoords.x, Screen.height - 30 - healthCoords.y, healthWidth, 15f), healthPixel);
-				
+				var healthWidth = healthPercentage * cameraScreen.pixelWidth / 4;
+				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.74f, 0.985f, 0));
+				Rect healthRect = new Rect (healthCoords.x, Screen.height - healthCoords.y, healthWidth, 12f);
+		
+				GUI.Label (new Rect (healthCoords.x - 75, Screen.height - healthCoords.y - 5, 100, 50), "Health: ");
+				GUI.DrawTexture (healthRect, healthPixel);
+		
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
-				var boostWidth = boostPercentage * cameraScreen.pixelWidth;
-				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0, .05f, 0));
-				
-				GUI.DrawTexture (new Rect (boostCoords.x, (Screen.height) - boostCoords.y, boostWidth, 15f), boostPixel);     
+				var boostWidth = boostPercentage * cameraScreen.pixelWidth / 6;
+				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.005f, 0.05f, 0));
+				Rect boostRect = new Rect (boostCoords.x + 45, Screen.height - boostCoords.y, boostWidth, 12f);
+		
+				GUI.Label (new Rect (boostCoords.x - 27, Screen.height - boostCoords.y - 5, 100, 50), "Boost: ");
+				GUI.DrawTexture (boostRect, boostPixel);     
 		}
-	
+    
 		void OnTriggerEnter (Collider other)
 		{
 				if (other.gameObject.name == "Shot") {
@@ -197,7 +203,7 @@ public class Ship : MonoBehaviour
 		{
 				if (other.gameObject.name == "Boundary") {
 						Debug.Log ("This is not that path you are looking for....");
-						Damage (0,0);
+						Damage (0, 0);
 				}
 		}
 	
@@ -258,15 +264,14 @@ public class Ship : MonoBehaviour
 		{
 				health -= 0.3f;
 				if (isShot == 1 && health <= 0 && awardPointsForDestruction) {
-					if (((playerNumber == 1 || playerNumber == 3) && (shooter == 2 || shooter == 4)) ||
-			    		(playerNumber == 2 || playerNumber == 4) && (shooter == 1 || shooter == 3)) {
-						awardPointsForDestruction = false;
-						if ((playerNumber == 1 || playerNumber == 3)) {
-							CTF.shipDestroyed(1);
+						if (((playerNumber == 1 || playerNumber == 3) && (shooter == 2 || shooter == 4)) ||
+								(playerNumber == 2 || playerNumber == 4) && (shooter == 1 || shooter == 3)) {
+								awardPointsForDestruction = false;
+								if ((playerNumber == 1 || playerNumber == 3)) {
+										CTF.shipDestroyed (1);
+								} else 
+										CTF.shipDestroyed (2);
 						}
-						else 
-							CTF.shipDestroyed(2);
-					}
 				}
 		}
 	
@@ -312,7 +317,7 @@ public class Ship : MonoBehaviour
 								//Add sound effect to shots
 //								GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
 						}
-		GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
+				GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
 
 		}
 	
@@ -442,10 +447,11 @@ public class Ship : MonoBehaviour
 				}   
 		}
 
-		public void makeGameOver(bool won)
+		public void makeGameOver (bool won)
 		{
-			if (won)
-				gameOver = 1;
-			else gameOver = 2;
+				if (won)
+						gameOver = 1;
+				else
+						gameOver = 2;
 		}
 }
