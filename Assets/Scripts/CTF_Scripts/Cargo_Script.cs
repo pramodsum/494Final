@@ -22,7 +22,8 @@ public class Cargo_Script : MonoBehaviour {
             ship = null;
             CTF.arrow1.ship2 = transform;
             CTF.arrow2.ship2 = transform;
-
+			CTF.arrow3.ship2 = transform;
+			CTF.arrow4.ship2 = transform;
         }
 		if (ship != null)
 		{
@@ -45,7 +46,10 @@ public class Cargo_Script : MonoBehaviour {
 			else if (collision.collider.name.Equals("Ship1") ||
 			         collision.collider.name.Equals("Ship3"))
 			{
-				CTF.arrow1.ship2 = CTF.p1Home;
+				if (collision.collider.name.Equals("Ship1"))
+					CTF.arrow1.ship2 = CTF.p1Home;
+				else
+					CTF.arrow3.ship2 = CTF.p1Home;
 				ship = collision.collider.transform;
 				cargoStatus = 1;
 				transform.localScale = new Vector3(2f,2f,2f);
@@ -53,6 +57,11 @@ public class Cargo_Script : MonoBehaviour {
 			else if (collision.collider.name.Equals("Ship2") ||
 			         collision.collider.name.Equals("Ship4"))
 			{
+				if (collision.collider.name.Equals("Ship2"))
+					CTF.arrow2.ship2 = CTF.p2Home;
+				else
+					CTF.arrow4.ship2 = CTF.p2Home;
+
 				CTF.arrow2.ship2 = CTF.p2Home;
 				ship = collision.collider.transform;
 				cargoStatus = 2;
