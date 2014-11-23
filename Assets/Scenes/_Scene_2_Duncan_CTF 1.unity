@@ -885,7 +885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_CullingMask.m_Bits
@@ -905,7 +905,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2300014, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_Materials.Array.data[1]
@@ -1053,7 +1053,7 @@ GameObject:
   - 33: {fileID: 137067099}
   - 65: {fileID: 137067098}
   - 23: {fileID: 137067097}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Bullseye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   respawnIn: 0
   deadLength: 10
   outOfBounds: 0
-  FORCE_MODIFIER: 0
+  FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10
@@ -1802,7 +1802,7 @@ Transform:
   - {fileID: 2117954162}
   - {fileID: 688278476}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &203816349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   respawnIn: 0
   deadLength: 10
   outOfBounds: 0
-  FORCE_MODIFIER: 0
+  FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10
@@ -6157,7 +6157,7 @@ Transform:
   - {fileID: 1910967539}
   - {fileID: 104314103}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &741229912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8259,7 +8259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &1015883487
 GameObject:
   m_ObjectHideFlags: 0
@@ -12876,6 +12876,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisShip: {fileID: 1726114073}
   thisCam: {fileID: 1386447751}
+--- !u!1 &1429079751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1429079753}
+  - 114: {fileID: 1429079752}
+  m_Layer: 0
+  m_Name: InControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1429079752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429079751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b5e8de77c5b4597ae7fbfb49a95e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logDebugInfo: 0
+  invertYAxis: 0
+  enableXInput: 0
+  useFixedUpdate: 0
+  dontDestroyOnLoad: 0
+  customProfiles: []
+--- !u!4 &1429079753
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429079751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1441704641
 GameObject:
   m_ObjectHideFlags: 0
@@ -13248,7 +13293,7 @@ Transform:
   - {fileID: 985859116}
   - {fileID: 1300547619}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1534547734
 GameObject:
   m_ObjectHideFlags: 0
@@ -13922,7 +13967,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: dbb46c0c2ef9e44d29ca1c72a7bf6b22, type: 3}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -14202,7 +14247,7 @@ Transform:
   - {fileID: 768218324}
   - {fileID: 1214164372}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1640714418
 GameObject:
   m_ObjectHideFlags: 0
@@ -14214,7 +14259,7 @@ GameObject:
   - 33: {fileID: 1640714422}
   - 65: {fileID: 1640714421}
   - 23: {fileID: 1640714420}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Bullseye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15541,7 +15586,7 @@ Transform:
   - {fileID: 1543462747}
   - {fileID: 1071776550}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1831780225
 GameObject:
   m_ObjectHideFlags: 0
@@ -16854,7 +16899,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
     - target: {fileID: 100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_CullingMask.m_Bits
@@ -16954,7 +16999,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 3d4db407a3f5f81418b9a3a854eddf63, type: 2}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: FORCE_MODIFIER
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: otherShip.Array.data[0]
@@ -17128,7 +17173,7 @@ MonoBehaviour:
   respawnIn: 0
   deadLength: 10
   outOfBounds: 0
-  FORCE_MODIFIER: 0
+  FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
   MAX_BOOST: 10
