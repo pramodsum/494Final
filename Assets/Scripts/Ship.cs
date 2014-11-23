@@ -99,7 +99,7 @@ public class Ship : MonoBehaviour
 								respawnIn -= Time.deltaTime;
 								return;
 						}
-						if ((gameOver > 0) && name == "Ship1" || name == "Ship2") {
+						if ((gameOver > 0) && (name == "Ship1" || name == "Ship2")) {
 								Application.LoadLevel ("_Scene_Main_Menu");
 						}
 						respawnIn = deadLength;
