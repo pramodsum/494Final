@@ -246,9 +246,10 @@ public class Ship : MonoBehaviour
 		
 		void OnCollisionEnter (Collision other)
 		{
-				if (other.gameObject.tag == "PlayerShip" 
-						|| other.gameObject.tag == "PlanetaryObject"
-						|| other.gameObject.tag == "Station") {
+				GameObject opp = other.gameObject;
+				Debug.Log (opp.name + ": " + opp.tag + " on team " + opp.GetComponent<Ship> ().team + "vs" + team);
+				if ((opp.tag == "PlayerShip" && opp.GetComponent<Ship> ().team != team)
+						|| opp.tag == "Station") {
 						health = 0f;
 				}
 		}
@@ -450,22 +451,25 @@ public class Ship : MonoBehaviour
 
 		public void respawn ()
 		{
+				Vector3 newPos = p1Home.position;
+				newPos.y += 20;
+				transform.position = newPos;
+				
 				awardPointsForDestruction = true;
 				makeVisible ();
-				this.collider.enabled = true;
 				hasExploded = false;
+				
 				if (CTF != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
 						CTF.cargo.transform.localScale = new Vector3 (10f, 10f, 10f);
 				}
-				Vector3 newPos = p1Home.position;
-				newPos.y += 20;
-				transform.position = newPos;
+				
 				health = MAX_HEALTH;
 				if (CTF != null) {
 						transform.LookAt (new Vector3 (0, 0, 0));
 						transform.Rotate (new Vector3 (90, 0, 0));
 				}
+				this.collider.enabled = true;
 		}
 
 		public void makeInvisible ()
