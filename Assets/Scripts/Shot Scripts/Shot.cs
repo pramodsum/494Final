@@ -1,52 +1,65 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shot : MonoBehaviour {
-	public GameObject explosion;
+public class Shot : MonoBehaviour
+{
+		public GameObject explosion;
 
-	private Vector3 direction;
-	private Vector3 velocity;
+		private Vector3 direction;
+		private Vector3 velocity;
 
-	public float maxDist = 10f;
+		public float maxDist = 10f;
 
-	private Vector3 startPosition;
-	private GameObject shooter;
-	private GameObject target;
+		private Vector3 startPosition;
+		private GameObject shooter;
+		private GameObject target;
 
-	public float lockOnDistance = 100;
+		public float lockOnDistance = 100;
 
 
-	public bool homing;
+		public bool homing;
 
-	void Start() {
-        startPosition = transform.position; 
-	}
+		void Start ()
+		{
+				startPosition = transform.position; 
+				maxDist = 200f;
+		}
 	
-	void Update() {
-		if (Vector3.Distance(transform.position, startPosition) > maxDist)
-			GameObject.Destroy(gameObject);
-	}
+		void Update ()
+		{
+				if (Vector3.Distance (transform.position, startPosition) > maxDist)
+						GameObject.Destroy (gameObject);
+		}
 
-	void SetShooter(GameObject s) { shooter = s; }
-	void SetTarget(GameObject s) { target = s; }
+		void SetShooter (GameObject s)
+		{
+				shooter = s;
+		}
+		void SetTarget (GameObject s)
+		{
+				target = s;
+		}
 
-	void CollideWithShip(GameObject ship) {
-		if (shooter == ship) { return; }
-		int ship1Num = shooter.GetComponent<Ship> ().GetPlayerNumber ();
-		int ship2Num = ship.GetComponent<Ship> ().GetPlayerNumber ();
-		if ((ship1Num == 1 && ship2Num == 3) ||
-		    (ship1Num == 3 && ship2Num == 1) ||
-		    (ship1Num == 2 && ship2Num == 4) ||
-		    (ship1Num == 4 && ship2Num == 2))
-			return;
+		void CollideWithShip (GameObject ship)
+		{
+				if (shooter == ship) {
+						return;
+				}
+				int ship1Num = shooter.GetComponent<Ship> ().GetPlayerNumber ();
+				int ship2Num = ship.GetComponent<Ship> ().GetPlayerNumber ();
+				if ((ship1Num == 1 && ship2Num == 3) ||
+						(ship1Num == 3 && ship2Num == 1) ||
+						(ship1Num == 2 && ship2Num == 4) ||
+						(ship1Num == 4 && ship2Num == 2))
+						return;
 
-		var otherPos = ship.transform.position;
-		var knockDirection = (transform.position - otherPos).normalized;
+				var otherPos = ship.transform.position;
+				var knockDirection = (transform.position - otherPos).normalized;
 //		ship.SendMessage("Damage");
-		int shooterNum = shooter.GetComponent<Ship> ().GetPlayerNumber ();
-		ship.GetComponent<Ship> ().Damage (1,shooterNum);
-		Instantiate(explosion, otherPos, Quaternion.identity);
-		Destroy(gameObject);
-		ship.rigidbody.AddForce(knockDirection * 100f);
-	}
+				int shooterNum = shooter.GetComponent<Ship> ().GetPlayerNumber ();
+				ship.GetComponent<Ship> ().Damage (1, shooterNum);
+				Instantiate (explosion, otherPos, Quaternion.identity);
+				Destroy (gameObject);
+				ship.rigidbody.AddForce (knockDirection * 100f);
+		}
 }
