@@ -135,6 +135,9 @@ public class Ship : MonoBehaviour
 								Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
 						}
 						MoveForward (Input.GetAxis (inputPrefix + "Forward"));
+						if (Input.GetAxis (inputPrefix + "FireMissile") == 1) {
+								FireMissile ();
+						}
 						if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 								Fire ();
 						}
@@ -179,7 +182,7 @@ public class Ship : MonoBehaviour
 				
 				if (health <= 0) {
 						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 1, 0));
-						GUI.DrawTexture (new Rect (rectStart.x, Screen.height -  rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
+						GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
 						
 						var centeredStyle = GUI.skin.GetStyle ("Label");
 						centeredStyle.alignment = TextAnchor.UpperCenter;
