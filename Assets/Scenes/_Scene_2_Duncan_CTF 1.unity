@@ -1107,6 +1107,10 @@ Prefab:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: smallExplosion
+      value: 
+      objectReference: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -1379,7 +1383,7 @@ MonoBehaviour:
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
   missile: {fileID: 100000, guid: 78873473acfb648a6b4718632f45253f, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
-  smallExplosion: {fileID: 100002, guid: ab64df59bdcd78247a73b914d8f6c40c, type: 2}
+  smallExplosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 1726114071}
   - {fileID: 501593855}
@@ -3344,7 +3348,7 @@ MonoBehaviour:
   shot: {fileID: 100000, guid: 4b656802e514fc942a28ea58f997e108, type: 2}
   missile: {fileID: 100000, guid: 78873473acfb648a6b4718632f45253f, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
-  smallExplosion: {fileID: 100002, guid: ab64df59bdcd78247a73b914d8f6c40c, type: 2}
+  smallExplosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 2012391117}
   - {fileID: 159909859}
@@ -13961,7 +13965,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: smallExplosion
       value: 
-      objectReference: {fileID: 100002, guid: ab64df59bdcd78247a73b914d8f6c40c, type: 2}
+      objectReference: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -14738,7 +14742,7 @@ MonoBehaviour:
   shot: {fileID: 100000, guid: 4b656802e514fc942a28ea58f997e108, type: 2}
   missile: {fileID: 100000, guid: 78873473acfb648a6b4718632f45253f, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
-  smallExplosion: {fileID: 100002, guid: ab64df59bdcd78247a73b914d8f6c40c, type: 2}
+  smallExplosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 2012391117}
   - {fileID: 159909859}
@@ -16480,6 +16484,10 @@ Prefab:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: smallExplosion
+      value: 
+      objectReference: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -17147,6 +17155,10 @@ Prefab:
       propertyPath: team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: smallExplosion
+      value: 
+      objectReference: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -17223,7 +17235,7 @@ MonoBehaviour:
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
   missile: {fileID: 100000, guid: 78873473acfb648a6b4718632f45253f, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
-  smallExplosion: {fileID: 100002, guid: ab64df59bdcd78247a73b914d8f6c40c, type: 2}
+  smallExplosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
   - {fileID: 1726114071}
   - {fileID: 501593855}
