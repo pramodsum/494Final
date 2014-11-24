@@ -7,6 +7,7 @@ TagManager:
   - Destructible
   - PlayerShip
   - PlanetaryObject
+  - Station
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

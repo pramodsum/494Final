@@ -522,6 +522,10 @@ Prefab:
       propertyPath: m_Name
       value: Station1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
   m_RootGameObject: {fileID: 1814686929}
@@ -1750,6 +1754,10 @@ Prefab:
       propertyPath: m_Name
       value: Station4
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
   m_RootGameObject: {fileID: 741229910}
@@ -1766,7 +1774,7 @@ GameObject:
   - 114: {fileID: 197226425}
   m_Layer: 0
   m_Name: Station5
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6232,7 +6240,7 @@ GameObject:
   - 114: {fileID: 741229912}
   m_Layer: 0
   m_Name: Station4
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6967,6 +6975,10 @@ Prefab:
       propertyPath: m_Name
       value: Station3
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
   m_RootGameObject: {fileID: 1513178571}
@@ -7536,7 +7548,7 @@ GameObject:
   - 114: {fileID: 877729502}
   m_Layer: 0
   m_Name: Plane002
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7623,7 +7635,7 @@ GameObject:
   - 114: {fileID: 898467003}
   m_Layer: 0
   m_Name: Rotator
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12918,6 +12930,10 @@ Prefab:
       propertyPath: m_Name
       value: Station2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
   m_RootGameObject: {fileID: 1640624895}
@@ -13020,7 +13036,7 @@ GameObject:
   - 114: {fileID: 1305028622}
   m_Layer: 0
   m_Name: Transport
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13592,7 +13608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b5e8de77c5b4597ae7fbfb49a95e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logDebugInfo: 0
+  logDebugInfo: 1
   invertYAxis: 0
   enableXInput: 0
   useFixedUpdate: 0
@@ -13937,7 +13953,7 @@ GameObject:
   - 114: {fileID: 1513178572}
   m_Layer: 0
   m_Name: Station3
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15017,7 +15033,7 @@ GameObject:
   - 114: {fileID: 1640624896}
   m_Layer: 0
   m_Name: Station2
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16322,7 +16338,7 @@ GameObject:
   - 114: {fileID: 1814686930}
   m_Layer: 0
   m_Name: Station1
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17026,6 +17042,18 @@ Prefab:
     - target: {fileID: 100008, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
       propertyPath: m_Name
       value: Transport
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
+      propertyPath: m_TagString
+      value: Station
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
@@ -18396,6 +18424,10 @@ Prefab:
     - target: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
       propertyPath: m_Name
       value: Station5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+      propertyPath: m_TagString
+      value: Station
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}

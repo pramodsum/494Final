@@ -222,6 +222,11 @@ public class Ship : MonoBehaviour
 				if (other.gameObject.name == "Boundary") {	
 						outOfBounds = false;
 				}
+				if (other.gameObject.tag == "PlayerShip" 
+						|| other.gameObject.tag == "PlanetaryObject"
+						|| other.gameObject.tag == "Station") {
+						health = 0f;
+				}
 		}
 
 		void OnTriggerExit (Collider other)
