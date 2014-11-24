@@ -88,7 +88,7 @@ GameObject:
   - 114: {fileID: 19695209}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   - 114: {fileID: 74170160}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,7 +642,7 @@ GameObject:
   - 114: {fileID: 86096053}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -728,7 +728,7 @@ GameObject:
   - 114: {fileID: 104314104}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,6 +1378,7 @@ MonoBehaviour:
   particleSystem: {fileID: 2080855500}
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
+  smallExplosion: {fileID: 0}
   otherShip:
   - {fileID: 1726114071}
   - {fileID: 501593855}
@@ -1560,7 +1561,7 @@ GameObject:
   - 114: {fileID: 171982470}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1646,7 +1647,7 @@ GameObject:
   - 114: {fileID: 186126191}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1841,7 +1842,7 @@ GameObject:
   - 114: {fileID: 203816351}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2225,7 +2226,7 @@ GameObject:
   - 114: {fileID: 253136911}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2465,7 +2466,7 @@ GameObject:
   - 114: {fileID: 342055679}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2613,7 +2614,7 @@ GameObject:
   - 114: {fileID: 361576638}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2698,7 +2699,7 @@ GameObject:
   - 64: {fileID: 375820903}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2772,7 +2773,7 @@ GameObject:
   - 114: {fileID: 387028999}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2952,7 +2953,7 @@ GameObject:
   - 114: {fileID: 410298272}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3038,7 +3039,7 @@ GameObject:
   - 114: {fileID: 414293328}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3191,7 +3192,7 @@ GameObject:
   - 114: {fileID: 422522045}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3277,7 +3278,7 @@ GameObject:
   - 114: {fileID: 434343306}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3544,7 +3545,7 @@ GameObject:
   - 114: {fileID: 480383523}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3652,6 +3653,7 @@ MonoBehaviour:
   particleSystem: {fileID: 1039769332}
   shot: {fileID: 100000, guid: 4b656802e514fc942a28ea58f997e108, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
+  smallExplosion: {fileID: 0}
   otherShip:
   - {fileID: 2012391117}
   - {fileID: 159909859}
@@ -3867,7 +3869,7 @@ GameObject:
   - 114: {fileID: 528310139}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4011,7 +4013,7 @@ GameObject:
   - 114: {fileID: 559353470}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4097,7 +4099,7 @@ GameObject:
   - 114: {fileID: 570578448}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4338,7 +4340,7 @@ GameObject:
   - 114: {fileID: 633863474}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4604,7 +4606,7 @@ GameObject:
   - 114: {fileID: 652205422}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4748,7 +4750,7 @@ GameObject:
   - 114: {fileID: 688278477}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5050,7 +5052,7 @@ GameObject:
   - 114: {fileID: 719380749}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6308,7 +6310,7 @@ GameObject:
   - 114: {fileID: 749707718}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6535,7 +6537,7 @@ GameObject:
   - 114: {fileID: 768218325}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6678,7 +6680,7 @@ GameObject:
   - 64: {fileID: 786934717}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6810,7 +6812,7 @@ GameObject:
   - 114: {fileID: 808689051}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7126,7 +7128,7 @@ GameObject:
   - 114: {fileID: 843682047}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7212,7 +7214,7 @@ GameObject:
   - 114: {fileID: 857404414}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7298,7 +7300,7 @@ GameObject:
   - 114: {fileID: 857611061}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7384,7 +7386,7 @@ GameObject:
   - 114: {fileID: 858602221}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7470,7 +7472,7 @@ GameObject:
   - 114: {fileID: 872885854}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7840,7 +7842,7 @@ GameObject:
   - 64: {fileID: 919506493}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7914,7 +7916,7 @@ GameObject:
   - 114: {fileID: 931762310}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8064,7 +8066,7 @@ GameObject:
   - 114: {fileID: 961924849}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8208,7 +8210,7 @@ GameObject:
   - 114: {fileID: 977448422}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8294,7 +8296,7 @@ GameObject:
   - 114: {fileID: 985859117}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8541,7 +8543,7 @@ GameObject:
   - 114: {fileID: 1003144719}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8726,7 +8728,7 @@ GameObject:
   - 114: {fileID: 1033066101}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9927,7 +9929,7 @@ GameObject:
   - 114: {fileID: 1060528359}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10071,7 +10073,7 @@ GameObject:
   - 114: {fileID: 1071776551}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10413,7 +10415,7 @@ GameObject:
   - 114: {fileID: 1121204047}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10619,7 +10621,7 @@ GameObject:
   - 114: {fileID: 1124267881}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10705,7 +10707,7 @@ GameObject:
   - 114: {fileID: 1129806062}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10909,7 +10911,7 @@ GameObject:
   - 114: {fileID: 1144579245}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11113,7 +11115,7 @@ GameObject:
   - 114: {fileID: 1207500586}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11199,7 +11201,7 @@ GameObject:
   - 114: {fileID: 1210725051}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11285,7 +11287,7 @@ GameObject:
   - 114: {fileID: 1214164368}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12485,7 +12487,7 @@ GameObject:
   - 64: {fileID: 1273561130}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12845,7 +12847,7 @@ GameObject:
   - 114: {fileID: 1300547620}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12976,6 +12978,9 @@ MonoBehaviour:
   MAX_HEALTH: 750
   explosion: {fileID: 100000, guid: ff27f04c163d3c447a39009c72eb9076, type: 2}
   isAlive: 1
+  CTF: {fileID: 0}
+  defender: {fileID: 0}
+  spawnDefenders: 1
 --- !u!1 &1305802433
 GameObject:
   m_ObjectHideFlags: 0
@@ -12990,7 +12995,7 @@ GameObject:
   - 114: {fileID: 1305802434}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13192,7 +13197,7 @@ GameObject:
   - 114: {fileID: 1380929316}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13490,7 +13495,7 @@ GameObject:
   - 114: {fileID: 1441704643}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13576,7 +13581,7 @@ GameObject:
   - 114: {fileID: 1447528756}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13662,7 +13667,7 @@ GameObject:
   - 114: {fileID: 1474346039}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13983,7 +13988,7 @@ GameObject:
   - 114: {fileID: 1534547736}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14069,7 +14074,7 @@ GameObject:
   - 114: {fileID: 1543462748}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14213,7 +14218,7 @@ GameObject:
   - 114: {fileID: 1577669715}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14399,7 +14404,7 @@ GameObject:
   - 114: {fileID: 1596672777}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14485,7 +14490,7 @@ GameObject:
   - 114: {fileID: 1603922777}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14677,7 +14682,7 @@ GameObject:
   - 64: {fileID: 1628461473}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14751,7 +14756,7 @@ GameObject:
   - 114: {fileID: 1632969412}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15024,7 +15029,7 @@ GameObject:
   - 114: {fileID: 1641394394}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15431,6 +15436,7 @@ MonoBehaviour:
   particleSystem: {fileID: 1215767031}
   shot: {fileID: 100000, guid: 4b656802e514fc942a28ea58f997e108, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
+  smallExplosion: {fileID: 0}
   otherShip:
   - {fileID: 2012391117}
   - {fileID: 159909859}
@@ -15555,7 +15561,7 @@ GameObject:
   - 114: {fileID: 1730714583}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15641,7 +15647,7 @@ GameObject:
   - 114: {fileID: 1748815029}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15879,7 +15885,7 @@ GameObject:
   - 114: {fileID: 1778516541}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16029,7 +16035,7 @@ GameObject:
   - 114: {fileID: 1785368965}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16115,7 +16121,7 @@ GameObject:
   - 114: {fileID: 1813462444}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16450,7 +16456,7 @@ GameObject:
   - 114: {fileID: 1846519946}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16536,7 +16542,7 @@ GameObject:
   - 114: {fileID: 1846686878}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16934,7 +16940,7 @@ GameObject:
   - 114: {fileID: 1901789659}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17020,7 +17026,7 @@ GameObject:
   - 114: {fileID: 1910967540}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17293,7 +17299,7 @@ GameObject:
   - 114: {fileID: 1921240348}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17502,7 +17508,7 @@ GameObject:
   - 114: {fileID: 1973029443}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18009,6 +18015,7 @@ MonoBehaviour:
   particleSystem: {fileID: 719610412}
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
+  smallExplosion: {fileID: 0}
   otherShip:
   - {fileID: 1726114071}
   - {fileID: 501593855}
@@ -18133,7 +18140,7 @@ GameObject:
   - 114: {fileID: 2032631137}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18329,7 +18336,7 @@ GameObject:
   - 114: {fileID: 2061120522}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18531,7 +18538,7 @@ GameObject:
   - 114: {fileID: 2074498161}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20003,7 +20010,7 @@ GameObject:
   - 114: {fileID: 2117954163}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20089,7 +20096,7 @@ GameObject:
   - 114: {fileID: 2133802200}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
