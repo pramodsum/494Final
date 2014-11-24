@@ -111,11 +111,16 @@ public class TransportMove : MonoBehaviour
 			defenderObject.defend = gameObject;
 			defenderObject.relativePosStart = defenderObject.transform.position - transform.position;
 			defenderObject.CTF = CTF;
-			defenderObject.hostileShips = new GameObject[4];
+			if (CTF.ship3 != null)
+				defenderObject.hostileShips = new GameObject[4];
+			else defenderObject.hostileShips = new GameObject[2];
 			defenderObject.hostileShips [0] = CTF.ship1.gameObject;
 			defenderObject.hostileShips [1] = CTF.ship2.gameObject;
-			defenderObject.hostileShips [2] = CTF.ship3.gameObject;
-			defenderObject.hostileShips [3] = CTF.ship4.gameObject;
+			if (CTF.ship3 != null)
+			{
+				defenderObject.hostileShips [2] = CTF.ship3.gameObject;
+				defenderObject.hostileShips [3] = CTF.ship4.gameObject;
+			}
 		}
 	}
 }

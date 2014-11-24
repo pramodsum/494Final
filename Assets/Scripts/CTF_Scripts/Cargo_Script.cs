@@ -26,8 +26,8 @@ public class Cargo_Script : MonoBehaviour
 						ship = null;
 						CTF.arrow1.ship2 = transform;
 						CTF.arrow2.ship2 = transform;
-						CTF.arrow3.ship2 = transform;
-						CTF.arrow4.ship2 = transform;
+						if (CTF.arrow3 != null) CTF.arrow3.ship2 = transform;
+						if (CTF.arrow4 != null) CTF.arrow4.ship2 = transform;
 				}
 				if (ship != null) {
 						transform.position = ship.position;
