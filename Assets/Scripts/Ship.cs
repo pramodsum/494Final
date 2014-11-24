@@ -9,6 +9,7 @@ public class Ship : MonoBehaviour
 
 		public GameObject shot;
 		public GameObject explosion;
+		public GameObject smallExplosion;
 		
 		public GameObject[] otherShip;
 
@@ -235,6 +236,12 @@ public class Ship : MonoBehaviour
 				if (other.gameObject.name == "Boundary") {	
 						outOfBounds = false;
 				}
+				if (other.gameObject.name == "ShotAI") {
+					//					print ("Wrekt m9");
+					Instantiate(smallExplosion,transform.position,Quaternion.identity);
+					Damage(2,0);
+				}
+
 		}
 		
 		void OnCollisionEnter (Collision other)

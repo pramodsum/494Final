@@ -11,6 +11,37 @@ public class TransportMove : MonoBehaviour
 		bool hasExploded = false;
 		public bool isAlive = true;
 
+		public CTF_Script CTF;
+		public GameObject defender;
+		public bool spawnDefenders = true;
+
+		void Start()
+		{
+			if (spawnDefenders)
+			for (int i = 0; i < 4; i++) {
+				Vector3 shipPosInit = transform.position;
+				if (i == 1 || i == 3)
+					shipPosInit.x += 50;
+				else shipPosInit.x -= 50;
+				//				print (shipPosInit.x);
+				//						if (i == 1 || i == 3)
+				//							shipPosInit.y += 90;
+				//						else shipPosInit.y -= 90;
+				if (i == 1 || i == 2)
+					shipPosInit.z += 100;
+				else shipPosInit.z -= 100;
+				TIEFighter defenderObject = (Instantiate (defender, shipPosInit, Quaternion.identity) as GameObject).GetComponent<TIEFighter> ();
+				defenderObject.defend = gameObject;
+				defenderObject.relativePosStart = defenderObject.transform.position - transform.position;
+				defenderObject.CTF = CTF;
+				defenderObject.hostileShips = new GameObject[4];
+				defenderObject.hostileShips [0] = CTF.ship1.gameObject;
+				defenderObject.hostileShips [1] = CTF.ship2.gameObject;
+				defenderObject.hostileShips [2] = CTF.ship3.gameObject;
+				defenderObject.hostileShips [3] = CTF.ship4.gameObject;
+			}
+		}
+
 		// Update is called once per frame
 		void Update ()
 		{
