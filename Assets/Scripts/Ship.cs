@@ -173,7 +173,7 @@ public class Ship : MonoBehaviour
 				
 				if (health <= 0) {
 						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 0, 0));
-						GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
+						GUI.DrawTexture (new Rect (rectStart.x, rectStart.y - Screen.height, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
 
 						var centeredStyle = GUI.skin.GetStyle ("Label");
 						centeredStyle.alignment = TextAnchor.UpperCenter;
@@ -247,7 +247,7 @@ public class Ship : MonoBehaviour
 		void OnCollisionEnter (Collision other)
 		{
 				GameObject opp = other.gameObject;
-				Debug.Log (opp.name + ": " + opp.tag + " on team " + opp.GetComponent<Ship> ().team + "vs" + team);
+				Debug.Log (name + " w/ " + opp.name + "(" + opp.tag + ")");
 				if ((opp.tag == "PlayerShip" && opp.GetComponent<Ship> ().team != team)
 						|| opp.tag == "Station") {
 						health = 0f;
