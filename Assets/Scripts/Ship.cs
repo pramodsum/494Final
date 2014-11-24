@@ -8,6 +8,7 @@ public class Ship : MonoBehaviour
 		public ParticleSystem particleSystem;
 
 		public GameObject shot;
+		public GameObject missile;
 		public GameObject explosion;
 		public GameObject smallExplosion;
 		
@@ -20,6 +21,7 @@ public class Ship : MonoBehaviour
 		public bool classicMovement = true;
 	
 		public float shotCooldownTime = 0.3f;
+		public float missileCooldownTime = 1f;
 		public float knockbackRemaining = 0f;
 		public float knockBack = 100f;
 
@@ -48,6 +50,7 @@ public class Ship : MonoBehaviour
 		private int lives;
 		private int score;
 		private float shotCooldownRemaining;
+		private float missileCooldownRemaining;
 		private Camera cameraScreen;
 		private Vector3 velocity;
 		private int playerNumber;
@@ -108,6 +111,7 @@ public class Ship : MonoBehaviour
 						respawn ();
 				}
 				shotCooldownRemaining -= Time.deltaTime;
+				missileCooldownRemaining -= Time.deltaTime;
 		
 				var inputDevice = (InputManager.Devices.Count >= playerNumber) ? InputManager.Devices [playerNumber - 1] : null;
 				if (inputDevice != null) {
@@ -116,7 +120,9 @@ public class Ship : MonoBehaviour
 						Rotate (Vector3.down, inputDevice.RightStickX);
 						Rotate (Vector3.right, inputDevice.RightStickY);
 						
-						if (inputDevice.LeftBumper || inputDevice.RightBumper)
+						if (inputDevice.LeftBumper)
+								FireMissile ();
+						if (inputDevice.RightBumper)
 								Fire ();
 						MoveForward (inputDevice.Action1);	
 				} else {
@@ -129,6 +135,9 @@ public class Ship : MonoBehaviour
 								Rotate (Vector3.right, Input.GetAxis (inputPrefix + "Vertical"));
 						}
 						MoveForward (Input.GetAxis (inputPrefix + "Forward"));
+						if (Input.GetAxis (inputPrefix + "FireMissile") == 1) {
+								FireMissile ();
+						}
 						if (Input.GetAxis (inputPrefix + "Fire") == 1) {
 								Fire ();
 						}
@@ -173,7 +182,7 @@ public class Ship : MonoBehaviour
 				
 				if (health <= 0) {
 						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 1, 0));
-						GUI.DrawTexture (new Rect (rectStart.x, Screen.height -  rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
+						GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
 						
 						var centeredStyle = GUI.skin.GetStyle ("Label");
 						centeredStyle.alignment = TextAnchor.UpperCenter;
@@ -233,13 +242,16 @@ public class Ship : MonoBehaviour
 				if (other.gameObject.name == "Shot") {
 						other.SendMessage ("CollideWithShip", gameObject);
 				}
+				if (other.gameObject.name == "Missile") {
+						other.SendMessage ("CollideWithShip", this);
+				}
 				if (other.gameObject.name == "Boundary") {	
 						outOfBounds = false;
 				}
 				if (other.gameObject.name == "ShotAI") {
-					//					print ("Wrekt m9");
-					Instantiate(smallExplosion,transform.position,Quaternion.identity);
-					Damage(2,0);
+						//					print ("Wrekt m9");
+						Instantiate (smallExplosion, transform.position, Quaternion.identity);
+						Damage (2, 0);
 				}
 
 		}
@@ -376,6 +388,21 @@ public class Ship : MonoBehaviour
 				GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
 
 		}
+
+		void FireMissile ()
+		{
+				if (missileCooldownRemaining > 0) {
+						return;
+				}
+				missileCooldownRemaining = missileCooldownTime;
+		
+				var newMissile = Instantiate (missile, transform.position, Quaternion.identity) as GameObject;
+				newMissile.name = "Shot";
+				newMissile.SendMessage ("SetShooter", this);
+				newMissile.rigidbody.AddForce (facingDirection () * 0.1f);
+
+				GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
+		}
 	
 		public string getAttributeByName (string s)
 		{
@@ -419,9 +446,9 @@ public class Ship : MonoBehaviour
 				cameraScreen.rect = new Rect (x, y, w, h);
 		}
 	
-		public static Object[] FindAll ()
+		public static Ship[] FindAll ()
 		{
-				return GameObject.FindObjectsOfType (typeof(Ship));
+				return GameObject.FindObjectsOfType (typeof(Ship)) as Ship[];
 		}
 	
 		public int GetPlayerNumber ()
