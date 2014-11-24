@@ -172,7 +172,7 @@ GameObject:
   - 23: {fileID: 34821381}
   m_Layer: 0
   m_Name: Greeble_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,7 +230,7 @@ GameObject:
   - 23: {fileID: 50383117}
   m_Layer: 0
   m_Name: RearFuselageGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +288,7 @@ GameObject:
   - 23: {fileID: 71501290}
   m_Layer: 0
   m_Name: Seat_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +347,7 @@ GameObject:
   - 23: {fileID: 73556930}
   m_Layer: 0
   m_Name: TopGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1103,12 +1103,18 @@ Prefab:
       propertyPath: outOfBounds
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 4500000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_RootGameObject: {fileID: 501593855}
   m_IsPrefabParent: 0
@@ -1125,7 +1131,7 @@ GameObject:
   - 23: {fileID: 135486095}
   m_Layer: 0
   m_Name: R2D2_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1259,7 +1265,7 @@ GameObject:
   - 23: {fileID: 137869838}
   m_Layer: 0
   m_Name: R2D2_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1377,6 +1383,7 @@ MonoBehaviour:
   - {fileID: 501593855}
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
+  team: 2
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
@@ -1493,7 +1500,7 @@ GameObject:
   - 23: {fileID: 170505802}
   m_Layer: 0
   m_Name: Greeble_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2302,7 +2309,7 @@ GameObject:
   - 23: {fileID: 257025382}
   m_Layer: 0
   m_Name: CanopyInterior_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2542,7 +2549,7 @@ GameObject:
   - 23: {fileID: 361052648}
   m_Layer: 0
   m_Name: R2D2_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3354,7 +3361,7 @@ GameObject:
   - 23: {fileID: 439296868}
   m_Layer: 0
   m_Name: Seat_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3413,7 +3420,7 @@ GameObject:
   - 23: {fileID: 466547843}
   m_Layer: 0
   m_Name: Greeble_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3471,7 +3478,7 @@ GameObject:
   - 23: {fileID: 477533226}
   m_Layer: 0
   m_Name: BottomWing_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3650,6 +3657,7 @@ MonoBehaviour:
   - {fileID: 159909859}
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
+  team: 2
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
@@ -3793,7 +3801,7 @@ GameObject:
   - 23: {fileID: 521931277}
   m_Layer: 0
   m_Name: TopWing_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3943,7 +3951,7 @@ GameObject:
   - 23: {fileID: 545076110}
   m_Layer: 0
   m_Name: Greeble_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4173,7 +4181,7 @@ GameObject:
   - 23: {fileID: 597985886}
   m_Layer: 0
   m_Name: Canopy1
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4414,7 +4422,7 @@ GameObject:
   - 23: {fileID: 642376295}
   m_Layer: 0
   m_Name: RearFuselageGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4472,7 +4480,7 @@ GameObject:
   - 23: {fileID: 643613860}
   m_Layer: 0
   m_Name: TopWing_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4536,7 +4544,7 @@ GameObject:
   - 23: {fileID: 648440407}
   m_Layer: 0
   m_Name: CanopyInterior_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4680,7 +4688,7 @@ GameObject:
   - 23: {fileID: 665703820}
   m_Layer: 0
   m_Name: CanopyInterior_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6466,7 +6474,7 @@ GameObject:
   - 23: {fileID: 761425802}
   m_Layer: 0
   m_Name: Canopy1
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6611,7 +6619,7 @@ GameObject:
   - 23: {fileID: 769040397}
   m_Layer: 0
   m_Name: TopGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6742,7 +6750,7 @@ GameObject:
   - 23: {fileID: 798490382}
   m_Layer: 0
   m_Name: Nose_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6886,7 +6894,7 @@ GameObject:
   - 23: {fileID: 809946147}
   m_Layer: 0
   m_Name: Nose_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7990,7 +7998,7 @@ GameObject:
   - 23: {fileID: 946946356}
   m_Layer: 0
   m_Name: BottomWing_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8140,7 +8148,7 @@ GameObject:
   - 23: {fileID: 974110599}
   m_Layer: 0
   m_Name: RearFuselageGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8370,8 +8378,6 @@ GameObject:
   - 124: {fileID: 989868042}
   - 92: {fileID: 989868041}
   - 114: {fileID: 989868040}
-  - 114: {fileID: 989868039}
-  - 45: {fileID: 989868045}
   - 45: {fileID: 989868044}
   m_Layer: 0
   m_Name: Camera3
@@ -8392,37 +8398,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 159909860}
   m_RootOrder: 12
---- !u!114 &989868039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 2000764987}
-  m_GameObject: {fileID: 989868037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 414310936}
-  UI_Elements:
-  - name: Score
-    search_name: p1Score
-    value: 
-    left: 0
-    top: 25
-    width: 100
-    height: 100
-    isJustText: 0
-    isNavigationButton: 0
-    scene_name: 
-    isHUDImageDisplay: 0
-    image: {fileID: 0}
-    imageWidth: 0
-    imageHeight: 0
-    skin: {fileID: 0}
-  native_width: 800
-  native_height: 600
 --- !u!114 &989868040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8491,15 +8466,6 @@ Skybox:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 989868037}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
---- !u!45 &989868045
-Skybox:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4500000, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 2000764987}
   m_GameObject: {fileID: 989868037}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
@@ -8700,7 +8666,7 @@ GameObject:
   - 23: {fileID: 1015883488}
   m_Layer: 0
   m_Name: Wings_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10045,7 +10011,7 @@ GameObject:
   - 23: {fileID: 1065566224}
   m_Layer: 0
   m_Name: CanopyInterior_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10219,7 +10185,6 @@ GameObject:
   - 124: {fileID: 1097781078}
   - 92: {fileID: 1097781077}
   - 114: {fileID: 1097781084}
-  - 114: {fileID: 1097781083}
   - 45: {fileID: 1097781076}
   m_Layer: 0
   m_Name: Camera1
@@ -10298,37 +10263,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2012391118}
   m_RootOrder: 12
---- !u!114 &1097781083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1611567806}
-  m_GameObject: {fileID: 1097781075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 414310936}
-  UI_Elements:
-  - name: Score
-    search_name: p1Score
-    value: 
-    left: 0
-    top: 25
-    width: 100
-    height: 100
-    isJustText: 0
-    isNavigationButton: 0
-    scene_name: 
-    isHUDImageDisplay: 0
-    image: {fileID: 0}
-    imageWidth: 0
-    imageHeight: 0
-    skin: {fileID: 0}
-  native_width: 800
-  native_height: 600
 --- !u!114 &1097781084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10355,7 +10289,7 @@ GameObject:
   - 23: {fileID: 1105525851}
   m_Layer: 0
   m_Name: MirrorPlane_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10413,7 +10347,7 @@ GameObject:
   - 23: {fileID: 1113356614}
   m_Layer: 0
   m_Name: BottomWing_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10855,7 +10789,7 @@ GameObject:
   - 23: {fileID: 1143553537}
   m_Layer: 0
   m_Name: TopWing_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11059,7 +10993,7 @@ GameObject:
   - 23: {fileID: 1148896816}
   m_Layer: 0
   m_Name: R2D2_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12623,8 +12557,6 @@ GameObject:
   - 124: {fileID: 1277889625}
   - 92: {fileID: 1277889624}
   - 114: {fileID: 1277889623}
-  - 114: {fileID: 1277889622}
-  - 45: {fileID: 1277889629}
   - 45: {fileID: 1277889628}
   m_Layer: 0
   m_Name: Camera4
@@ -12633,37 +12565,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1277889622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 122378774}
-  m_GameObject: {fileID: 1277889621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 414310936}
-  UI_Elements:
-  - name: Score
-    search_name: p1Score
-    value: 
-    left: 0
-    top: 25
-    width: 100
-    height: 100
-    isJustText: 0
-    isNavigationButton: 0
-    scene_name: 
-    isHUDImageDisplay: 0
-    image: {fileID: 0}
-    imageWidth: 0
-    imageHeight: 0
-    skin: {fileID: 0}
-  native_width: 800
-  native_height: 600
 --- !u!114 &1277889623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12744,15 +12645,6 @@ Skybox:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1277889621}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
---- !u!45 &1277889629
-Skybox:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4500000, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 122378774}
   m_GameObject: {fileID: 1277889621}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
@@ -12840,7 +12732,7 @@ GameObject:
   - 23: {fileID: 1292528430}
   m_Layer: 0
   m_Name: Canopy1
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13182,7 +13074,7 @@ GameObject:
   - 23: {fileID: 1313834149}
   m_Layer: 0
   m_Name: Nose_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13240,7 +13132,7 @@ GameObject:
   - 23: {fileID: 1363674095}
   m_Layer: 0
   m_Name: MirrorPlane_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13384,8 +13276,6 @@ GameObject:
   - 124: {fileID: 1386447750}
   - 92: {fileID: 1386447749}
   - 114: {fileID: 1386447756}
-  - 114: {fileID: 1386447755}
-  - 45: {fileID: 1386447753}
   - 45: {fileID: 1386447752}
   m_Layer: 0
   m_Name: Camera2
@@ -13463,46 +13353,6 @@ Skybox:
   m_GameObject: {fileID: 1386447747}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
---- !u!45 &1386447753
-Skybox:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4500000, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1917965420}
-  m_GameObject: {fileID: 1386447747}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
---- !u!114 &1386447755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1917965420}
-  m_GameObject: {fileID: 1386447747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fb7372f9692cd45aafb44b74ab4d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 414310936}
-  UI_Elements:
-  - name: Score
-    search_name: p1Score
-    value: 
-    left: 0
-    top: 25
-    width: 100
-    height: 100
-    isJustText: 0
-    isNavigationButton: 0
-    scene_name: 
-    isHUDImageDisplay: 0
-    image: {fileID: 0}
-    imageWidth: 0
-    imageHeight: 0
-    skin: {fileID: 0}
-  native_width: 800
-  native_height: 600
 --- !u!114 &1386447756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13896,7 +13746,7 @@ GameObject:
   - 23: {fileID: 1489005743}
   m_Layer: 0
   m_Name: TopGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14303,7 +14153,7 @@ GameObject:
   - 23: {fileID: 1573199445}
   m_Layer: 0
   m_Name: Nose_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14798,9 +14648,18 @@ Prefab:
       propertyPath: shotCooldownTime
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_RootGameObject: {fileID: 2012391117}
   m_IsPrefabParent: 0
@@ -14976,7 +14835,7 @@ GameObject:
   - 23: {fileID: 1637087509}
   m_Layer: 0
   m_Name: Wings_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15346,7 +15205,7 @@ GameObject:
   - 23: {fileID: 1685972569}
   m_Layer: 0
   m_Name: Canopy1
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15405,7 +15264,7 @@ GameObject:
   - 23: {fileID: 1714461595}
   m_Layer: 0
   m_Name: Wings_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15463,7 +15322,7 @@ GameObject:
   - 23: {fileID: 1725439115}
   m_Layer: 0
   m_Name: TopGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15577,6 +15436,7 @@ MonoBehaviour:
   - {fileID: 159909859}
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
+  team: 1
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
@@ -15865,7 +15725,7 @@ GameObject:
   - 23: {fileID: 1755776152}
   m_Layer: 0
   m_Name: RearFuselageGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15953,7 +15813,7 @@ GameObject:
   - 23: {fileID: 1773511566}
   m_Layer: 0
   m_Name: BottomWing_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17399,12 +17259,22 @@ Prefab:
       propertyPath: shotCooldownTime
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 4500000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_RootGameObject: {fileID: 1726114071}
   m_IsPrefabParent: 0
@@ -17507,7 +17377,7 @@ GameObject:
   - 23: {fileID: 1929289627}
   m_Layer: 0
   m_Name: Seat_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17566,7 +17436,7 @@ GameObject:
   - 23: {fileID: 1958346196}
   m_Layer: 0
   m_Name: TopWing_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17716,7 +17586,7 @@ GameObject:
   - 23: {fileID: 1989873455}
   m_Layer: 0
   m_Name: MirrorPlane_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17774,7 +17644,7 @@ GameObject:
   - 23: {fileID: 1997429979}
   m_Layer: 0
   m_Name: Seat_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18056,12 +17926,22 @@ Prefab:
       propertyPath: shotCooldownTime
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+    - {fileID: 4500000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_RootGameObject: {fileID: 159909859}
   m_IsPrefabParent: 0
@@ -18134,6 +18014,7 @@ MonoBehaviour:
   - {fileID: 501593855}
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
+  team: 1
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
@@ -18532,7 +18413,7 @@ GameObject:
   - 23: {fileID: 2063779406}
   m_Layer: 0
   m_Name: MirrorPlane_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18590,7 +18471,7 @@ GameObject:
   - 23: {fileID: 2070696740}
   m_Layer: 0
   m_Name: Wings_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

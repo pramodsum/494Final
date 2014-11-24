@@ -14,6 +14,7 @@ public class Ship : MonoBehaviour
 
 		public Transform p1Home;
 		public CTF_Script CTF;
+		public int team;
 
 		public bool classicMovement = true;
 	
@@ -141,14 +142,16 @@ public class Ship : MonoBehaviour
 		{
 				if (outOfBounds) {
 						string text;
-			
-						var centeredStyle = GUI.skin.GetStyle ("Label");
+						
+						GUIStyle centeredStyle = GUI.skin.GetStyle ("Label");
+						centeredStyle.fontStyle = FontStyle.Bold;
+						centeredStyle.fontSize = 16;
 						centeredStyle.alignment = TextAnchor.UpperCenter;
 						var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-						Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y - 95, 150, 50);
+						Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y - 95, 150, 100);
 			
 						text = "OUT OF BOUNDS!! TURN AROUND!!";
-						GUI.Label (rect, text);
+						GUI.Label (rect, text, centeredStyle);
 				}
 				
 				if (gameOver > 0) {
@@ -163,7 +166,7 @@ public class Ship : MonoBehaviour
 								text = "Red Team Wins!";
 						else
 								text = "Blue Team Wins!";
-						GUI.Label (rect, text);
+						GUI.Label (rect, text, centeredStyle);
 						return;
 				}
 				
@@ -187,6 +190,9 @@ public class Ship : MonoBehaviour
 						boostPixel.SetPixel (0, 0, new Color (0.0F, 0.9F, 0.0F, 0.9F));
 						boostPixel.Apply ();
 				}
+				GUIStyle style = GUI.skin.GetStyle ("Label");
+				style.alignment = TextAnchor.UpperLeft;
+				style.fontSize = 12;
         
 				//Health
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
@@ -194,7 +200,7 @@ public class Ship : MonoBehaviour
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.74f, 0.985f, 0));
 				Rect healthRect = new Rect (healthCoords.x, Screen.height - healthCoords.y, healthWidth, 12f);
 		
-				GUI.Label (new Rect (healthCoords.x - 75, Screen.height - healthCoords.y - 5, 100, 50), "Health: ");
+				GUI.Label (new Rect (healthCoords.x - 47, Screen.height - healthCoords.y - 5, 100, 50), "Health: ", style);
 				GUI.DrawTexture (healthRect, healthPixel);
 		
 				//Boost
@@ -203,15 +209,22 @@ public class Ship : MonoBehaviour
 				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.005f, 0.05f, 0));
 				Rect boostRect = new Rect (boostCoords.x + 45, Screen.height - boostCoords.y, boostWidth, 12f);
 		
-				GUI.Label (new Rect (boostCoords.x - 27, Screen.height - boostCoords.y - 5, 100, 50), "Boost: ");
+				GUI.Label (new Rect (boostCoords.x, Screen.height - boostCoords.y - 5, 100, 50), "Boost: ", style);
 				GUI.DrawTexture (boostRect, boostPixel);   
 		
 				//Score
-				var tStyle = GUI.skin.GetStyle ("Label");
-				tStyle.alignment = TextAnchor.UpperCenter;
-				Rect r = new Rect (boostCoords.x - 50, Screen.height - healthCoords.y - 5, 150, 50);
+				GUIStyle tStyle = GUI.skin.GetStyle ("Label");
+				tStyle.alignment = TextAnchor.UpperLeft;
+				tStyle.fontStyle = FontStyle.Bold;
+				tStyle.fontSize = 18;
+				Rect r = new Rect (boostCoords.x, Screen.height - healthCoords.y - 5, 150, 50);
+				
+				if (team == 1)
+						score = CTF.p1Score;
+				else if (team == 2)
+						score = CTF.p2Score;
 		
-				GUI.Label (r, "Score: " + score);  
+				GUI.Label (r, "SCORE: " + score, tStyle);  
 		}
     
 		void OnTriggerEnter (Collider other)
@@ -222,6 +235,10 @@ public class Ship : MonoBehaviour
 				if (other.gameObject.name == "Boundary") {	
 						outOfBounds = false;
 				}
+		}
+		
+		void OnCollisionEnter (Collision other)
+		{
 				if (other.gameObject.tag == "PlayerShip" 
 						|| other.gameObject.tag == "PlanetaryObject"
 						|| other.gameObject.tag == "Station") {

@@ -51,7 +51,7 @@ GameObject:
   - 23: {fileID: 2300002}
   m_Layer: 0
   m_Name: CanopyInterior_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ GameObject:
   - 23: {fileID: 2300004}
   m_Layer: 0
   m_Name: TopWing_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ GameObject:
   - 23: {fileID: 2300006}
   m_Layer: 0
   m_Name: Wings_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   - 23: {fileID: 2300010}
   m_Layer: 0
   m_Name: TopGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ GameObject:
   - 23: {fileID: 2300012}
   m_Layer: 0
   m_Name: R2D2_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ GameObject:
   - 23: {fileID: 2300014}
   m_Layer: 0
   m_Name: BottomWing_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ GameObject:
   - 23: {fileID: 2300016}
   m_Layer: 0
   m_Name: Canopy1
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - 23: {fileID: 2300018}
   m_Layer: 0
   m_Name: Nose_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +204,7 @@ GameObject:
   - 23: {fileID: 2300022}
   m_Layer: 0
   m_Name: RearFuselageGreebles_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   - 23: {fileID: 2300024}
   m_Layer: 0
   m_Name: Seat_000
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ GameObject:
   - 23: {fileID: 2300026}
   m_Layer: 0
   m_Name: Greeble_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,7 @@ GameObject:
   - 23: {fileID: 2300028}
   m_Layer: 0
   m_Name: MirrorPlane_001
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1176,6 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a1e10128b2c444daa6a7dc3251dc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleSystem: {fileID: 0}
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
   otherShip:
