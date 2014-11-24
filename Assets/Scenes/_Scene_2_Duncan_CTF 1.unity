@@ -3162,7 +3162,7 @@ MonoBehaviour:
   - {fileID: 197226425}
   _cargo: {fileID: 100000, guid: 4481f82c2f208cc4c92a03e353740138, type: 2}
   arrow: {fileID: 100006, guid: ff3998a6d12c2224f813d9d971f80b48, type: 2}
-  cargo: {fileID: 0}
+  cargo: {fileID: 11400000, guid: 4481f82c2f208cc4c92a03e353740138, type: 2}
   timeTilCargo: 0
   cargoWait: 5
   ship1: {fileID: 2012391118}

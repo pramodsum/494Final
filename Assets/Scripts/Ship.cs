@@ -450,7 +450,6 @@ public class Ship : MonoBehaviour
 				
 				awardPointsForDestruction = true;
 				makeVisible ();
-				this.collider.enabled = true;
 				hasExploded = false;
 				
 				if (CTF != null && CTF.cargo.ship == transform) {
@@ -463,6 +462,7 @@ public class Ship : MonoBehaviour
 						transform.LookAt (new Vector3 (0, 0, 0));
 						transform.Rotate (new Vector3 (90, 0, 0));
 				}
+				this.collider.enabled = true;
 		}
 
 		public void makeInvisible ()
