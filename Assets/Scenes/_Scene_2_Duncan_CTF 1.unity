@@ -3136,6 +3136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   red: {fileID: 2100000, guid: 4446a61544837d94dbf99bf6966a5ea2, type: 2}
   blue: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
+  transport: {fileID: 1305028622}
   winScore: 10000
   pointsOnKill: 100
   Stations:
@@ -7532,6 +7533,7 @@ GameObject:
   - 33: {fileID: 877729501}
   - 23: {fileID: 877729500}
   - 64: {fileID: 877729499}
+  - 114: {fileID: 877729502}
   m_Layer: 0
   m_Name: Plane002
   m_TagString: Untagged
@@ -7594,6 +7596,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1890237943}
   m_GameObject: {fileID: 877729497}
   m_Mesh: {fileID: 4300004, guid: 7b5d28d80c67e7c4084ccaf84797b5d5, type: 3}
+--- !u!114 &877729502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 877729497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0fabec7d796704aad50bab75db76f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
 --- !u!1 &898466997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7606,6 +7620,7 @@ GameObject:
   - 23: {fileID: 898467001}
   - 111: {fileID: 898467000}
   - 64: {fileID: 898466999}
+  - 114: {fileID: 898467003}
   m_Layer: 0
   m_Name: Rotator
   m_TagString: Untagged
@@ -7684,6 +7699,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1890237943}
   m_GameObject: {fileID: 898466997}
   m_Mesh: {fileID: 4300002, guid: 7b5d28d80c67e7c4084ccaf84797b5d5, type: 3}
+--- !u!114 &898467003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898466997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0fabec7d796704aad50bab75db76f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
 --- !u!1 &907772599
 GameObject:
   m_ObjectHideFlags: 0
@@ -12992,7 +13019,7 @@ GameObject:
   - 4: {fileID: 1305028621}
   - 114: {fileID: 1305028622}
   m_Layer: 0
-  m_Name: Ship_prefab
+  m_Name: Transport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13037,6 +13064,10 @@ MonoBehaviour:
   - {x: 604.97052, y: -258.514862, z: 343.359589}
   - {x: 455.01651, y: -163.136902, z: 228.428101}
   - {x: 362.140991, y: -122.004204, z: 244.457001}
+  health: 750
+  MAX_HEALTH: 750
+  explosion: {fileID: 100000, guid: ff27f04c163d3c447a39009c72eb9076, type: 2}
+  isAlive: 1
 --- !u!1 &1305802433
 GameObject:
   m_ObjectHideFlags: 0
@@ -16991,6 +17022,10 @@ Prefab:
     - target: {fileID: 6400002, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}
+      propertyPath: m_Name
+      value: Transport
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6df519f47d09d7847b252086d10ccd6c, type: 2}

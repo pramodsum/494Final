@@ -6,6 +6,7 @@ public class CTF_Script : MonoBehaviour
 		//just used to tell who is controlling which station
 		public Material red;	
 		public Material blue;
+		public TransportMove transport;
 		private int tillTick;
 		private int Tick = 1;
 
@@ -69,47 +70,45 @@ public class CTF_Script : MonoBehaviour
 		void Update ()
 		{
 				if (p1Score >= winScore) {
-					ship1.gameObject.GetComponent<Ship>().makeGameOver(true);
-					ship2.gameObject.GetComponent<Ship>().makeGameOver(false);
-					ship3.gameObject.GetComponent<Ship>().makeGameOver(true);
-					ship4.gameObject.GetComponent<Ship>().makeGameOver(false);
-					return;
+						ship1.gameObject.GetComponent<Ship> ().makeGameOver (true);
+						ship2.gameObject.GetComponent<Ship> ().makeGameOver (false);
+						ship3.gameObject.GetComponent<Ship> ().makeGameOver (true);
+						ship4.gameObject.GetComponent<Ship> ().makeGameOver (false);
+						return;
 				} else if (p2Score >= winScore) {
-					ship1.gameObject.GetComponent<Ship>().makeGameOver(false);
-					ship2.gameObject.GetComponent<Ship>().makeGameOver(true);
-					ship3.gameObject.GetComponent<Ship>().makeGameOver(false);
-					ship4.gameObject.GetComponent<Ship>().makeGameOver(true);
-					return;
+						ship1.gameObject.GetComponent<Ship> ().makeGameOver (false);
+						ship2.gameObject.GetComponent<Ship> ().makeGameOver (true);
+						ship3.gameObject.GetComponent<Ship> ().makeGameOver (false);
+						ship4.gameObject.GetComponent<Ship> ().makeGameOver (true);
+						return;
 				}
 				tillTick--;
 				foreach (Station_Control station in Stations) {
-					if (station.inControl && tillTick == 0)
-					{
-						if (station.transform.FindChild("Sphere").renderer.material.color == red.color)
-						{
-							p1Score++;
+						if (station.inControl && tillTick == 0) {
+								if (station.transform.FindChild ("Sphere").renderer.material.color == red.color) {
+										p1Score++;
+								}
+								if (station.transform.FindChild ("Sphere").renderer.material.color == blue.color) {
+										p2Score++;
+								}
 						}
-						if (station.transform.FindChild("Sphere").renderer.material.color == blue.color)
-						{
-							p2Score++;
-						}
-					}
 				}
-				if (noNewCargo) {
+				if (transport.isAlive) {
+						noNewCargo = false;
 				} 
-				else if (timeTilCargo > 0)
-						timeTilCargo -= Time.deltaTime;
-				else if (timeTilCargo <= 0) {
+/*				else if (timeTilCargo > 0)
+						timeTilCargo -= Time.deltaTime;*/
+				else if (!noNewCargo) { 
 						noNewCargo = true;
 						timeTilCargo = 0;
-						int x, y, z;
+						/*int x, y, z;
 						x = Random.Range (0, 200);
 						y = Random.Range (-100, 100);
 						z = Random.Range (0, 200);
-						Vector3 newCargoPosition = new Vector3 (x, y, z);
+						Vector3 newCargoPosition = new Vector3 (x, y, z);*/
 
 
-						Instantiate (_cargo, newCargoPosition, Quaternion.identity);
+						Instantiate (_cargo, transport.transform.position, Quaternion.identity);
 						this.cargo = GameObject.Find ("Cargo(Clone)").GetComponent<Cargo_Script> ();
 
 						//instantiate arrows
@@ -134,40 +133,39 @@ public class CTF_Script : MonoBehaviour
 								child.gameObject.layer = LayerMask.NameToLayer ("Ship2-objects");
 						}
 
-						if (ship3 != null)
-						{
-							Instantiate (arrow, Vector3.zero, Quaternion.identity);
-							arrow3 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
-							arrow3.name = "Arrow3";
-							arrow3.ship1 = ship3;
-							arrow3.ship2 = cargo.transform;
-							arrow3.gameObject.layer = LayerMask.NameToLayer ("Ship3-objects");
-							foreach (Transform child in arrow3.transform) {
-								child.gameObject.layer = LayerMask.NameToLayer ("Ship3-objects");
-							}
+						if (ship3 != null) {
+								Instantiate (arrow, Vector3.zero, Quaternion.identity);
+								arrow3 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
+								arrow3.name = "Arrow3";
+								arrow3.ship1 = ship3;
+								arrow3.ship2 = cargo.transform;
+								arrow3.gameObject.layer = LayerMask.NameToLayer ("Ship3-objects");
+								foreach (Transform child in arrow3.transform) {
+										child.gameObject.layer = LayerMask.NameToLayer ("Ship3-objects");
+								}
 						}
-						if (ship4 != null)
-						{
-							Instantiate (arrow, Vector3.zero, Quaternion.identity);
-							arrow4 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
-							arrow4.name = "Arrow4";
-							arrow4.ship1 = ship4;
-							arrow4.ship2 = cargo.transform;
-							arrow4.gameObject.layer = LayerMask.NameToLayer ("Ship4-objects");
-							foreach (Transform child in arrow4.transform) {
-								child.gameObject.layer = LayerMask.NameToLayer ("Ship4-objects");
-							}
+						if (ship4 != null) {
+								Instantiate (arrow, Vector3.zero, Quaternion.identity);
+								arrow4 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
+								arrow4.name = "Arrow4";
+								arrow4.ship1 = ship4;
+								arrow4.ship2 = cargo.transform;
+								arrow4.gameObject.layer = LayerMask.NameToLayer ("Ship4-objects");
+								foreach (Transform child in arrow4.transform) {
+										child.gameObject.layer = LayerMask.NameToLayer ("Ship4-objects");
+								}
 						}
 				}
-			if (tillTick == 0) tillTick = Tick;
+				if (tillTick == 0)
+						tillTick = Tick;
 		}
 
 		public void captureNotification (int which)
 		{
 				if (which == 1)
-						p1Score+=100;
+						p1Score += 100;
 				if (which == 2)
-						p2Score+=100;
+						p2Score += 100;
 				timeTilCargo = cargoWait;
 				noNewCargo = false;
 				GameObject.Destroy (arrow1.gameObject);
@@ -184,14 +182,12 @@ public class CTF_Script : MonoBehaviour
 						return "";
 		}
 
-		public void shipDestroyed(int team)
+		public void shipDestroyed (int team)
 		{
-			if (team == 1)
-			{
-				p2Score +=  pointsOnKill;
-			}
-			else {
-				p1Score += pointsOnKill;
-			}
+				if (team == 1) {
+						p2Score += pointsOnKill;
+				} else {
+						p1Score += pointsOnKill;
+				}
 		}
 }
