@@ -3397,7 +3397,7 @@ InputManager:
     axis: 5
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player1FireMisile
+    m_Name: Player1FireMissile
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -3413,7 +3413,7 @@ InputManager:
     axis: 5
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2FireMisile
+    m_Name: Player2FireMissile
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -3429,7 +3429,7 @@ InputManager:
     axis: 5
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player3FireMisile
+    m_Name: Player3FireMissile
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -3445,7 +3445,7 @@ InputManager:
     axis: 5
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player4FireMisile
+    m_Name: Player4FireMissile
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
