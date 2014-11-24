@@ -56,16 +56,24 @@ public class Missile : MonoBehaviour
 				team = shooter.team;
 		}
 
-		void CollideWithShip (Ship ship)
+		void CollideWithShip (GameObject ship)
 		{
-				if (ship.team == team) {
-						return;
+				// Don't collide with people of the same team as me.
+				// The code below could definitely be cleaned up and I am so sorry
+				if (team == 1) {
+						if ((ship.name == "Ship1") || (ship.name == "Ship3")) {
+								return;
+						}
+				} else {
+						if ((ship.name == "Ship2") || (ship.name == "Ship4")) {
+								return;
+						}
 				}
 
 				var otherPos = ship.transform.position;
 				var knockDirection = (transform.position - otherPos).normalized;
 				int shooterNum = shooter.GetComponent<Ship> ().GetPlayerNumber ();
-				ship.GetComponent<Ship> ().Damage (5, shooterNum);
+				ship.GetComponent<Ship> ().Damage (10, shooterNum);
 				Instantiate (explosion, otherPos, Quaternion.identity);
 				Destroy (gameObject);
 				ship.rigidbody.AddForce (knockDirection * 100f);

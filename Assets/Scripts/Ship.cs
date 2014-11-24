@@ -243,9 +243,9 @@ public class Ship : MonoBehaviour
 						other.SendMessage ("CollideWithShip", gameObject);
 				}
 				if (other.gameObject.name == "Missile") {
-						other.SendMessage ("CollideWithShip", this);
+						other.SendMessage ("CollideWithShip", gameObject);
 				}
-				if (other.gameObject.name == "Boundary") {	
+				if (other.gameObject.name == "Boundary") {
 						outOfBounds = false;
 				}
 				if (other.gameObject.name == "ShotAI") {
