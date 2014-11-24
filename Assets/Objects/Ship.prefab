@@ -1179,11 +1179,13 @@ MonoBehaviour:
   particleSystem: {fileID: 0}
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
+  smallExplosion: {fileID: 100002, guid: ab64df59bdcd78247a73b914d8f6c40c, type: 2}
   otherShip:
   - {fileID: 0}
   - {fileID: 0}
   p1Home: {fileID: 0}
   CTF: {fileID: 0}
+  team: 0
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
