@@ -1178,14 +1178,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 0}
   shot: {fileID: 100000, guid: 2c197011f6e5b54448c0f086130e0fcc, type: 2}
+  missile: {fileID: 100000, guid: 78873473acfb648a6b4718632f45253f, type: 2}
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
+  smallExplosion: {fileID: 0}
   otherShip:
   - {fileID: 0}
   - {fileID: 0}
   p1Home: {fileID: 0}
   CTF: {fileID: 0}
+  team: 0
   classicMovement: 0
   shotCooldownTime: .100000001
+  missileCooldownTime: 1
   knockbackRemaining: 0
   knockBack: 100
   respawnIn: 0
