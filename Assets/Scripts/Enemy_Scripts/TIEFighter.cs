@@ -145,7 +145,7 @@ public class TIEFighter : MonoBehaviour {
 				if (CTF != null)
 				{
 					if (other.renderer.material.color == red.color) CTF.p1Score += pointsOnKill;
-					if (other.renderer.material.color == blue.color) CTF.p1Score += pointsOnKill;
+					if (other.renderer.material.color == blue.color) CTF.p2Score += pointsOnKill;
 				}
 				Instantiate (explosion, transform.position, Quaternion.identity);
 				GameObject.Destroy(gameObject);
