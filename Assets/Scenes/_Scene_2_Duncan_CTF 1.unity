@@ -1383,7 +1383,7 @@ MonoBehaviour:
   - {fileID: 501593855}
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
-  team: 2
+  team: 1
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
@@ -15436,7 +15436,7 @@ MonoBehaviour:
   - {fileID: 159909859}
   p1Home: {fileID: 215626703}
   CTF: {fileID: 414310936}
-  team: 1
+  team: 2
   classicMovement: 0
   shotCooldownTime: .100000001
   knockbackRemaining: 0
@@ -17265,7 +17265,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: team
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -17932,7 +17932,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: team
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
