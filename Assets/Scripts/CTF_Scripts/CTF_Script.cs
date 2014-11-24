@@ -11,6 +11,7 @@ public class CTF_Script : MonoBehaviour
 		private int Tick = 1;
 
 		public int winScore = 10000;
+		public int captureScore = 2500;
 
 		public int pointsOnKill = 100;
 
@@ -163,9 +164,9 @@ public class CTF_Script : MonoBehaviour
 		public void captureNotification (int which)
 		{
 				if (which == 1)
-						p1Score += 100;
+						p1Score += captureScore;
 				if (which == 2)
-						p2Score += 100;
+						p2Score += captureScore;
 				timeTilCargo = cargoWait;
 				noNewCargo = false;
 				GameObject.Destroy (arrow1.gameObject);
