@@ -3,24 +3,24 @@ using System;
 
 namespace InControl
 {
-	// @cond nodoc
-	[AutoDiscover]
-	public class PlayStation3WinProfile : UnityInputDeviceProfile
-	{
-		public PlayStation3WinProfile()
+		// @cond nodoc
+		[AutoDiscover]
+		public class PlayStation3WinProfile : UnityInputDeviceProfile
 		{
-			Name = "PlayStation 3 Controller";
-			Meta = "PlayStation 3 Controller on Windows (via MotioninJoy Gamepad Tool)";
+				public PlayStation3WinProfile ()
+				{
+						Name = "PlayStation 3 Controller";
+						Meta = "PlayStation 3 Controller on Windows (via MotioninJoy Gamepad Tool)";
 
-			SupportedPlatforms = new[] {
+						SupportedPlatforms = new[] {
 				"Windows"
 			};
 
-			JoystickNames = new[] {
+						JoystickNames = new[] {
 				"MotioninJoy Virtual Game Controller"
 			};
 
-			ButtonMappings = new[] {
+						ButtonMappings = new[] {
 				new InputControlMapping {
 					Handle = "Cross",
 					Target = InputControlType.Action1,
@@ -88,7 +88,7 @@ namespace InControl
 				}
 			};
 
-			AnalogMappings = new[] {
+						AnalogMappings = new[] {
 				new InputControlMapping {
 					Handle = "Left Stick X",
 					Target = InputControlType.LeftStickX,
@@ -152,7 +152,7 @@ namespace InControl
 					Source = Analog4
 				}
 			};
+				}
 		}
-	}
 }
 
