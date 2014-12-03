@@ -1412,7 +1412,7 @@ MonoBehaviour:
   boostDrainRate: .200000003
   enemyInSights: 0
   maxAngleLockOn: 60
-  maxDistLockOn: 50
+  maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &159909862
@@ -3436,7 +3436,7 @@ MonoBehaviour:
   boostDrainRate: .200000003
   enemyInSights: 0
   maxAngleLockOn: 60
-  maxDistLockOn: 50
+  maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!4 &501593857
@@ -3465,7 +3465,7 @@ Transform:
   - {fileID: 1039769330}
   - {fileID: 1640714419}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!54 &501593858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14140,7 +14140,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: player
@@ -15013,7 +15013,7 @@ Transform:
   - {fileID: 1215767029}
   - {fileID: 1289906312}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1726114073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15059,7 +15059,7 @@ MonoBehaviour:
   boostDrainRate: .200000003
   enemyInSights: 0
   maxAngleLockOn: 60
-  maxDistLockOn: 50
+  maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &1726114074
@@ -17361,7 +17361,7 @@ MonoBehaviour:
   boostDrainRate: .200000003
   enemyInSights: 0
   maxAngleLockOn: 60
-  maxDistLockOn: 50
+  maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &2012391121

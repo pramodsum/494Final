@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
 		private GameObject shooter;
 		private GameObject target;
 
-		public float lockOnDistance = 100;
+//		public float lockOnDistance = 100;
 
 
 		public bool homing;
@@ -22,7 +22,7 @@ public class Shot : MonoBehaviour
 		void Start ()
 		{
 				startPosition = transform.position; 
-				maxDist = 200f;
+//				maxDist = 200f;
 		}
 	
 		void Update ()
