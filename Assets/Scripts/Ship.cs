@@ -230,9 +230,9 @@ public class Ship : MonoBehaviour
 				Rect r = new Rect (boostCoords.x, Screen.height - healthCoords.y - 5, 150, 50);
 				
 				if (team == 1)
-						score = CTF.p1Score;
+						score = Mathf.FloorToInt (CTF.p1Score);
 				else if (team == 2)
-						score = CTF.p2Score;
+						score = Mathf.FloorToInt (CTF.p2Score);
 		
 				GUI.Label (r, "SCORE: " + score, tStyle);  
 		}

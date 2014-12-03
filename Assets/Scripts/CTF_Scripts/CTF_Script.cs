@@ -13,7 +13,7 @@ public class CTF_Script : MonoBehaviour
 		public int winScore = 10000;
 		public int captureScore = 2500;
 
-		public int pointsOnKill = 100;
+		public int pointsOnKill = 300;
 
 		public Station_Control[] Stations;
 		public GameObject _cargo;
@@ -34,8 +34,8 @@ public class CTF_Script : MonoBehaviour
 		public Transform p1Home;
 		public Transform p2Home;
 
-		public int p1Score;
-		public int p2Score;
+		public float p1Score;
+		public float p2Score;
 
 		public ArrowScript arrow1;
 		public ArrowScript arrow2;
@@ -87,10 +87,10 @@ public class CTF_Script : MonoBehaviour
 				foreach (Station_Control station in Stations) {
 						if (station.inControl && tillTick == 0) {
 								if (station.transform.FindChild ("Sphere").renderer.material.color == red.color) {
-										p1Score++;
+										p1Score += 0.1f;
 								}
 								if (station.transform.FindChild ("Sphere").renderer.material.color == blue.color) {
-										p2Score++;
+										p2Score += 0.1f;
 								}
 						}
 				}
