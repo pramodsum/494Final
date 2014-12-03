@@ -2410,6 +2410,7 @@ MonoBehaviour:
   blue: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
   transport: {fileID: 1305028622}
   winScore: 10000
+  captureScore: 2500
   pointsOnKill: 100
   Stations:
   - {fileID: 1814686930}
@@ -10077,7 +10078,7 @@ MonoBehaviour:
   explosion: {fileID: 100000, guid: ff27f04c163d3c447a39009c72eb9076, type: 2}
   isAlive: 1
   CTF: {fileID: 414310936}
-  defender: {fileID: 101026, guid: 89e4622c7a36dcf448d6711bd8e3ebd0, type: 2}
+  defender: {fileID: 100006, guid: abdd6b822d7e7df44a3a10ac8d51542c, type: 2}
   spawnDefenders: 1
 --- !u!1 &1305802433
 GameObject:
