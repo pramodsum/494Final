@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour
 		public float knockBack = 100f;
 
 		public float respawnIn;
-		public float deadLength = 10f;
+		public float deadLength = 4f;
 		private bool hasExploded = false;
 		private bool awardPointsForDestruction = true;
 	
