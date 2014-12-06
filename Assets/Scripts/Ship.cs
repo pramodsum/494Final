@@ -31,6 +31,8 @@ public class Ship : MonoBehaviour
 		private bool awardPointsForDestruction = true;
 	
 		public bool outOfBounds;
+		public int dead_player = -1;
+		public string stationCaptured = "none";
 
 		public float FORCE_MODIFIER = 500f;
 		public float ROTATION_SPEED = 100f;
@@ -65,6 +67,10 @@ public class Ship : MonoBehaviour
 		public AudioClip shotSound;
 
 		public GameObject boundary;
+		
+		//Event Text
+		GUIStyle evCenteredStyle;
+		Rect evRect;
 	
 		void Start ()
 		{
@@ -150,46 +156,24 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
-				if (outOfBounds) {
-						string text;
-						
-						GUIStyle centeredStyle = GUI.skin.GetStyle ("Label");
-						centeredStyle.fontStyle = FontStyle.Bold;
-						centeredStyle.fontSize = 16;
-						centeredStyle.alignment = TextAnchor.UpperCenter;
-						var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-						Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y - 95, 150, 100);
-			
-						text = "OUT OF BOUNDS!! TURN AROUND!!";
-						GUI.Label (rect, text, centeredStyle);
+				Debug.Log (stationCaptured);
+				if (stationCaptured != "none") {
+						OnEvent ("The " + stationCaptured + " team captured a station");
+						stationCaptured = "none";
+				} else if (dead_player > 0) {
+						OnEvent ("Player " + dead_player + " was killed");
+						dead_player = -1;
+				} else if (outOfBounds && health > 0) {
+						OnOutOfBounds ();
 				}
 				
 				if (gameOver > 0) {
-						string text;
-					
-						var centeredStyle = GUI.skin.GetStyle ("Label");
-						centeredStyle.alignment = TextAnchor.UpperCenter;
-						var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-						Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y, 100, 50);
-
-						if (CTF.p1Score > CTF.p2Score)
-								text = "Red Team Wins!";
-						else
-								text = "Blue Team Wins!";
-						GUI.Label (rect, text, centeredStyle);
+						OnGameOver ();
 						return;
 				}
 				
 				if (health <= 0) {
-						var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 1, 0));
-						GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
-						
-						var centeredStyle = GUI.skin.GetStyle ("Label");
-						centeredStyle.alignment = TextAnchor.UpperCenter;
-						var rectStart2 = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-            
-						GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in " + (int)respawnIn, centeredStyle);
-            
+						OnDead ();
 						return;
 				}
 
@@ -254,6 +238,58 @@ public class Ship : MonoBehaviour
 						Damage (2, 0);
 				}
 
+		}
+		
+		void OnOutOfBounds ()
+		{
+				string text = "OUT OF BOUNDS!! TURN AROUND!!";
+				evCenteredStyle = GUI.skin.GetStyle ("Label");
+				evCenteredStyle.fontStyle = FontStyle.Bold;
+				evCenteredStyle.alignment = TextAnchor.UpperCenter;
+				var evRectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
+				evRect = new Rect (evRectVect.x, Screen.height - evRectVect.y - 95, 150, 100);
+				GUI.Label (evRect, text, evCenteredStyle);
+		}
+		
+		void OnGameOver ()
+		{
+				string text;
+		
+				var centeredStyle = GUI.skin.GetStyle ("Label");
+				centeredStyle.alignment = TextAnchor.UpperCenter;
+				var rectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
+				Rect rect = new Rect (rectVect.x, Screen.height - rectVect.y, 100, 50);
+		
+				if (CTF.p1Score > CTF.p2Score)
+						text = "Red Team Wins!";
+				else
+						text = "Blue Team Wins!";
+				GUI.Label (rect, text, centeredStyle);
+		}
+		
+		void OnDead ()
+		{
+				var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 1, 0));
+				GUI.DrawTexture (new Rect (rectStart.x, Screen.height - rectStart.y, cameraScreen.pixelWidth, cameraScreen.pixelHeight), greyPixel);
+		
+				var centeredStyle = GUI.skin.GetStyle ("Label");
+				centeredStyle.alignment = TextAnchor.UpperCenter;
+				var rectStart2 = cameraScreen.ViewportToScreenPoint (new Vector3 (.5f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
+		
+				GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in " + (int)respawnIn, centeredStyle);
+				
+				//Inform other players of death
+				GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (playerNumber);
+		}
+		
+		public void OnEvent (string text)
+		{
+				evCenteredStyle = GUI.skin.GetStyle ("Label");
+				evCenteredStyle.fontStyle = FontStyle.Bold;
+				evCenteredStyle.alignment = TextAnchor.UpperCenter;
+				var evRectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
+				evRect = new Rect (evRectVect.x - 25, Screen.height - evRectVect.y - 95, 200, 50);
+				GUI.Label (evRect, text, evCenteredStyle);
 		}
 		
 		void OnCollisionEnter (Collision other)
@@ -386,7 +422,6 @@ public class Ship : MonoBehaviour
 //								GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
 						}
 				GameObject.Find ("Directional light").audio.PlayOneShot (shotSound, 0.3f);
-
 		}
 
 		void FireMissile ()
@@ -539,5 +574,10 @@ public class Ship : MonoBehaviour
 						gameOver = 1;
 				else
 						gameOver = 2;
+		}
+		
+		public bool isRespawning ()
+		{
+				return hasExploded;
 		}
 }
