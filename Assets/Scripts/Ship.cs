@@ -33,6 +33,7 @@ public class Ship : MonoBehaviour
 		public bool outOfBounds;
 		public int dead_player = -1;
 		public string stationCaptured = "none";
+		public bool transportDestroyed = false;
 
 		public float FORCE_MODIFIER = 500f;
 		public float ROTATION_SPEED = 100f;
@@ -67,10 +68,6 @@ public class Ship : MonoBehaviour
 		public AudioClip shotSound;
 
 		public GameObject boundary;
-		
-		//Event Text
-		GUIStyle evCenteredStyle;
-		Rect evRect;
 	
 		void Start ()
 		{
@@ -156,15 +153,25 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
-				Debug.Log (stationCaptured);
-				if (stationCaptured != "none") {
+				if (transportDestroyed) {
+//						Debug.Log ("Player " + playerNumber + ": The transport was destroyed!");
+						OnEvent ("The transport was destroyed!");
+						transportDestroyed = false;
+				} 
+				if (!stationCaptured.Equals ("none")) {
+//						Debug.Log ("Player " + playerNumber + ": station captured");
 						OnEvent ("The " + stationCaptured + " team captured a station");
 						stationCaptured = "none";
-				} else if (dead_player > 0) {
+				} 
+				if (dead_player > 0) {
 						OnEvent ("Player " + dead_player + " was killed");
 						dead_player = -1;
-				} else if (outOfBounds && health > 0) {
-						OnOutOfBounds ();
+						return;
+				} 
+				
+				if (outOfBounds && health > 0) {
+						OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
+						return;
 				}
 				
 				if (gameOver > 0) {
@@ -240,17 +247,6 @@ public class Ship : MonoBehaviour
 
 		}
 		
-		void OnOutOfBounds ()
-		{
-				string text = "OUT OF BOUNDS!! TURN AROUND!!";
-				evCenteredStyle = GUI.skin.GetStyle ("Label");
-				evCenteredStyle.fontStyle = FontStyle.Bold;
-				evCenteredStyle.alignment = TextAnchor.UpperCenter;
-				var evRectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-				evRect = new Rect (evRectVect.x, Screen.height - evRectVect.y - 95, 150, 100);
-				GUI.Label (evRect, text, evCenteredStyle);
-		}
-		
 		void OnGameOver ()
 		{
 				string text;
@@ -284,11 +280,11 @@ public class Ship : MonoBehaviour
 		
 		public void OnEvent (string text)
 		{
-				evCenteredStyle = GUI.skin.GetStyle ("Label");
+				var evCenteredStyle = GUI.skin.GetStyle ("Label");
 				evCenteredStyle.fontStyle = FontStyle.Bold;
 				evCenteredStyle.alignment = TextAnchor.UpperCenter;
 				var evRectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-				evRect = new Rect (evRectVect.x - 25, Screen.height - evRectVect.y - 95, 200, 50);
+				var evRect = new Rect (evRectVect.x - 25, Screen.height - evRectVect.y - 95, 200, 50);
 				GUI.Label (evRect, text, evCenteredStyle);
 		}
 		
