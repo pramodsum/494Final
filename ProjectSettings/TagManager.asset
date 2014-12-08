@@ -9,6 +9,7 @@ TagManager:
   - PlanetaryObject
   - Station
   - ShotAI
+  - Minimap
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   User Layer 9: Ship2-objects
   User Layer 10: Ship3-objects
   User Layer 11: Ship4-objects
-  User Layer 12: 
+  User Layer 12: Minimap
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
