@@ -2510,7 +2510,7 @@ MonoBehaviour:
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
   smallExplosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
-  - {fileID: 0}
+  - {fileID: 2134296562}
   - {fileID: 501593855}
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
@@ -13996,7 +13996,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: otherShip.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2134296562}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: otherShip.Array.data[1]
       value: 
@@ -16944,7 +16944,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: otherShip.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2134296562}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: otherShip.Array.data[1]
       value: 
@@ -17063,7 +17063,7 @@ MonoBehaviour:
   explosion: {fileID: 100000, guid: d911a31592f0d974d9b82d3a9aa85d44, type: 2}
   smallExplosion: {fileID: 100000, guid: 85eabf6bd4584814498af733edfa6a16, type: 2}
   otherShip:
-  - {fileID: 0}
+  - {fileID: 2134296562}
   - {fileID: 501593855}
   p1Home: {fileID: 757843614}
   CTF: {fileID: 414310936}
