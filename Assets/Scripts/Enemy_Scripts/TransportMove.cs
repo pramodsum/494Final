@@ -14,6 +14,7 @@ public class TransportMove : MonoBehaviour
 		public CTF_Script CTF;
 		public GameObject defender;
 		public bool spawnDefenders = true;
+		public AudioClip explosionSound;
 
 		void Start ()
 		{
@@ -36,6 +37,8 @@ public class TransportMove : MonoBehaviour
 								makeInvisible ();
 								hasExploded = true;
 								Instantiate (explosion, transform.position, Quaternion.identity);
+								GameObject.Find ("Directional light").audio.volume = 2F;
+								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 0.3f);
 								GameObject.Find ("Directional light").GetComponent<EventManager> ().transportDestroyed ();
 						}				
 				}

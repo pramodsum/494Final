@@ -67,6 +67,7 @@ public class Ship : MonoBehaviour
 		public float maxDistLockOn = 50f;
 		
 		public AudioClip shotSound;
+		public AudioClip explosionSound;
 
 		public GameObject boundary;
 	
@@ -102,6 +103,8 @@ public class Ship : MonoBehaviour
 								makeInvisible ();
 								hasExploded = true;
 								Instantiate (explosion, transform.position, Quaternion.identity);
+								GameObject.Find ("Directional light").audio.volume = 1F;
+								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 0.3f);
 								this.collider.enabled = false;
 						}
 						if (respawnIn > 0) {

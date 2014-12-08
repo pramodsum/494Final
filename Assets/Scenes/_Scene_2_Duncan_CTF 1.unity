@@ -2302,6 +2302,10 @@ Prefab:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -2547,6 +2551,7 @@ MonoBehaviour:
   maxAngleLockOn: 60
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
+  explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &159909862
 Rigidbody:
@@ -4459,6 +4464,7 @@ MonoBehaviour:
   maxAngleLockOn: 60
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
+  explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!4 &501593857
 Transform:
@@ -12331,6 +12337,7 @@ MonoBehaviour:
   CTF: {fileID: 414310936}
   defender: {fileID: 100006, guid: abdd6b822d7e7df44a3a10ac8d51542c, type: 2}
   spawnDefenders: 1
+  explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
 --- !u!1 &1305802433
 GameObject:
   m_ObjectHideFlags: 0
@@ -12602,6 +12609,10 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294959615
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
     m_RemovedComponents:
     - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -14205,6 +14216,10 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294959615
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -17145,6 +17160,10 @@ Prefab:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -17256,6 +17275,7 @@ MonoBehaviour:
   maxAngleLockOn: 60
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
+  explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &2012391121
 Rigidbody:
@@ -18891,6 +18911,7 @@ GameObject:
   - 82: {fileID: 2093951611}
   - 82: {fileID: 2093951613}
   - 114: {fileID: 2093951614}
+  - 82: {fileID: 2093951615}
   m_Layer: 0
   m_Name: Directional light
   m_TagString: Untagged
@@ -19086,6 +19107,64 @@ MonoBehaviour:
   - {fileID: 501593856}
   redMat: {fileID: 2100000, guid: 4446a61544837d94dbf99bf6966a5ea2, type: 2}
   blueMat: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
+--- !u!82 &2093951615
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093951608}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 130
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &2117954161
 GameObject:
   m_ObjectHideFlags: 0
@@ -19359,6 +19438,7 @@ MonoBehaviour:
   maxAngleLockOn: 60
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
+  explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!82 &2134296565
 AudioSource:
