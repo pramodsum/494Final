@@ -164,12 +164,10 @@ public class Ship : MonoBehaviour
 				if (transportDestroyed) {
 						OnEvent ("The transport was destroyed!");
 						transportDestroyed = false;
-				} 
-				if (!stationCaptured.Equals ("none")) {
+				} else if (!stationCaptured.Equals ("none")) {
 						OnEvent ("The " + stationCaptured + " team captured a station");
 						stationCaptured = "none";
-				} 
-				if (dead_player > 0) {
+				} else if (dead_player > 0) {
 						OnEvent ("Player " + dead_player + " was killed");
 						dead_player = -1;
 						return;
@@ -227,25 +225,6 @@ public class Ship : MonoBehaviour
 		
 				GUI.Label (r, "SCORE: " + score, tStyle);  
 		}
-    
-		void OnTriggerEnter (Collider other)
-		{
-				if (other.gameObject.name == "Shot") {
-						other.SendMessage ("CollideWithShip", gameObject);
-				}
-				if (other.gameObject.name == "Missile") {
-						other.SendMessage ("CollideWithShip", gameObject);
-				}
-				if (other.gameObject.name == "Boundary") {
-						outOfBounds = false;
-				}
-				if (other.gameObject.name == "ShotAI") {
-						//					print ("Wrekt m9");
-						Instantiate (smallExplosion, transform.position, Quaternion.identity);
-						Damage (2, 0);
-				}
-
-		}
 		
 		void OnGameOver ()
 		{
@@ -291,11 +270,30 @@ public class Ship : MonoBehaviour
 		void OnCollisionEnter (Collision other)
 		{
 				GameObject opp = other.gameObject;
-				Debug.Log (name + " w/ " + opp.name + "(" + opp.tag + ")");
+//				Debug.Log (name + " w/ " + opp.name + "(" + opp.tag + ")");
 				if ((opp.tag == "PlayerShip" && opp.GetComponent<Ship> ().team != team)
 						|| opp.tag == "Station") {
 						health = 0f;
 				}
+		}
+	
+		void OnTriggerEnter (Collider other)
+		{
+				if (other.gameObject.name == "Shot") {
+						other.SendMessage ("CollideWithShip", gameObject);
+				}
+				if (other.gameObject.name == "Missile") {
+						other.SendMessage ("CollideWithShip", gameObject);
+				}
+				if (other.gameObject.name == "Boundary") {
+						outOfBounds = false;
+				}
+				if (other.gameObject.name == "ShotAI") {
+						//					print ("Wrekt m9");
+						Instantiate (smallExplosion, transform.position, Quaternion.identity);
+						Damage (2, 0);
+				}
+		
 		}
 
 		void OnTriggerExit (Collider other)
