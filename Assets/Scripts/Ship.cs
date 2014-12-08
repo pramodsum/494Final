@@ -40,6 +40,7 @@ public class Ship : MonoBehaviour
 		public float MAX_HEALTH = 3;
 		public float MAX_BOOST = 10;
 		public float CONSTANT_MOVEMENT_AMOUNT = 10f;
+		public float BRAKE_FACTOR = 450f;
 	
 		public float CAMERA_MIN_FOV = 60f;
 		public float CAMERA_MAX_FOV = 80f;
@@ -316,17 +317,18 @@ public class Ship : MonoBehaviour
 		{
 				if (particleSystem != null)
 						particleSystem.enableEmission = false;
-				bool isNotBreak = true;
-						
+
+				float brakeAmount;
 				var inputDevice = (InputManager.Devices.Count >= playerNumber) ? InputManager.Devices [playerNumber - 1] : null;
 				if (inputDevice != null) {
-						isNotBreak = inputDevice.Action2 == 0;
+						brakeAmount = inputDevice.Action2;
 				} else {					
 						string inputPrefix = "Player" + playerNumber;
-						isNotBreak = Input.GetAxis (inputPrefix + "Break") == 0;
+						brakeAmount = Input.GetAxis (inputPrefix + "Break");
 				}
 
 				var force = FORCE_MODIFIER;
+				force -= brakeAmount * BRAKE_FACTOR;
 				boost += boostRefreshRate; 
 				if (boost > MAX_BOOST)
 						boost = MAX_BOOST;
@@ -334,7 +336,7 @@ public class Ship : MonoBehaviour
 						boostAvailable = true;
 							
 				if (extraPercent != 0) {
-						if (isNotBreak && boostAvailable) 
+						if (boostAvailable) 
 								boost -= boostDrainRate;
 						if (boost <= 0) {
 								boost = 0;
@@ -347,11 +349,9 @@ public class Ship : MonoBehaviour
         
 				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
 				
-				if (isNotBreak) {
-						rigidbody.AddForce (transform.up * force);
-						if (FORCE_MODIFIER != 0 && particleSystem != null)
-								particleSystem.enableEmission = true;
-				}
+				rigidbody.AddForce (transform.up * force);
+				if (FORCE_MODIFIER != 0 && particleSystem != null)
+						particleSystem.enableEmission = true;
 
 		}
 
