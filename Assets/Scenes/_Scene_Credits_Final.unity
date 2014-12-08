@@ -524,7 +524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1101001402}
-        m_MethodName: StartFourPlayer
+        m_MethodName: ShowMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1101001401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f0232592b734c04882e645ecf0cc6fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b6ae0e238c4b4cc49b941d9d21e891c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1101001403
