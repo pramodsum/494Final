@@ -1690,8 +1690,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -.00576020032, y: 33.8460159}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchoredPosition: {x: -.00576019986, y: 113.449997}
+  m_SizeDelta: {x: 800, y: 75}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1318067720
 MonoBehaviour:
@@ -1705,20 +1705,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Mat: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 24
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'We do not own many of the assets and images in this game. They belong to
+    their respected owners as listed below. '
 --- !u!222 &1318067721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1818,6 +1819,7 @@ RectTransform:
   - {fileID: 1927149068}
   - {fileID: 331318898}
   - {fileID: 1318067719}
+  - {fileID: 1860779453}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -2174,6 +2176,78 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1726040582}
   m_Mesh: {fileID: 4300012, guid: 18b8f595ee3cf7e4a8d1aea462cfc6b7, type: 3}
+--- !u!1 &1860779452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1860779453}
+  - 222: {fileID: 1860779455}
+  - 114: {fileID: 1860779454}
+  m_Layer: 5
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1860779453
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860779452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1423190427}
+  m_RootOrder: 5
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -.00575469993, y: -82.098999}
+  m_SizeDelta: {x: 550, y: 300}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1860779454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860779452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Mat: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "http://whydoidoit.com/2012/04/06/unity-curved-path-following-with-easing/
+    for Splines Plugin\nXWing and TIE by Scifi 3D \nInControl by Gallant Games\nSpace
+    Ship 2 by Vertex Studio\nSkybox Volume 2 (Nebula) by Hedgehog Team\nx-Wing fighter
+    credit: \"Credit to PixelOz Designs and Angel David Guzm\xE1n must remain in\nall
+    distributions, in any format.\"\nSci-Fi Spaceship 'Omega Fighter' v1.4 by Omega
+    Creative\n\nPlanet Art\nhttp://opengameart.org/content/space-game-art-pack-extended
+    \nhttp://upload.wikimedia.org/wikipedia/commons/2/20/Neptune_cutout.png\n\nSounds/Music\nhttp://opengameart.org/content/heroism\nhttp://opengameart.org/content/boss-theme\nhttp://soundbible.com/470-Laser-Blaster.html\nhttp://www.freesfx.co.uk/soundeffects/explosions/\n"
+--- !u!222 &1860779455
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860779452}
 --- !u!1 &1908884864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,7 +2524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2120144418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2465,8 +2539,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 126.650002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 2.41420007, y: 223.360001}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2120144419
 MonoBehaviour:
