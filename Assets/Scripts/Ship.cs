@@ -326,6 +326,7 @@ public class Ship : MonoBehaviour
 						string inputPrefix = "Player" + playerNumber;
 						brakeAmount = Input.GetAxis (inputPrefix + "Break");
 				}
+				brakeAmount = Mathf.Abs (brakeAmount);
 
 				var force = FORCE_MODIFIER;
 				force -= brakeAmount * BRAKE_FACTOR;
