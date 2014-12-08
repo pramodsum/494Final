@@ -12537,7 +12537,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: boundary
       value: 
-      objectReference: {fileID: 100000, guid: 77438abae9f4941639a18a3556a7e0fa, type: 2}
+      objectReference: {fileID: 1005492827}
     - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
       propertyPath: shotSound
       value: 
@@ -19199,7 +19199,7 @@ MonoBehaviour:
   maxAngleLockOn: 60
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
-  boundary: {fileID: 100000, guid: 77438abae9f4941639a18a3556a7e0fa, type: 2}
+  boundary: {fileID: 1005492827}
 --- !u!82 &2134296565
 AudioSource:
   m_ObjectHideFlags: 0
