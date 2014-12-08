@@ -71,14 +71,14 @@ public class Ship : MonoBehaviour
 	
 		void Start ()
 		{
+				playerNumber = GetPlayerNumber ();
 				respawnIn = deadLength;
-				boost = MAX_BOOST;	
+				boost = MAX_BOOST;
 				health = MAX_HEALTH;
 				score = 0;
 				lives = 1;
 				outOfBounds = false;
 				shotCooldownRemaining = 0f;
-				playerNumber = GetPlayerNumber ();
 				adjustCamera ();
 				healthPixel = new Texture2D (1, 1);
 				healthPixel.SetPixel (0, 0, new Color (0.9F, 0.0F, 0.3F, 0.9F));
@@ -474,6 +474,7 @@ public class Ship : MonoBehaviour
 				} else if (playerNumber == 4) {
 						x = 0.5f;
 				}
+				print (playerNumber + " camera being adjusted");
 				cameraScreen.rect = new Rect (x, y, w, h);
 		}
 	
