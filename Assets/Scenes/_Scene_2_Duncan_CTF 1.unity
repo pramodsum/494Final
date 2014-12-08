@@ -2531,6 +2531,7 @@ MonoBehaviour:
   MAX_HEALTH: 3
   MAX_BOOST: 10
   CONSTANT_MOVEMENT_AMOUNT: 10
+  BRAKE_FACTOR: 450
   CAMERA_MIN_FOV: 60
   CAMERA_MAX_FOV: 80
   health: 0
@@ -4442,6 +4443,7 @@ MonoBehaviour:
   MAX_HEALTH: 3
   MAX_BOOST: 10
   CONSTANT_MOVEMENT_AMOUNT: 10
+  BRAKE_FACTOR: 450
   CAMERA_MIN_FOV: 60
   CAMERA_MAX_FOV: 80
   health: 0
@@ -17082,6 +17084,7 @@ MonoBehaviour:
   MAX_HEALTH: 3
   MAX_BOOST: 10
   CONSTANT_MOVEMENT_AMOUNT: 10
+  BRAKE_FACTOR: 450
   CAMERA_MIN_FOV: 60
   CAMERA_MAX_FOV: 80
   health: 0
@@ -18918,7 +18921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - {fileID: 2012391120}
-  - {fileID: 0}
+  - {fileID: 2134296564}
   - {fileID: 159909861}
   - {fileID: 501593856}
   redMat: {fileID: 2100000, guid: 4446a61544837d94dbf99bf6966a5ea2, type: 2}
@@ -19184,6 +19187,7 @@ MonoBehaviour:
   MAX_HEALTH: 3
   MAX_BOOST: 10
   CONSTANT_MOVEMENT_AMOUNT: 10
+  BRAKE_FACTOR: 450
   CAMERA_MIN_FOV: 60
   CAMERA_MAX_FOV: 80
   health: 0
