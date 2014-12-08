@@ -103,8 +103,7 @@ public class Ship : MonoBehaviour
 								makeInvisible ();
 								hasExploded = true;
 								Instantiate (explosion, transform.position, Quaternion.identity);
-								GameObject.Find ("Directional light").audio.volume = 1F;
-								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 0.3f);
+								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 0.5f);
 								this.collider.enabled = false;
 						}
 						if (respawnIn > 0) {
