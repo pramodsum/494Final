@@ -154,13 +154,15 @@ public class Ship : MonoBehaviour
 	
 		void OnGUI ()
 		{
+				if (gameOver > 0) {
+						OnGameOver ();
+						return;
+				}
 				if (transportDestroyed) {
-//						Debug.Log ("Player " + playerNumber + ": The transport was destroyed!");
 						OnEvent ("The transport was destroyed!");
 						transportDestroyed = false;
 				} 
 				if (!stationCaptured.Equals ("none")) {
-//						Debug.Log ("Player " + playerNumber + ": station captured");
 						OnEvent ("The " + stationCaptured + " team captured a station");
 						stationCaptured = "none";
 				} 
@@ -172,12 +174,6 @@ public class Ship : MonoBehaviour
 				
 				if (outOfBounds && health > 0) {
 						OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
-						return;
-				}
-				
-				if (gameOver > 0) {
-						OnGameOver ();
-						return;
 				}
 				
 				if (health <= 0) {
