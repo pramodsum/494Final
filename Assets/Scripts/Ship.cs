@@ -32,6 +32,10 @@ public class Ship : MonoBehaviour
 	
 		public bool outOfBounds;
 		public int dead_player = -1;
+		public GameObject transport;
+		public GameObject station;
+		public string killer;
+		public GameObject killerObj;
 		public string stationCaptured = "none";
 		public bool transportDestroyed = false;
 
@@ -160,6 +164,12 @@ public class Ship : MonoBehaviour
 						OnGameOver ();
 						return;
 				}
+		
+				if (health <= 0) {
+						OnDead ();
+						return;
+				}
+        
 				if (transportDestroyed) {
 						OnEvent ("The transport was destroyed!");
 						transportDestroyed = false;
@@ -167,18 +177,18 @@ public class Ship : MonoBehaviour
 						OnEvent ("The " + stationCaptured + " team captured a station");
 						stationCaptured = "none";
 				} else if (dead_player > 0) {
-						OnEvent ("Player " + dead_player + " was killed");
+						if (killer == "Bounds") 
+								OnEvent ("Player " + dead_player + " was killed");
+						else if (killer == "Station")
+								OnEvent ("Player " + dead_player + " was killed by a " + killer);
+						else if (killer == "Transport")
+								OnEvent ("Player " + dead_player + " was killed by the " + killer);
+						else
+								OnEvent (killer + " killed Player " + dead_player);
 						dead_player = -1;
 						return;
-				} 
-				
-				if (outOfBounds && health > 0) {
+				} else if (outOfBounds && health > 0) {
 						OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
-				}
-				
-				if (health <= 0) {
-						OnDead ();
-						return;
 				}
 
 				if (!boostAvailable) {
@@ -253,7 +263,7 @@ public class Ship : MonoBehaviour
 				GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in " + (int)respawnIn, centeredStyle);
 				
 				//Inform other players of death
-				GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (playerNumber);
+				GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
 		}
 		
 		public void OnEvent (string text)
@@ -272,6 +282,12 @@ public class Ship : MonoBehaviour
 //				Debug.Log (name + " w/ " + opp.name + "(" + opp.tag + ")");
 				if ((opp.tag == "PlayerShip" && opp.GetComponent<Ship> ().team != team)
 						|| opp.tag == "Station") {
+						if (opp.name == "Rotator" || opp.name == "Plane002")
+								killerObj = transport;
+						else if (opp.name == "Cube" || opp.name == "Sphere") 
+								killerObj = station;
+						else
+								killerObj = opp;
 						health = 0f;
 				}
 		}
@@ -291,6 +307,7 @@ public class Ship : MonoBehaviour
 						//					print ("Wrekt m9");
 						Instantiate (smallExplosion, transform.position, Quaternion.identity);
 						Damage (2, 0);
+						killerObj = other.gameObject;
 				}
 		
 		}
@@ -301,6 +318,7 @@ public class Ship : MonoBehaviour
 						Debug.Log ("This is not that path you are looking for....");
 						Damage (0, 0);
 						outOfBounds = true;
+						killerObj = gameObject;
 				}
 		}
 	

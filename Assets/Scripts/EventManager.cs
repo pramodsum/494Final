@@ -8,11 +8,29 @@ public class EventManager : MonoBehaviour
 		public Material redMat;
 		public Material blueMat;
 	
-		public void playerDied (int dead_player) //red = 1 | blue = 2
+		public void playerDied (string killer, int dead_player) //red = 1 | blue = 2
 		{
+				//reformat killer string
+				string killerStr = "";
+				if (killer [killer.Length - 1] == dead_player) {
+						killerStr = "Bounds";
+				} else if (killer.Contains ("Ship")) {
+						killerStr = "Player " + killer [killer.Length - 1];
+				} else if (killerStr == "omega_fighter") {
+						killerStr = "A fighter";
+				} else if (killerStr == "Transport") {
+						killerStr = "the Transport";
+				} else if (killerStr == "Station") {
+						killerStr = "a Station";
+				} else {
+						killerStr = killer;
+				}
+				
 				foreach (Ship player in players) {
-						if (player.GetPlayerNumber () != dead_player) 
+						if (player.GetPlayerNumber () != dead_player) {
 								player.dead_player = dead_player;
+								player.killer = killerStr;
+						}
 				}
 		}
 		
