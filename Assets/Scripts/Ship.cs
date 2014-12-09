@@ -177,16 +177,21 @@ public class Ship : MonoBehaviour
 						OnEvent ("The " + stationCaptured + " team captured a station");
 						stationCaptured = "none";
 				} else if (dead_player > 0) {
+						if (killer.Contains ("omega"))
+								killer = "A Fighter";
+				
 						if (killer == "Bounds") 
-								OnEvent ("Player " + dead_player + " was killed");
+								OnEvent ("Player " + dead_player + " died out of bounds");
 						else if (killer == "Station")
-								OnEvent ("Player " + dead_player + " was killed by a " + killer);
+								OnEvent ("Player " + dead_player + " ran into a " + killer);
 						else if (killer == "Transport")
-								OnEvent ("Player " + dead_player + " was killed by the " + killer);
+								OnEvent ("Player " + dead_player + " ran into the " + killer);
+						else if (killer == "Fighter") 
+								OnEvent ("Player " + dead_player + " was killed by a " + killer);
 						else
 								OnEvent (killer + " killed Player " + dead_player);
+								
 						dead_player = -1;
-						return;
 				} else if (outOfBounds && health > 0) {
 						OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
 				}

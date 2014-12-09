@@ -12,16 +12,16 @@ public class EventManager : MonoBehaviour
 		{
 				//reformat killer string
 				string killerStr = "";
-				if (killer [killer.Length - 1] == dead_player) {
+				if (killer [killer.Length - 1].ToString () == dead_player.ToString ()) {
 						killerStr = "Bounds";
 				} else if (killer.Contains ("Ship")) {
 						killerStr = "Player " + killer [killer.Length - 1];
-				} else if (killerStr == "omega_fighter") {
-						killerStr = "A fighter";
-				} else if (killerStr == "Transport") {
-						killerStr = "the Transport";
-				} else if (killerStr == "Station") {
-						killerStr = "a Station";
+				} else if (killerStr.Contains ("omega")) {
+						killerStr = "Fighter";
+				} else if (killerStr.Contains ("Transport")) {
+						killerStr = "Transport";
+				} else if (killerStr.Contains ("Station")) {
+						killerStr = "Station";
 				} else {
 						killerStr = killer;
 				}
