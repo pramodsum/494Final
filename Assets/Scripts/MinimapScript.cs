@@ -24,13 +24,21 @@ public class MinimapScript : MonoBehaviour {
 				//I have no idea why this correctly selects which ship to represent using
 				//the blue ship and which to use the red one for, but it appears to work
 				//every time on my end.
+				//(It might be because in CTF_Script we set the position of the ships in the
+				//order of 1,3,2,4, and the order of the ships is in some sort of stack thing,
+				//so when we do this we get 4,2,3,1 order?
                 
-                if (_pair.tag.Equals("PlayerShip") && (i == 1 || i == 0))
+                if (_pair.tag.Equals("PlayerShip") && _pair.count == 4 && (i == 1 || i == 0))
 				{
 					_pair.minimapRealizations.Add (
 						(Instantiate(blueShip,new Vector3(0,10,0),Quaternion.identity) as GameObject));
                 }
-				else if (_pair.tag.Equals("StationParent"))
+				else if (_pair.tag.Equals("PlayerShip") && _pair.count == 2 && (i == 0))
+				{
+					_pair.minimapRealizations.Add (
+						(Instantiate(blueShip,new Vector3(0,10,0),Quaternion.identity) as GameObject));
+                }
+                else if (_pair.tag.Equals("StationParent"))
 				{
 					Quaternion rot = Quaternion.identity;
 					if (i == 0)

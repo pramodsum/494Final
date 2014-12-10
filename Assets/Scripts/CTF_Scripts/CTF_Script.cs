@@ -59,12 +59,12 @@ public class CTF_Script : MonoBehaviour
 				newPos.y += 20;
 				ship1.position = newPos;
 				newPos.z -= 5;
-				ship3.position = newPos;
+				if (ship3 != null) ship3.position = newPos;
 				newPos = p2Home.position;
 				newPos.y += 20;
 				ship2.position = newPos;
 				newPos.z -= 5;
-				ship4.position = newPos;
+				if (ship4 != null) ship4.position = newPos;
 		}
 	
 		// Update is called once per frame
