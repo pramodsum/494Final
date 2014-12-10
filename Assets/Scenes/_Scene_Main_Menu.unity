@@ -186,7 +186,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 100
     m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1677,6 +1677,7 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 713637650}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -3091,7 +3092,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3360,19 +3360,18 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 100
     m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "http://whydoidoit.com/2012/04/06/unity-curved-path-following-with-easing/
-    for Splines Plugin\nXWing and TIE by Scifi 3D \nInControl by Gallant Games\nSpace
-    Ship 2 by Vertex Studio\nSkybox Volume 2 (Nebula) by Hedgehog Team\nx-Wing fighter
-    credit: \"Credit to PixelOz Designs and Angel David Guzm\xE1n must remain in\nall
-    distributions, in any format.\"\nSci-Fi Spaceship 'Omega Fighter' v1.4 by Omega
-    Creative\n\nPlanet Art\nhttp://opengameart.org/content/space-game-art-pack-extended
-    \nhttp://upload.wikimedia.org/wikipedia/commons/2/20/Neptune_cutout.png\n\nSounds/Music\nhttp://opengameart.org/content/heroism\nhttp://opengameart.org/content/boss-theme\nhttp://soundbible.com/470-Laser-Blaster.html\nhttp://www.freesfx.co.uk/soundeffects/explosions/"
+    for Splines Plugin\nInControl by Gallant Games\nSpace Ship 2 by Vertex Studio\nSkybox
+    Volume 2 (Nebula) by Hedgehog Team\nCredit to PixelOz Designs and Angel David
+    Guzm\xE1n for x-Wing fighter\nSci-Fi Spaceship 'Omega Fighter' v1.4 by Omega Creative\n\nPlanet
+    Art\nhttp://opengameart.org/content/space-game-art-pack-extended \nhttp://upload.wikimedia.org/wikipedia/commons/2/20/Neptune_cutout.png\n\nSounds/Music\nhttp://opengameart.org/content/heroism\nhttp://opengameart.org/content/boss-theme\nhttp://soundbible.com/470-Laser-Blaster.html\nhttp://www.freesfx.co.uk/soundeffects/explosions/\n\nVoice
+    overs by http://fiverr.com/deepmalevoice"
 --- !u!222 &1469536148
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3675,6 +3674,7 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1667957243}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
