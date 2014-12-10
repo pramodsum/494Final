@@ -10,6 +10,12 @@ TagManager:
   - Station
   - ShotAI
   - Minimap
+  - Planet
+  - Transport
+  - AIShip
+  - StationParent
+  - Neptune
+  - Uranus
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

@@ -8,9 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
-  m_Layer: 0
-  m_Name: Station
+  m_Layer: 12
+  m_Name: MinimapStation
   m_TagString: StationParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +27,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -47,7 +46,7 @@ GameObject:
   - 65: {fileID: 6500002}
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400004}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -66,7 +65,7 @@ GameObject:
   - 65: {fileID: 6500004}
   - 23: {fileID: 2300004}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -85,7 +84,7 @@ GameObject:
   - 65: {fileID: 6500006}
   - 23: {fileID: 2300006}
   - 114: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -104,7 +103,7 @@ GameObject:
   - 65: {fileID: 6500008}
   - 23: {fileID: 2300008}
   - 114: {fileID: 11400010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -123,7 +122,7 @@ GameObject:
   - 65: {fileID: 6500010}
   - 23: {fileID: 2300010}
   - 114: {fileID: 11400012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -142,7 +141,7 @@ GameObject:
   - 65: {fileID: 6500012}
   - 23: {fileID: 2300012}
   - 114: {fileID: 11400014}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -161,7 +160,7 @@ GameObject:
   - 65: {fileID: 6500014}
   - 23: {fileID: 2300014}
   - 114: {fileID: 11400016}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -180,7 +179,7 @@ GameObject:
   - 65: {fileID: 6500016}
   - 23: {fileID: 2300016}
   - 114: {fileID: 11400018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -199,7 +198,7 @@ GameObject:
   - 65: {fileID: 6500018}
   - 23: {fileID: 2300018}
   - 114: {fileID: 11400020}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -218,7 +217,7 @@ GameObject:
   - 65: {fileID: 6500020}
   - 23: {fileID: 2300020}
   - 114: {fileID: 11400022}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -237,7 +236,7 @@ GameObject:
   - 65: {fileID: 6500022}
   - 23: {fileID: 2300022}
   - 114: {fileID: 11400024}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -256,7 +255,7 @@ GameObject:
   - 65: {fileID: 6500024}
   - 23: {fileID: 2300024}
   - 114: {fileID: 11400026}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -275,7 +274,7 @@ GameObject:
   - 65: {fileID: 6500026}
   - 23: {fileID: 2300026}
   - 114: {fileID: 11400028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -293,7 +292,7 @@ GameObject:
   - 33: {fileID: 3300028}
   - 23: {fileID: 2300028}
   - 64: {fileID: 6400000}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -312,7 +311,7 @@ GameObject:
   - 65: {fileID: 6500028}
   - 23: {fileID: 2300030}
   - 114: {fileID: 11400030}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -326,8 +325,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 309.590637, y: 0, z: 602.468384}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .0500000007, y: .0500000007, z: .0500000007}
   m_Children:
   - {fileID: 400030}
   - {fileID: 400032}
@@ -1164,18 +1163,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee97adb2aeb6b64b85931a22ec4ad5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inControl: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1187,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,7 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1211,7 +1198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1223,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1235,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1259,7 +1246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1271,7 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1283,7 +1270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1295,7 +1282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1307,7 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1319,7 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1331,7 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1343,7 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1355,7 +1342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae67b800f40074409a5574497fc1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  station: {fileID: 11400000}
+  station: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

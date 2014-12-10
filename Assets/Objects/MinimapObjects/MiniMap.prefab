@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +43,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e14d433bc3bdc194789dc75a1fabf4b8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -82,11 +82,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081f45b58bea4264e96b5779b5a9b2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueShip: {fileID: 100026, guid: 81e5c02d96cbf014390d60bfe63338f8, type: 2}
   objectsToTrack:
-  - tag: 
-    minimapRepresentation: {fileID: 100000, guid: 600cd6da89bb9af43befa5f895515ce8,
+  - tag: Uranus
+    minimapRepresentation: {fileID: 100002, guid: aa8707e371e327140bb3b894a94bb111,
       type: 2}
-    count: 0
+    count: 1
+    minimapRealizations: []
+  - tag: AIShip
+    minimapRepresentation: {fileID: 100006, guid: 6ba44b5f88d500e48a4c2cbd4fa68e68,
+      type: 2}
+    count: 16
+    minimapRealizations: []
+  - tag: PlayerShip
+    minimapRepresentation: {fileID: 100026, guid: bec15ffb91cc96d488f30a55c9f6c45e,
+      type: 2}
+    count: 4
+    minimapRealizations: []
+  - tag: Transport
+    minimapRepresentation: {fileID: 100004, guid: daee209a6e161a34d9abab7244008666,
+      type: 2}
+    count: 1
+    minimapRealizations: []
+  - tag: StationParent
+    minimapRepresentation: {fileID: 100000, guid: b545394e604972246a820fc9879b7549,
+      type: 2}
+    count: 5
+    minimapRealizations: []
+  - tag: Neptune
+    minimapRepresentation: {fileID: 100000, guid: 5e89dbdb1859d9f429c059ccff73de10,
+      type: 2}
+    count: 1
     minimapRealizations: []
 --- !u!1001 &100100000
 Prefab:

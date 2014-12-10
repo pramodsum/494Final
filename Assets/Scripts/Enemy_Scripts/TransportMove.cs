@@ -111,6 +111,7 @@ public class TransportMove : MonoBehaviour
 								else
 										shipPosInit.z -= 100;
 								TIEFighter defenderObject = (Instantiate (defender, shipPosInit, Quaternion.identity) as GameObject).GetComponent<TIEFighter> ();
+								defenderObject.tag = "AIShip";
 								defenderObject.defend = gameObject;
 								defenderObject.relativePosStart = defenderObject.transform.position - transform.position;
 								defenderObject.CTF = CTF;
