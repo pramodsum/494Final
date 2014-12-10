@@ -72,6 +72,7 @@ public class Ship : MonoBehaviour
 		
 		public AudioClip shotSound;
 		public AudioClip explosionSound;
+		public AudioClip gameOverSound;
 
 		public GameObject boundary;
 	
@@ -254,6 +255,7 @@ public class Ship : MonoBehaviour
 				else
 						text = "Blue Team Wins!";
 				GUI.Label (rect, text, centeredStyle);
+				GameObject.Find ("Directional light").audio.PlayOneShot (gameOverSound, 1f);
 		}
 		
 		void OnDead ()
