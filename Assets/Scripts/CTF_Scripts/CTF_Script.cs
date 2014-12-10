@@ -111,7 +111,7 @@ public class CTF_Script : MonoBehaviour
 
 						Instantiate (_cargo, transport.transform.position, Quaternion.identity);
 						this.cargo = GameObject.Find ("Cargo(Clone)").GetComponent<Cargo_Script> ();
-
+						this.cargo.tag = "Cargo";
 						//instantiate arrows
 						Instantiate (arrow, Vector3.zero, Quaternion.identity);
 						arrow1 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();

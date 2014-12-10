@@ -13017,6 +13017,11 @@ MonoBehaviour:
       type: 2}
     count: 5
     minimapRealizations: []
+  - tag: Cargo
+    minimapRepresentation: {fileID: 100000, guid: 1935cda0402639b4ca34f1c4706f275e,
+      type: 2}
+    count: 1
+    minimapRealizations: []
   - tag: Neptune
     minimapRepresentation: {fileID: 100000, guid: 5e89dbdb1859d9f429c059ccff73de10,
       type: 2}
@@ -20225,6 +20230,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
+      propertyPath: objectsToTrack.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20257,6 +20266,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
+      propertyPath: objectsToTrack.Array.data[6].tag
+      value: Neptune
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
+      propertyPath: objectsToTrack.Array.data[6].minimapRepresentation
+      value: 
+      objectReference: {fileID: 100000, guid: 5e89dbdb1859d9f429c059ccff73de10, type: 2}
+    - target: {fileID: 11400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
+      propertyPath: objectsToTrack.Array.data[6].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
+      propertyPath: objectsToTrack.Array.data[5].tag
+      value: Cargo
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
+      propertyPath: objectsToTrack.Array.data[5].minimapRepresentation
+      value: 
+      objectReference: {fileID: 100000, guid: 1935cda0402639b4ca34f1c4706f275e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 213d517a10fcc294aa16de6bb68ae761, type: 2}
   m_RootGameObject: {fileID: 1351993762}

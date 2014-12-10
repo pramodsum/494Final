@@ -150,6 +150,10 @@ public class MinimapScript : MonoBehaviour {
 					{
 						_pair.minimapRealizations[_count].transform.rotation = obj.transform.rotation;
 					}
+					else if (obj.tag.Equals("Cargo"))
+					{
+						_pair.minimapRealizations[_count].transform.rotation = obj.transform.rotation;
+                    }
 					else if (obj.tag.Equals("Planet"))
 					{
 //						print(obj.name)
