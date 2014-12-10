@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class MainMenuScript : MonoBehaviour
 {
+		public GameObject MainMenu;
+		public GameObject Credits;
 
 		// Use this for initialization
 		void Start ()
 		{
-				GameObject.Find ("Credits").GetComponent<CanvasGroup> ().alpha = 0;
+				Credits.SetActive (false);
 		}
 		
 		public void StartTwoPlayer ()
@@ -22,13 +25,13 @@ public class MainMenuScript : MonoBehaviour
 	
 		public void ShowCredits ()
 		{
-				GameObject.Find ("Credits").GetComponent<CanvasGroup> ().alpha = 1;
-				GameObject.Find ("MainMenu").GetComponent<CanvasGroup> ().alpha = 0;
+				Credits.SetActive (true);
+				MainMenu.SetActive (false);
 		}
 	
 		public void ShowMainMenu ()
 		{
-				GameObject.Find ("MainMenu").GetComponent<CanvasGroup> ().alpha = 1;
-				GameObject.Find ("Credits").GetComponent<CanvasGroup> ().alpha = 0;
+				Credits.SetActive (false);
+				MainMenu.SetActive (true);
 		}
 }
