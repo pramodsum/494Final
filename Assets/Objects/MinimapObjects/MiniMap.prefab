@@ -109,6 +109,11 @@ MonoBehaviour:
       type: 2}
     count: 5
     minimapRealizations: []
+  - tag: Cargo
+    minimapRepresentation: {fileID: 100000, guid: 1935cda0402639b4ca34f1c4706f275e,
+      type: 2}
+    count: 1
+    minimapRealizations: []
   - tag: Neptune
     minimapRepresentation: {fileID: 100000, guid: 5e89dbdb1859d9f429c059ccff73de10,
       type: 2}
