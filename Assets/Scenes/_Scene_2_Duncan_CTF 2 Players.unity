@@ -876,7 +876,6 @@ GameObject:
   - 20: {fileID: 152635303}
   - 124: {fileID: 152635302}
   - 92: {fileID: 152635301}
-  - 81: {fileID: 152635300}
   m_Layer: 0
   m_Name: MinimapCamera1
   m_TagString: Untagged
@@ -884,14 +883,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &152635300
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8100000, guid: 624e12712d9f67f43b5ad6d600fcfd88,
-    type: 2}
-  m_PrefabInternal: {fileID: 1141618012}
-  m_GameObject: {fileID: 152635299}
-  m_Enabled: 1
 --- !u!92 &152635301
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2914,7 +2905,6 @@ GameObject:
   - 20: {fileID: 603382119}
   - 124: {fileID: 603382118}
   - 92: {fileID: 603382117}
-  - 81: {fileID: 603382116}
   m_Layer: 0
   m_Name: MinimapCamera2
   m_TagString: Untagged
@@ -2922,14 +2912,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &603382116
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8100000, guid: 624e12712d9f67f43b5ad6d600fcfd88,
-    type: 2}
-  m_PrefabInternal: {fileID: 752738125}
-  m_GameObject: {fileID: 603382115}
-  m_Enabled: 1
 --- !u!92 &603382117
 Behaviour:
   m_ObjectHideFlags: 0
@@ -4936,7 +4918,8 @@ Prefab:
       propertyPath: m_Name
       value: MinimapCamera2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8100000, guid: 624e12712d9f67f43b5ad6d600fcfd88, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 624e12712d9f67f43b5ad6d600fcfd88, type: 2}
   m_RootGameObject: {fileID: 603382115}
   m_IsPrefabParent: 0
@@ -7712,7 +7695,8 @@ Prefab:
       propertyPath: m_Name
       value: MinimapCamera1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8100000, guid: 624e12712d9f67f43b5ad6d600fcfd88, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 624e12712d9f67f43b5ad6d600fcfd88, type: 2}
   m_RootGameObject: {fileID: 152635299}
   m_IsPrefabParent: 0
