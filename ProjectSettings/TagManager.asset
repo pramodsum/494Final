@@ -12,6 +12,13 @@ TagManager:
   - Minimap
   - MainMenu
   - Credits
+  - Planet
+  - Transport
+  - AIShip
+  - StationParent
+  - Neptune
+  - Uranus
+  - Cargo
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

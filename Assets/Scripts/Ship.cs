@@ -60,6 +60,7 @@ public class Ship : MonoBehaviour
 		private float shotCooldownRemaining;
 		private float missileCooldownRemaining;
 		private Camera cameraScreen;
+		public Camera minimap;
 		private Vector3 velocity;
 		private int playerNumber;
 		private Texture2D healthPixel;
@@ -270,7 +271,8 @@ public class Ship : MonoBehaviour
 				GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in " + (int)respawnIn, centeredStyle);
 				
 				//Inform other players of death
-				GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
+				if (killerObj != null)
+                    GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
 		}
 		
 		public void OnEvent (string text)
@@ -472,14 +474,23 @@ public class Ship : MonoBehaviour
 		private void adjustCamera ()
 		{
 //				cameraScreen = GetComponentInChildren<Camera> () as Camera;
-				if (playerNumber == 1)
+				minimap = null;
+				if (playerNumber == 1) {
 						cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera> ();
-				if (playerNumber == 2)
+						minimap = GameObject.Find("MinimapCamera1").GetComponent<Camera>();
+				}
+				if (playerNumber == 2) {
 						cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera> ();
-				if (playerNumber == 3)
+						minimap = GameObject.Find("MinimapCamera2").GetComponent<Camera>();
+				}
+				if (playerNumber == 3) {
 						cameraScreen = GameObject.Find ("Camera3").GetComponent<Camera> ();
-				if (playerNumber == 4)
+						minimap = GameObject.Find("MinimapCamera3").GetComponent<Camera>();
+				}
+				if (playerNumber == 4) {
 						cameraScreen = GameObject.Find ("Camera4").GetComponent<Camera> ();
+						minimap = GameObject.Find("MinimapCamera4").GetComponent<Camera>();
+				}
 				var shipCount = FindAll ().Length;
 				float x = 0f;
 				float y = 0f;
@@ -498,6 +509,7 @@ public class Ship : MonoBehaviour
 				}
 				print (playerNumber + " camera being adjusted");
 				cameraScreen.rect = new Rect (x, y, w, h);
+				minimap.rect = new Rect ((float)(x+w*.75), (float)(y), (float)(w*.25), (float)(w*.35));
 		}
 	
 		public static Ship[] FindAll ()
@@ -540,7 +552,7 @@ public class Ship : MonoBehaviour
 				makeVisible ();
 				hasExploded = false;
 				
-				if (CTF != null && CTF.cargo.ship == transform) {
+				if (CTF != null && CTF.cargo != null && CTF.cargo.ship == transform) {
 						CTF.cargo.cargoStatus = 0;
 						CTF.cargo.transform.localScale = new Vector3 (10f, 10f, 10f);
 				}

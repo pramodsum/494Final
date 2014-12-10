@@ -59,12 +59,12 @@ public class CTF_Script : MonoBehaviour
 				newPos.y += 20;
 				ship1.position = newPos;
 				newPos.z -= 5;
-				ship3.position = newPos;
+				if (ship3 != null) ship3.position = newPos;
 				newPos = p2Home.position;
 				newPos.y += 20;
 				ship2.position = newPos;
 				newPos.z -= 5;
-				ship4.position = newPos;
+				if (ship4 != null) ship4.position = newPos;
 		}
 	
 		// Update is called once per frame
@@ -111,7 +111,7 @@ public class CTF_Script : MonoBehaviour
 
 						Instantiate (_cargo, transport.transform.position, Quaternion.identity);
 						this.cargo = GameObject.Find ("Cargo(Clone)").GetComponent<Cargo_Script> ();
-
+						this.cargo.tag = "Cargo";
 						//instantiate arrows
 						Instantiate (arrow, Vector3.zero, Quaternion.identity);
 						arrow1 = GameObject.Find ("Arrow(Clone)").GetComponent<ArrowScript> ();
