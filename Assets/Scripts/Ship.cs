@@ -38,6 +38,7 @@ public class Ship : MonoBehaviour
 		public GameObject killerObj;
 		public string stationCaptured = "none";
 		public bool transportDestroyed = false;
+		public float count = 0f;
 
 		public float FORCE_MODIFIER = 500f;
 		public float ROTATION_SPEED = 100f;
@@ -171,31 +172,44 @@ public class Ship : MonoBehaviour
 						OnDead ();
 						return;
 				}
-        
-				if (transportDestroyed) {
-						OnEvent ("The transport was destroyed!");
-						transportDestroyed = false;
-				} else if (!stationCaptured.Equals ("none")) {
-						OnEvent ("The " + stationCaptured + " team captured a station");
-						stationCaptured = "none";
-				} else if (dead_player > 0) {
-						if (killer.Contains ("omega"))
-								killer = "A Fighter";
 				
-						if (killer == "Bounds") 
-								OnEvent ("Player " + dead_player + " died out of bounds");
-						else if (killer == "Station")
-								OnEvent ("Player " + dead_player + " ran into a " + killer);
-						else if (killer == "Transport")
-								OnEvent ("Player " + dead_player + " ran into the " + killer);
-						else if (killer == "Fighter") 
-								OnEvent ("Player " + dead_player + " was killed by a " + killer);
-						else
-								OnEvent (killer + " killed Player " + dead_player);
+				if (count >= 1f) {
+						count = 0f;
+						if (transportDestroyed) {
+								transportDestroyed = false;
+						} else if (!stationCaptured.Equals ("none")) {
+								stationCaptured = "none";
+						} else if (dead_player > 0) {
+								dead_player = -1;
+						} 
+				} else if (count > 0f) {
+						if (transportDestroyed || !stationCaptured.Equals ("none") || dead_player > 0) {
+								count += Time.fixedDeltaTime;
+						} 
+				} else {
+						if (transportDestroyed) {
+								OnEvent ("The transport was destroyed!");
+						} else if (!stationCaptured.Equals ("none")) {
+								OnEvent ("The " + stationCaptured + " team captured a station");
+						} else if (dead_player > 0) {
+								if (killer.Contains ("omega") || killer.Contains ("AI")) {
+										killer = "A Fighter";
+								}
 								
-						dead_player = -1;
-				} else if (outOfBounds && health > 0) {
-						OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
+								if (killer == "Bounds") {
+										OnEvent ("Player " + dead_player + " died out of bounds");
+								} else if (killer == "Station") {
+										OnEvent ("Player " + dead_player + " ran into a " + killer);
+								} else if (killer == "Transport") {
+										OnEvent ("Player " + dead_player + " ran into the " + killer);
+								} else if (killer == "Fighter") {
+										OnEvent ("Player " + dead_player + " was killed by a " + killer);
+								} else {
+										OnEvent (killer + " killed Player " + dead_player);
+								}				
+						} else if (outOfBounds && health > 0) {
+								OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
+						}
 				}
 
 				if (!boostAvailable) {
@@ -272,11 +286,12 @@ public class Ship : MonoBehaviour
 				
 				//Inform other players of death
 				if (killerObj != null)
-                    GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
+						GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
 		}
 		
 		public void OnEvent (string text)
 		{
+				Debug.Log (text);
 				var evCenteredStyle = GUI.skin.GetStyle ("Label");
 				evCenteredStyle.fontStyle = FontStyle.Bold;
 				evCenteredStyle.alignment = TextAnchor.UpperCenter;
@@ -477,19 +492,19 @@ public class Ship : MonoBehaviour
 				minimap = null;
 				if (playerNumber == 1) {
 						cameraScreen = GameObject.Find ("Camera1").GetComponent<Camera> ();
-						minimap = GameObject.Find("MinimapCamera1").GetComponent<Camera>();
+						minimap = GameObject.Find ("MinimapCamera1").GetComponent<Camera> ();
 				}
 				if (playerNumber == 2) {
 						cameraScreen = GameObject.Find ("Camera2").GetComponent<Camera> ();
-						minimap = GameObject.Find("MinimapCamera2").GetComponent<Camera>();
+						minimap = GameObject.Find ("MinimapCamera2").GetComponent<Camera> ();
 				}
 				if (playerNumber == 3) {
 						cameraScreen = GameObject.Find ("Camera3").GetComponent<Camera> ();
-						minimap = GameObject.Find("MinimapCamera3").GetComponent<Camera>();
+						minimap = GameObject.Find ("MinimapCamera3").GetComponent<Camera> ();
 				}
 				if (playerNumber == 4) {
 						cameraScreen = GameObject.Find ("Camera4").GetComponent<Camera> ();
-						minimap = GameObject.Find("MinimapCamera4").GetComponent<Camera>();
+						minimap = GameObject.Find ("MinimapCamera4").GetComponent<Camera> ();
 				}
 				var shipCount = FindAll ().Length;
 				float x = 0f;
@@ -509,7 +524,7 @@ public class Ship : MonoBehaviour
 				}
 				print (playerNumber + " camera being adjusted");
 				cameraScreen.rect = new Rect (x, y, w, h);
-				minimap.rect = new Rect ((float)(x+w*.75), (float)(y), (float)(w*.25), (float)(w*.35));
+				minimap.rect = new Rect ((float)(x + w * .75), (float)(y), (float)(w * .25), (float)(w * .35));
 		}
 	
 		public static Ship[] FindAll ()

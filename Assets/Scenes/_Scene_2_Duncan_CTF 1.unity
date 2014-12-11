@@ -2595,6 +2595,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   transportDestroyed: 0
+  count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
@@ -4716,6 +4717,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   transportDestroyed: 0
+  count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
@@ -11934,7 +11936,7 @@ MonoBehaviour:
   objectType: {fileID: 400000, guid: 065e8ffbc56ef3843baff8c98a568b91, type: 2}
   asteroidBelt: {fileID: 0}
   numSpawned: 0
-  numToSpawn: 600
+  numToSpawn: 1500
   minVal: -358.859985
   maxVal: 841.140015
 --- !u!1 &1144579243
@@ -17824,6 +17826,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   transportDestroyed: 0
+  count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
@@ -20308,6 +20311,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   transportDestroyed: 0
+  count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3

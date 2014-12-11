@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
 						killerStr = "Bounds";
 				} else if (killer.Contains ("Ship")) {
 						killerStr = "Player " + killer [killer.Length - 1];
-				} else if (killerStr.Contains ("omega")) {
+				} else if (killerStr.Contains ("omega") || killerStr.Contains ("AI")) {
 						killerStr = "Fighter";
 				} else if (killerStr.Contains ("Transport")) {
 						killerStr = "Transport";
