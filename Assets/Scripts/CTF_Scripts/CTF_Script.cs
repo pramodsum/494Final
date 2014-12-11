@@ -168,7 +168,7 @@ public class CTF_Script : MonoBehaviour
 				if (which == 2)
 						p2Score += captureScore;
 				timeTilCargo = cargoWait;
-				noNewCargo = false;
+//				noNewCargo = false;
 				GameObject.Destroy (arrow1.gameObject);
 				GameObject.Destroy (arrow2.gameObject);
 		}

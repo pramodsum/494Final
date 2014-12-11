@@ -85,7 +85,7 @@ public class MinimapScript : MonoBehaviour {
 					if (obj.tag.Equals("Transport"))
 					{
 						_pair.minimapRealizations[_count].transform.rotation = obj.transform.rotation;
-						if (obj.GetComponent<TransportMove>().isAlive == false)
+						if (obj.GetComponent<TransportMove>().timeTillRespawn != -100 || !obj.GetComponent<TransportMove>().isAlive)
 						{
 							newPos.y = -5;
 							_pair.minimapRealizations[_count].transform.position = newPos;

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TransportMove : MonoBehaviour
 {
+		public float respawnTime = 30f;
+		public float timeTillRespawn = -100;
 		public Vector3[] path;
 		public int health = 750;
 		public int MAX_HEALTH = 750;
@@ -19,7 +21,10 @@ public class TransportMove : MonoBehaviour
 
 		void Start ()
 		{
-				spawnTIEFighters ();
+//				spawnTIEFighters ();
+				makeInvisible ();	
+				timeTillRespawn = respawnTime;
+				isAlive = true;
 		}
 
 		// Update is called once per frame
@@ -43,6 +48,14 @@ public class TransportMove : MonoBehaviour
 								GameObject.Find ("Directional light").GetComponent<EventManager> ().transportDestroyed ();
 						}				
 				}
+				if (timeTillRespawn > 0)
+								timeTillRespawn -= Time.deltaTime;
+				if (timeTillRespawn <= 0 && timeTillRespawn > -100)
+				{
+					makeVisible();
+					timeTillRespawn = -100;
+				}
+
 		}
 		
 		public void Respawn ()
@@ -130,5 +143,10 @@ public class TransportMove : MonoBehaviour
 										defenderObject.hostileShips [3] = CTF.ship4.gameObject;
 								}
 						}
+		}
+
+		public void notifyCapture()
+		{
+			timeTillRespawn = respawnTime;
 		}
 }

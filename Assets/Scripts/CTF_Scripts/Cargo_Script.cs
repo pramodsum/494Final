@@ -72,7 +72,7 @@ public class Cargo_Script : MonoBehaviour
 										GameObject.Destroy (CTF.arrow3.gameObject);
 								if (CTF.arrow4 != null)
 										GameObject.Destroy (CTF.arrow4.gameObject);
-								transport.makeVisible ();
+								transport.notifyCapture ();
 								CTF.captureNotification (1);
 								Destroy (gameObject);
 						} else if (cargoStatus == 2 && collision.collider.name.Equals ("Ship2Home")) {
@@ -82,7 +82,7 @@ public class Cargo_Script : MonoBehaviour
 										GameObject.Destroy (CTF.arrow3.gameObject);
 								if (CTF.arrow4 != null)
 										GameObject.Destroy (CTF.arrow4.gameObject);
-								transport.makeVisible ();
+								transport.notifyCapture ();
 								CTF.captureNotification (2);
 								Destroy (gameObject);
 						}
