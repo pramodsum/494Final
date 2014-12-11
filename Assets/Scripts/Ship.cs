@@ -305,7 +305,8 @@ public class Ship : MonoBehaviour
 				GameObject opp = other.gameObject;
 //				Debug.Log (name + " w/ " + opp.name + "(" + opp.tag + ")");
 				if ((opp.tag == "PlayerShip" && opp.GetComponent<Ship> ().team != team)
-						|| opp.tag == "Station") {
+						|| opp.tag == "Station"
+		    			|| opp.tag == "AIShip") {
 						if (opp.name == "Rotator" || opp.name == "Plane002")
 								killerObj = transport;
 						else if (opp.name == "Cube" || opp.name == "Sphere") 
