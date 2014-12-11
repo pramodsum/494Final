@@ -306,7 +306,7 @@ public class Ship : MonoBehaviour
 //				Debug.Log (name + " w/ " + opp.name + "(" + opp.tag + ")");
 				if ((opp.tag == "PlayerShip" && opp.GetComponent<Ship> ().team != team)
 						|| opp.tag == "Station"
-		    			|| opp.tag == "AIShip") {
+						|| opp.tag == "AIShip") {
 						if (opp.name == "Rotator" || opp.name == "Plane002")
 								killerObj = transport;
 						else if (opp.name == "Cube" || opp.name == "Sphere") 
@@ -390,7 +390,7 @@ public class Ship : MonoBehaviour
 				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
 				
 				rigidbody.AddForce (transform.up * force);
-				if (FORCE_MODIFIER != 0 && particleSystem != null)
+				if (brakeAmount == 0 && particleSystem != null)
 						particleSystem.enableEmission = true;
 
 		}
