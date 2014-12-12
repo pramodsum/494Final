@@ -78,7 +78,9 @@ public class TransportMove : MonoBehaviour
 								if (ch2.renderer) 
 										ch2.renderer.enabled = false;
 								if (ch2.collider)
-										ch2.collider.enabled = false;	
+										ch2.collider.enabled = false;
+								if (ch2.name == "Lightsource")
+										ch2.GetComponent<Light> ().enabled = false;	
 						}
 				}
 
@@ -104,6 +106,8 @@ public class TransportMove : MonoBehaviour
 										ch2.renderer.enabled = true;
 								if (ch2.collider)
 										ch2.collider.enabled = true;	
+								if (ch2.name == "Lightsource")
+										ch2.GetComponent<Light> ().enabled = true;
 						}
 				}
 		}

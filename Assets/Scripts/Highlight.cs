@@ -20,13 +20,13 @@ public class Highlight : MonoBehaviour
 	
 				Ship[] ships = FindObjectsOfType (typeof(Ship)) as Ship[];
 				foreach (Ship s in ships) {
-						if (s.health >0 && s != thisShip) {
+						if (s.health > 0 && s != thisShip) {
 								Vector3 vec = thisCam.WorldToViewportPoint (s.transform.position);
 								if (vec.x >= 0 && vec.x <= 1) {
 										if (vec.y >= 0 && vec.y <= 1) {
 												if (vec.z >= 0) {
 														var coords = thisCam.ViewportToScreenPoint (vec);
-														float sqwidth = 500f / coords.z;
+														float sqwidth = 800f / coords.z;
 														GUI.DrawTexture (new Rect (coords.x - sqwidth / 2, Screen.height - coords.y - sqwidth / 2, sqwidth, sqwidth), tex);
 												}
 										}
