@@ -3733,6 +3733,11 @@ Prefab:
       propertyPath: missile
       value: 
       objectReference: {fileID: 100000, guid: 0c778e5d9643bae46880d20403c16bb0, type: 2}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: font
+      value: 
+      objectReference: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -4022,6 +4027,7 @@ MonoBehaviour:
   knockBack: 100
   respawnIn: 0
   deadLength: 4
+  font: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535, type: 3}
   outOfBounds: 0
   dead_player: -1
   transport: {fileID: 1305028620}
@@ -4029,6 +4035,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
+  capsuledCaptured: none
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
@@ -7375,6 +7382,7 @@ MonoBehaviour:
   knockBack: 100
   respawnIn: 0
   deadLength: 4
+  font: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535, type: 3}
   outOfBounds: 0
   dead_player: -1
   transport: {fileID: 1305028620}
@@ -7382,6 +7390,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
+  capsuledCaptured: none
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
@@ -24881,6 +24890,11 @@ Prefab:
       propertyPath: missile
       value: 
       objectReference: {fileID: 100000, guid: 0c778e5d9643bae46880d20403c16bb0, type: 2}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: font
+      value: 
+      objectReference: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -28948,6 +28962,11 @@ Prefab:
       propertyPath: flame.Array.data[3]
       value: 
       objectReference: {fileID: 589196566}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: font
+      value: 
+      objectReference: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -35426,6 +35445,11 @@ Prefab:
       propertyPath: flame.Array.data[3]
       value: 
       objectReference: {fileID: 1505935929}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: font
+      value: 
+      objectReference: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -35525,6 +35549,7 @@ MonoBehaviour:
   knockBack: 100
   respawnIn: 0
   deadLength: 4
+  font: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535, type: 3}
   outOfBounds: 0
   dead_player: -1
   transport: {fileID: 1305028620}
@@ -35532,6 +35557,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
+  capsuledCaptured: none
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
@@ -39189,6 +39215,7 @@ MonoBehaviour:
   knockBack: 100
   respawnIn: 0
   deadLength: 4
+  font: {fileID: 12800000, guid: dcf9ee7a0acc84904b907e212f91b535, type: 3}
   outOfBounds: 0
   dead_player: -1
   transport: {fileID: 1305028620}
@@ -39196,6 +39223,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
+  capsuledCaptured: none
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500

@@ -40,6 +40,19 @@ public class EventManager : MonoBehaviour
 						player.transportArrived = true;
 				}
 		}
+	
+		public void capsuleCaptured (int team)
+		{
+				string capturedColor;
+				if (team == 1)
+						capturedColor = "Red";
+				else
+						capturedColor = "Blue";
+		
+				foreach (Ship player in players) {
+						player.capsuledCaptured = capturedColor;
+				}
+		}
     
 		public void stationCaptured (Color col)
 		{

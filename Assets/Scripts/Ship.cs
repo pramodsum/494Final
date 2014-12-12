@@ -30,6 +30,8 @@ public class Ship : MonoBehaviour
 		public float deadLength = 4f;
 		private bool hasExploded = false;
 		private bool awardPointsForDestruction = true;
+		
+		public Font font;
 	
 		public bool outOfBounds;
 		public int dead_player = -1;
@@ -38,6 +40,7 @@ public class Ship : MonoBehaviour
 		public string killer;
 		public GameObject killerObj;
 		public string stationCaptured = "none";
+		public string capsuledCaptured = "none";
 		public bool transportArrived = false;
 		public float count = 0f;
 
@@ -197,16 +200,20 @@ public class Ship : MonoBehaviour
 								transportDestroyed = false;
 						} else if (!stationCaptured.Equals ("none")) {
 								stationCaptured = "none";
+						} else if (!capsuledCaptured.Equals ("none")) {
+								capsuledCaptured = "none";
 						} else if (dead_player > 0) {
 								dead_player = -1;
 						} 
 				} else {
 						if (transportArrived) {
-								OnEvent ("A transport ship has arrived");
+								OnEvent ("An enemy transport ship carrying cargo has arrived!");
 						} else if (transportDestroyed) {
-								OnEvent ("The transport ship was destroyed!");
+								OnEvent ("The enemy transport ship was destroyed and dropped cargo!");
 						} else if (!stationCaptured.Equals ("none")) {
 								OnEvent ("The " + stationCaptured + " team captured a station");
+						} else if (!capsuledCaptured.Equals ("none")) {
+								OnEvent ("The " + capsuledCaptured + " team captured the cargo");
 						} else if (dead_player > 0) {
 								if (killer.Contains ("omega") || killer.Contains ("AI")) {
 										killer = "A Fighter";
@@ -217,7 +224,7 @@ public class Ship : MonoBehaviour
 								} else if (killer == "Station") {
 										OnEvent ("Player " + dead_player + " ran into a " + killer);
 								} else if (killer == "Transport") {
-										OnEvent ("Player " + dead_player + " ran into the " + killer);
+										OnEvent ("Player " + dead_player + " ran into the Enemy " + killer);
 								} else if (killer == "Fighter") {
 										OnEvent ("Player " + dead_player + " was killed by a " + killer);
 								} else {
@@ -237,31 +244,31 @@ public class Ship : MonoBehaviour
 				}
 				GUIStyle style = GUI.skin.GetStyle ("Label");
 				style.alignment = TextAnchor.UpperLeft;
-				style.fontSize = 12;
+				style.fontSize = 18;
         
 				//Health
 				var healthPercentage = (((float)health) / ((float)MAX_HEALTH));
 				var healthWidth = healthPercentage * cameraScreen.pixelWidth / 4;
 				var healthCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.74f, 0.985f, 0));
-				Rect healthRect = new Rect (healthCoords.x, Screen.height - healthCoords.y, healthWidth, 12f);
+				Rect healthRect = new Rect (healthCoords.x, Screen.height - healthCoords.y + 2, healthWidth, 12f);
 		
-				GUI.Label (new Rect (healthCoords.x - 47, Screen.height - healthCoords.y - 5, 100, 50), "Health: ", style);
+				GUI.Label (new Rect (healthCoords.x - 55, Screen.height - healthCoords.y - 5, 100, 50), "Health: ", style);
 				GUI.DrawTexture (healthRect, healthPixel);
 		
 				//Boost
 				var boostPercentage = (((float)boost) / ((float)MAX_BOOST));
 				var boostWidth = boostPercentage * cameraScreen.pixelWidth / 6;
 				var boostCoords = cameraScreen.ViewportToScreenPoint (new Vector3 (0.005f, 0.05f, 0));
-				Rect boostRect = new Rect (boostCoords.x + 45, Screen.height - boostCoords.y, boostWidth, 12f);
+				Rect boostRect = new Rect (boostCoords.x + 47, Screen.height - boostCoords.y, boostWidth, 12f);
 		
-				GUI.Label (new Rect (boostCoords.x, Screen.height - boostCoords.y - 5, 100, 50), "Boost: ", style);
+				GUI.Label (new Rect (boostCoords.x, Screen.height - boostCoords.y - 7, 100, 50), "Boost: ", style);
 				GUI.DrawTexture (boostRect, boostPixel);   
 		
 				//Score
 				GUIStyle tStyle = GUI.skin.GetStyle ("Label");
 				tStyle.alignment = TextAnchor.UpperLeft;
 				tStyle.fontStyle = FontStyle.Bold;
-				tStyle.fontSize = 18;
+				tStyle.fontSize = 22;
 				Rect r = new Rect (boostCoords.x, Screen.height - healthCoords.y - 5, 150, 50);
 				
 				if (team == 1)
@@ -269,7 +276,7 @@ public class Ship : MonoBehaviour
 				else if (team == 2)
 						score = Mathf.FloorToInt (CTF.p2Score);
 		
-				GUI.Label (r, "SCORE: " + score, tStyle);  
+				GUI.Label (r, "Score: " + score, tStyle);  
 		}
 		
 		void OnGameOver ()
@@ -314,9 +321,10 @@ public class Ship : MonoBehaviour
 				Debug.Log (text);
 				var evCenteredStyle = GUI.skin.GetStyle ("Label");
 				evCenteredStyle.fontStyle = FontStyle.Bold;
+				evCenteredStyle.font = font;
 				evCenteredStyle.alignment = TextAnchor.UpperCenter;
 				var evRectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
-				var evRect = new Rect (evRectVect.x - 25, Screen.height - evRectVect.y - 95, 200, 50);
+				var evRect = new Rect (evRectVect.x - 75, Screen.height - evRectVect.y - 95, 300, Screen.height / 5);
 				GUI.Label (evRect, text, evCenteredStyle);
 				
 				//start count
