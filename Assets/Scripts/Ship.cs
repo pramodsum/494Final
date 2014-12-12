@@ -129,6 +129,7 @@ public class Ship : MonoBehaviour
 								Instantiate (explosion, transform.position, Quaternion.identity);
 								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 0.5f);
 								this.collider.enabled = false;
+								GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
 						}
 						if (respawnIn > 0) {
 								respawnIn -= Time.deltaTime;
@@ -286,6 +287,11 @@ public class Ship : MonoBehaviour
 				}
 		}
 		
+		public void updateKiller (GameObject k)
+		{
+				killerObj = k;
+		}
+		
 		void OnDead ()
 		{
 				var rectStart = cameraScreen.ViewportToScreenPoint (new Vector3 (0, 1, 0));
@@ -317,6 +323,8 @@ public class Ship : MonoBehaviour
 								OnEvent ("You ran into the Enemy " + killer);
 						} else if (killer.Contains ("Drone")) {
 								OnEvent ("You were killed by an " + killer);
+						} else if (killer == "Unknown") {
+								OnEvent ("You were killed");
 						} else {
 								OnEvent (killer + " killed you");
 						}
@@ -329,6 +337,8 @@ public class Ship : MonoBehaviour
 								OnEvent ("Player " + dead_player + " ran into the Enemy " + killer);
 						} else if (killer.Contains ("Drone")) {
 								OnEvent ("Player " + dead_player + " was killed by an " + killer);
+						} else if (killer == "Unknown") {
+								OnEvent ("Player " + dead_player + " was killed");
 						} else {
 								OnEvent (killer + " killed Player " + dead_player);
 						}
@@ -469,6 +479,16 @@ public class Ship : MonoBehaviour
 		public void Damage (int isShot, int shooter)
 		{
 				health -= 0.3f;
+				if (health <= 0f && shooter != playerNumber) {
+						if (shooter == 1)
+								killerObj = GameObject.Find ("Ship1");
+						if (shooter == 2)
+								killerObj = GameObject.Find ("Ship2");
+						if (shooter == 3)
+								killerObj = GameObject.Find ("Ship3");
+						if (shooter == 4)
+								killerObj = GameObject.Find ("Ship4");
+				}
 				if (isShot == 1 && health <= 0 && awardPointsForDestruction) {
 						if (((playerNumber == 1 || playerNumber == 3) && (shooter == 2 || shooter == 4)) ||
 								(playerNumber == 2 || playerNumber == 4) && (shooter == 1 || shooter == 3)) {
