@@ -43,8 +43,6 @@ public class CTF_Script : MonoBehaviour
 		public ArrowScript arrow4;
 
 		System.Random rand;
-		public AudioClip beginSound;
-		public AudioClip gameOverSound;
 
 
 		// Use this for initialization 

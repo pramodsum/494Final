@@ -74,8 +74,11 @@ public class Ship : MonoBehaviour
 		
 		public AudioClip shotSound;
 		public AudioClip explosionSound;
+		public AudioClip beginSound;
 		public AudioClip gameOverSound;
+		public bool beginTriggered = false;
 		public bool soundTriggered = false;
+		public float timeSinceStart = 0f;
 
 		public GameObject boundary;
 	
@@ -103,6 +106,15 @@ public class Ship : MonoBehaviour
 	
 		void Update ()
 		{
+				if (playerNumber == 1 && !beginTriggered) {
+						if (timeSinceStart >= 0.5f) {
+								GameObject.Find ("Directional light").audio.PlayOneShot (beginSound, 1f);
+								beginTriggered = true;
+						} else {
+								timeSinceStart += Time.fixedDeltaTime;
+						}
+				}
+				
 				if (gameOver == 2) {
 						health = 0;
 				}
