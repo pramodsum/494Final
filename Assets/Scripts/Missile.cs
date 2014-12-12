@@ -54,11 +54,6 @@ public class Missile : MonoBehaviour
 		{
 				shooter = s;
 				team = shooter.team;
-				if (team == 1) {
-						renderer.material.color = new Color (0.9F, 0.0F, 0.0F);
-				} else {
-						renderer.material.color = new Color (0.0F, 0.0F, 0.9F);
-				}
 		}
 
 		void CollideWithShip (GameObject ship)
