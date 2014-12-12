@@ -2202,6 +2202,8 @@ MonoBehaviour:
   arrow2: {fileID: 0}
   arrow3: {fileID: 0}
   arrow4: {fileID: 0}
+  beginSound: {fileID: 8300000, guid: 116b282fe087d427b85ec411fd9f7c88, type: 3}
+  gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
 --- !u!1 &422522043
 GameObject:
   m_ObjectHideFlags: 0
@@ -9711,6 +9713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba28cc8428da7394fa34e438f79fc416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnTime: 30
+  timeTillRespawn: -100
   path:
   - {x: 272.140991, y: -82.0042038, z: 254.457001}
   - {x: 271.115112, y: 41.2582016, z: -70.6613235}
@@ -11766,7 +11770,8 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
-  transportDestroyed: 0
+  transportArrived: 0
+  count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
@@ -11787,6 +11792,7 @@ MonoBehaviour:
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
   gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+  soundTriggered: 0
   boundary: {fileID: 1005492827}
 --- !u!54 &1726114074
 Rigidbody:
@@ -13916,7 +13922,8 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
-  transportDestroyed: 0
+  transportArrived: 0
+  count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
   MAX_HEALTH: 3
@@ -13937,6 +13944,7 @@ MonoBehaviour:
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
   gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+  soundTriggered: 0
   boundary: {fileID: 1005492827}
 --- !u!54 &2012391121
 Rigidbody:

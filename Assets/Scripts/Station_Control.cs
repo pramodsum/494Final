@@ -32,9 +32,11 @@ public class Station_Control : MonoBehaviour
 				}
 	
 				if (matchesLast) {
+						if (!inControl) {
+								GameObject.Find ("Directional light").GetComponent<EventManager> ().stationCaptured (lastChild.renderer.material.color);
+						}
 						inControl = true;
 						sphere.renderer.material.color = lastChild.renderer.material.color;
-						GameObject.Find ("Directional light").GetComponent<EventManager> ().stationCaptured (lastChild.renderer.material.color);
 				} else {
 						inControl = false;
 						Color col = new Color (1, 1, 1);
