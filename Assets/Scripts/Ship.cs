@@ -75,7 +75,11 @@ public class Ship : MonoBehaviour
 		
 		public AudioClip shotSound;
 		public AudioClip explosionSound;
+		public AudioClip beginSound;
 		public AudioClip gameOverSound;
+		public bool beginTriggered = false;
+		public bool soundTriggered = false;
+		public float timeSinceStart = 0f;
 
 		public GameObject boundary;
 	
@@ -103,6 +107,15 @@ public class Ship : MonoBehaviour
 	
 		void Update ()
 		{
+				if (playerNumber == 1 && !beginTriggered) {
+						if (timeSinceStart >= 0.5f) {
+								GameObject.Find ("Directional light").audio.PlayOneShot (beginSound, 1f);
+								beginTriggered = true;
+						} else {
+								timeSinceStart += Time.fixedDeltaTime;
+						}
+				}
+				
 				if (gameOver == 2) {
 						health = 0;
 				}
@@ -273,7 +286,11 @@ public class Ship : MonoBehaviour
 				else
 						text = "Blue Team Wins!";
 				GUI.Label (rect, text, centeredStyle);
-				GameObject.Find ("Directional light").audio.PlayOneShot (gameOverSound, 1f);
+				
+				if (playerNumber == 1 && !soundTriggered) {
+						GameObject.Find ("Directional light").audio.PlayOneShot (gameOverSound, 1f);
+						soundTriggered = true;
+				}
 		}
 		
 		void OnDead ()
@@ -288,7 +305,7 @@ public class Ship : MonoBehaviour
 				GUI.Label (new Rect (rectStart2.x, Screen.height - rectStart2.y, 100, 50), "Respawn in " + (int)respawnIn, centeredStyle);
 				
 				//Inform other players of death
-				if (killerObj != null)
+				if (killerObj != null) 
 						GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
 		}
 		

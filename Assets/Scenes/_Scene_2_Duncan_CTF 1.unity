@@ -2367,6 +2367,10 @@ Prefab:
       propertyPath: gameOverSound
       value: 
       objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: beginSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -2619,7 +2623,11 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
+  beginSound: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
   gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+  beginTriggered: 0
+  soundTriggered: 0
+  timeSinceStart: 0
   boundary: {fileID: 1005492827}
 --- !u!54 &159909862
 Rigidbody:
@@ -4741,7 +4749,11 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
+  beginSound: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
   gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+  beginTriggered: 0
+  soundTriggered: 0
+  timeSinceStart: 0
   boundary: {fileID: 1005492827}
 --- !u!4 &501593857
 Transform:
@@ -13139,6 +13151,10 @@ Prefab:
       propertyPath: gameOverSound
       value: 
       objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: beginSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
     m_RemovedComponents:
     - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -14790,6 +14806,10 @@ Prefab:
       propertyPath: gameOverSound
       value: 
       objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: beginSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -17746,6 +17766,10 @@ Prefab:
       propertyPath: gameOverSound
       value: 
       objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: beginSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -17864,7 +17888,11 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
+  beginSound: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
   gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+  beginTriggered: 0
+  soundTriggered: 0
+  timeSinceStart: 0
   boundary: {fileID: 1005492827}
 --- !u!54 &2012391121
 Rigidbody:
@@ -20020,7 +20048,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -20349,7 +20377,11 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
+  beginSound: {fileID: 8300000, guid: ca7c100b7df154fa9ac69c318fd95de1, type: 3}
   gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
+  beginTriggered: 0
+  soundTriggered: 0
+  timeSinceStart: 0
   boundary: {fileID: 1005492827}
 --- !u!82 &2134296565
 AudioSource:
