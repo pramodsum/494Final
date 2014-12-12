@@ -26,7 +26,7 @@ public class Highlight : MonoBehaviour
 										if (vec.y >= 0 && vec.y <= 1) {
 												if (vec.z >= 0) {
 														var coords = thisCam.ViewportToScreenPoint (vec);
-														float sqwidth = 800f / coords.z;
+														float sqwidth = 1000f / coords.z;
 														GUI.DrawTexture (new Rect (coords.x - sqwidth / 2, Screen.height - coords.y - sqwidth / 2, sqwidth, sqwidth), tex);
 												}
 										}
