@@ -2363,6 +2363,10 @@ Prefab:
       propertyPath: station
       value: 
       objectReference: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -2594,7 +2598,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
-  transportDestroyed: 0
+  transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
@@ -2615,7 +2619,7 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
-  gameOverSound: {fileID: 0}
+  gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &159909862
 Rigidbody:
@@ -4716,7 +4720,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
-  transportDestroyed: 0
+  transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
@@ -4737,7 +4741,7 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
-  gameOverSound: {fileID: 0}
+  gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!4 &501593857
 Transform:
@@ -13131,6 +13135,10 @@ Prefab:
       propertyPath: particleSystem
       value: 
       objectReference: {fileID: 56517220}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
     m_RemovedComponents:
     - {fileID: 11400006, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -14778,6 +14786,10 @@ Prefab:
       propertyPath: station
       value: 
       objectReference: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
     - {fileID: 8200000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
@@ -17730,6 +17742,10 @@ Prefab:
       propertyPath: station
       value: 
       objectReference: {fileID: 100000, guid: 2dd84a0ba93467e48b62937ba1a7f6d0, type: 2}
+    - target: {fileID: 11400000, guid: 6d6193b31cbb3154797c99b577ca278b, type: 2}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -17827,7 +17843,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
-  transportDestroyed: 0
+  transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
@@ -17848,7 +17864,7 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
-  gameOverSound: {fileID: 0}
+  gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!54 &2012391121
 Rigidbody:
@@ -20312,7 +20328,7 @@ MonoBehaviour:
   killer: 
   killerObj: {fileID: 0}
   stationCaptured: none
-  transportDestroyed: 0
+  transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
   ROTATION_SPEED: 100
@@ -20333,7 +20349,7 @@ MonoBehaviour:
   maxDistLockOn: 100
   shotSound: {fileID: 8300000, guid: fbfdb5169063e43b5b1f6d45411bfd8f, type: 3}
   explosionSound: {fileID: 8300000, guid: 9a59e28215e314721bc2b0a24dcd0c69, type: 3}
-  gameOverSound: {fileID: 0}
+  gameOverSound: {fileID: 8300000, guid: ff35ecb28690c4e28b606acdc9be53b2, type: 3}
   boundary: {fileID: 1005492827}
 --- !u!82 &2134296565
 AudioSource:

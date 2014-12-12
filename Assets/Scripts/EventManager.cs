@@ -34,10 +34,10 @@ public class EventManager : MonoBehaviour
 				}
 		}
 		
-		public void transportDestroyed ()
+		public void transportArrived ()
 		{
 				foreach (Ship player in players) {
-						player.transportDestroyed = true;
+						player.transportArrived = true;
 				}
 		}
     

@@ -45,15 +45,14 @@ public class TransportMove : MonoBehaviour
 								Instantiate (explosion, transform.position, Quaternion.identity);
 								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 1f);
 								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound2, 1f);
-								GameObject.Find ("Directional light").GetComponent<EventManager> ().transportDestroyed ();
 						}				
 				}
 				if (timeTillRespawn > 0)
-								timeTillRespawn -= Time.deltaTime;
-				if (timeTillRespawn <= 0 && timeTillRespawn > -100)
-				{
-					makeVisible();
-					timeTillRespawn = -100;
+						timeTillRespawn -= Time.deltaTime;
+				if (timeTillRespawn <= 0 && timeTillRespawn > -100) {
+						makeVisible ();
+						timeTillRespawn = -100;
+						GameObject.Find ("Directional light").GetComponent<EventManager> ().transportArrived ();
 				}
 
 		}
@@ -107,7 +106,6 @@ public class TransportMove : MonoBehaviour
 										ch2.collider.enabled = true;	
 						}
 				}
- 
 		}
 
 		public void spawnTIEFighters ()
@@ -145,8 +143,8 @@ public class TransportMove : MonoBehaviour
 						}
 		}
 
-		public void notifyCapture()
+		public void notifyCapture ()
 		{
-			timeTillRespawn = respawnTime;
+				timeTillRespawn = respawnTime;
 		}
 }

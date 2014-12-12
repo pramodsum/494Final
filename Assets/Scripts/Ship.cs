@@ -37,7 +37,7 @@ public class Ship : MonoBehaviour
 		public string killer;
 		public GameObject killerObj;
 		public string stationCaptured = "none";
-		public bool transportDestroyed = false;
+		public bool transportArrived = false;
 		public float count = 0f;
 
 		public float FORCE_MODIFIER = 500f;
@@ -173,22 +173,24 @@ public class Ship : MonoBehaviour
 						return;
 				}
 				
-				if (count >= 1f) {
+				bool transportDestroyed = !GameObject.Find ("Transport").GetComponent<TransportMove> ().isAlive;
+				
+				if (count >= 3f) {
 						count = 0f;
-						if (transportDestroyed) {
+						if (transportArrived) {
+								transportArrived = false;
+						} else if (transportDestroyed) {
 								transportDestroyed = false;
 						} else if (!stationCaptured.Equals ("none")) {
 								stationCaptured = "none";
 						} else if (dead_player > 0) {
 								dead_player = -1;
 						} 
-				} else if (count > 0f) {
-						if (transportDestroyed || !stationCaptured.Equals ("none") || dead_player > 0) {
-								count += Time.fixedDeltaTime;
-						} 
 				} else {
-						if (transportDestroyed) {
-								OnEvent ("The transport was destroyed!");
+						if (transportArrived) {
+								OnEvent ("A transport ship has arrived");
+						} else if (transportDestroyed) {
+								OnEvent ("The transport ship was destroyed!");
 						} else if (!stationCaptured.Equals ("none")) {
 								OnEvent ("The " + stationCaptured + " team captured a station");
 						} else if (dead_player > 0) {
@@ -298,6 +300,9 @@ public class Ship : MonoBehaviour
 				var evRectVect = cameraScreen.ViewportToScreenPoint (new Vector3 (.46f - (50f / cameraScreen.pixelWidth), .5f - (0 / cameraScreen.pixelHeight), 0));
 				var evRect = new Rect (evRectVect.x - 25, Screen.height - evRectVect.y - 95, 200, 50);
 				GUI.Label (evRect, text, evCenteredStyle);
+				
+				//start count
+				count += Time.fixedDeltaTime;
 		}
 		
 		void OnCollisionEnter (Collision other)
