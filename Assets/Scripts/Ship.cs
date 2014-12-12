@@ -414,9 +414,6 @@ public class Ship : MonoBehaviour
 	
 		void MoveForward (float extraPercent)
 		{
-				if (particleSystem != null)
-						particleSystem.enableEmission = false;
-
 				float brakeAmount;
 				var inputDevice = (InputManager.Devices.Count >= playerNumber) ? InputManager.Devices [playerNumber - 1] : null;
 				if (inputDevice != null) {
@@ -460,10 +457,19 @@ public class Ship : MonoBehaviour
 				
 				
 				rigidbody.AddForce (transform.up * force);
-				if (brakeAmount == 0 && particleSystem != null) {
+
+				if (particleSystem != null) {
 						particleSystem.enableEmission = true;
-						
-				} else if (brakeAmount != 0) {
+						if (brakeAmount != 0) {
+								particleSystem.playbackSpeed = 0.1f;
+						} else if (extraPercent > 0) {
+								particleSystem.playbackSpeed = 2f;
+						} else {
+								particleSystem.playbackSpeed = 1f;
+						}
+				}
+
+				if (brakeAmount != 0) {
 						foreach (ParticleSystem f in flame) {
 								f.startLifetime = 0.1f;
 						}
