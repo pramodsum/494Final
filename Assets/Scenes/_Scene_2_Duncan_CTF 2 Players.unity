@@ -3400,7 +3400,7 @@ MonoBehaviour:
   transport: {fileID: 1305028622}
   winScore: 10000
   captureScore: 2500
-  pointsOnKill: 100
+  pointsOnKill: 500
   Stations:
   - {fileID: 1814686930}
   - {fileID: 1640624896}

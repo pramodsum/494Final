@@ -215,21 +215,7 @@ public class Ship : MonoBehaviour
 						} else if (!capsuledCaptured.Equals ("none")) {
 								OnEvent ("The " + capsuledCaptured + " team captured the cargo");
 						} else if (dead_player > 0) {
-								if (killer.Contains ("omega") || killer.Contains ("AI")) {
-										killer = "A Fighter";
-								}
-								
-								if (killer == "Bounds") {
-										OnEvent ("Player " + dead_player + " died out of bounds");
-								} else if (killer == "Station") {
-										OnEvent ("Player " + dead_player + " ran into a " + killer);
-								} else if (killer == "Transport") {
-										OnEvent ("Player " + dead_player + " ran into the Enemy " + killer);
-								} else if (killer == "Fighter") {
-										OnEvent ("Player " + dead_player + " was killed by a " + killer);
-								} else {
-										OnEvent (killer + " killed Player " + dead_player);
-								}				
+								OnPlayerDead ();			
 						} else if (outOfBounds && health > 0) {
 								OnEvent ("OUT OF BOUNDS!! TURN AROUND!!");
 						}
@@ -314,6 +300,39 @@ public class Ship : MonoBehaviour
 				//Inform other players of death
 				if (killerObj != null) 
 						GameObject.Find ("Directional light").GetComponent<EventManager> ().playerDied (killerObj.name, playerNumber);
+		}
+		
+		void OnPlayerDead ()
+		{
+				if (killer.Contains ("omega") || killer.Contains ("AI")) {
+						killer = "Enemy Drone";
+				}
+				
+				if (playerNumber == dead_player) {
+						if (killer == "Bounds") {
+								OnEvent ("You died out of bounds");
+						} else if (killer == "Station") {
+								OnEvent ("You ran into a " + killer);
+						} else if (killer == "Transport") {
+								OnEvent ("You ran into the Enemy " + killer);
+						} else if (killer.Contains ("Drone")) {
+								OnEvent ("You were killed by an " + killer);
+						} else {
+								OnEvent (killer + " killed you");
+						}
+				} else {
+						if (killer == "Bounds") {
+								OnEvent ("Player " + dead_player + " died out of bounds");
+						} else if (killer == "Station") {
+								OnEvent ("Player " + dead_player + " ran into a " + killer);
+						} else if (killer == "Transport") {
+								OnEvent ("Player " + dead_player + " ran into the Enemy " + killer);
+						} else if (killer.Contains ("Drone")) {
+								OnEvent ("Player " + dead_player + " was killed by an " + killer);
+						} else {
+								OnEvent (killer + " killed Player " + dead_player);
+						}
+				}	
 		}
 		
 		public void OnEvent (string text)

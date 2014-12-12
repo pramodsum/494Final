@@ -27,7 +27,7 @@ public class EventManager : MonoBehaviour
 				}
 				
 				foreach (Ship player in players) {
-						if (player.GetPlayerNumber () != dead_player && player.dead_player == -1) {
+						if (player.dead_player == -1) {
 								player.dead_player = dead_player;
 								player.killer = killerStr;
 						}
