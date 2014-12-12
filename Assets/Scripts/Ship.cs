@@ -6,6 +6,7 @@ public class Ship : MonoBehaviour
 {	
 		private int gameOver = 0;//0 game on, 1 you win, 2 you lose
 		public ParticleSystem particleSystem;
+		public ParticleSystem[] flame;
 
 		public GameObject shot;
 		public GameObject missile;
@@ -379,6 +380,11 @@ public class Ship : MonoBehaviour
 						boost = MAX_BOOST;
 				if (!boostAvailable && boost > boostReAvailableAt)
 						boostAvailable = true;
+						
+				foreach (ParticleSystem f in flame) {
+						f.startLifetime = 0.5f;
+				}		
+				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, 0);
 							
 				if (extraPercent != 0) {
 						if (boostAvailable) 
@@ -387,16 +393,27 @@ public class Ship : MonoBehaviour
 								boost = 0;
 								boostAvailable = false;
 						}
-						if (boost > 0 && boostAvailable)
+						if (boost > 0 && boostAvailable) {
 								force *= (extraPercent + 1);
+								cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
+								foreach (ParticleSystem f in flame) {
+										f.startLifetime = 1.0f;
+								}
+						}
 				}
 			
         
-				cameraScreen.fieldOfView = Mathf.Lerp (60, 80, extraPercent);
+				
 				
 				rigidbody.AddForce (transform.up * force);
-				if (brakeAmount == 0 && particleSystem != null)
+				if (brakeAmount == 0 && particleSystem != null) {
 						particleSystem.enableEmission = true;
+						
+				} else if (brakeAmount != 0) {
+						foreach (ParticleSystem f in flame) {
+								f.startLifetime = 0.1f;
+						}
+				}
 
 		}
 
