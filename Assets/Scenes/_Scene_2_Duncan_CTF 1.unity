@@ -4036,6 +4036,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   capsuledCaptured: none
+  transportDestroyed: 0
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
@@ -6805,7 +6806,7 @@ MonoBehaviour:
   red: {fileID: 2100000, guid: 4446a61544837d94dbf99bf6966a5ea2, type: 2}
   blue: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
   transport: {fileID: 1305028622}
-  winScore: 10000
+  winScore: 5000
   captureScore: 2500
   pointsOnKill: 500
   Stations:
@@ -7391,6 +7392,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   capsuledCaptured: none
+  transportDestroyed: 0
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
@@ -35558,6 +35560,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   capsuledCaptured: none
+  transportDestroyed: 0
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
@@ -39224,6 +39227,7 @@ MonoBehaviour:
   killerObj: {fileID: 0}
   stationCaptured: none
   capsuledCaptured: none
+  transportDestroyed: 0
   transportArrived: 0
   count: 0
   FORCE_MODIFIER: 500
