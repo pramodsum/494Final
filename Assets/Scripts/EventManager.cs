@@ -41,6 +41,14 @@ public class EventManager : MonoBehaviour
 				}
 		}
 	
+		public void transportDestroyed ()
+		{
+				foreach (Ship player in players) {
+						player.transportDestroyed = true;
+				}
+		}
+	
+	
 		public void capsuleCaptured (int team)
 		{
 				string capturedColor;

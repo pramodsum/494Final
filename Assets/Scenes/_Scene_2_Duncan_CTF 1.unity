@@ -24537,7 +24537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba28cc8428da7394fa34e438f79fc416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnTime: 30
+  respawnTime: 2
   timeTillRespawn: -100
   path:
   - {x: 272.140991, y: -82.0042038, z: 254.457001}

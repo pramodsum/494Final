@@ -41,6 +41,7 @@ public class Ship : MonoBehaviour
 		public GameObject killerObj;
 		public string stationCaptured = "none";
 		public string capsuledCaptured = "none";
+		public bool transportDestroyed = false;
 		public bool transportArrived = false;
 		public float count = 0f;
 
@@ -190,8 +191,6 @@ public class Ship : MonoBehaviour
 						OnDead ();
 						return;
 				}
-				
-				bool transportDestroyed = !GameObject.Find ("Transport").GetComponent<TransportMove> ().isAlive;
 				
 				if (count >= 3f) {
 						count = 0f;

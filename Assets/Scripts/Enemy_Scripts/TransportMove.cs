@@ -45,14 +45,15 @@ public class TransportMove : MonoBehaviour
 								Instantiate (explosion, transform.position, Quaternion.identity);
 								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound, 1f);
 								GameObject.Find ("Directional light").audio.PlayOneShot (explosionSound2, 1f);
+								GameObject.Find ("Directional light").GetComponent<EventManager> ().transportDestroyed ();
 						}				
 				}
 				if (timeTillRespawn > 0)
 						timeTillRespawn -= Time.deltaTime;
 				if (timeTillRespawn <= 0 && timeTillRespawn > -100) {
+						GameObject.Find ("Directional light").GetComponent<EventManager> ().transportArrived ();
 						makeVisible ();
 						timeTillRespawn = -100;
-						GameObject.Find ("Directional light").GetComponent<EventManager> ().transportArrived ();
 				}
 
 		}
