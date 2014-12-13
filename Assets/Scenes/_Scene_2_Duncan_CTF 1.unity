@@ -6806,7 +6806,7 @@ MonoBehaviour:
   red: {fileID: 2100000, guid: 4446a61544837d94dbf99bf6966a5ea2, type: 2}
   blue: {fileID: 2100000, guid: 4dc8c2e4998c1554d80089ce8230f3e7, type: 2}
   transport: {fileID: 1305028622}
-  winScore: 5000
+  winScore: 7500
   captureScore: 2500
   pointsOnKill: 500
   Stations:
@@ -24539,7 +24539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba28cc8428da7394fa34e438f79fc416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnTime: 2
+  respawnTime: 30
   timeTillRespawn: -100
   path:
   - {x: 272.140991, y: -82.0042038, z: 254.457001}

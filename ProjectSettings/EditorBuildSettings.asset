@@ -21,5 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/_Scene_2_Duncan.unity
   - enabled: 0
     path: Assets/Scenes/_Scene_2_Duncan_CTF.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/_Scene_2_Duncan_CTF 2 Players.unity
